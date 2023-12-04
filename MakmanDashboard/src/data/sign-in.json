@@ -1,0 +1,14 @@
+{
+  "user": {
+    "id": 10,
+    "email": "example@gmail.com",
+    "first_name": "Example",
+    "last_name": "Examplyan",
+    "is_active": true,
+    "image": "https://rn-api.codebnb.me/media/uploads/users/user_1648804782.png"
+  },
+  "token": {
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwMTIwODcxMywiaWF0IjoxNzAwMzQ0NzEzLCJqdGkiOiJlZjNkZGVhYjRjZjA0MjQ2ODUzNTZjYTM0OWViOTEwNiIsInVzZXJfaWQiOjEwfQ.-S6PKz-vrinvkorCYpQKcrPWG3egoftBQ5Tg887PgC0",
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwNDMxMTEzLCJpYXQiOjE3MDAzNDQ3MTMsImp0aSI6IjQyYjQ0MjVmMDBhMjQ2ZDc5MGMwMGI2ODBlZjM1YmYxIiwidXNlcl9pZCI6MTB9.JZvLiU28Dk6jseaHRbNHP2PCW2lYELYefJxiHVPmCEo"
+  }
+}

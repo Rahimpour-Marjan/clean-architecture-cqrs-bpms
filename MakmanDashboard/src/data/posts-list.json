@@ -1,0 +1,82 @@
+{
+  "count": 91,
+  "next": "https://rn-api.codebnb.me/api/post/crud/?limit=5&offset=5",
+  "previous": null,
+  "results": [
+    {
+      "id": 128,
+      "title": "FJDCMirn",
+      "description": "DDddjvnfn Enron.  Con cub",
+      "image": "https://rn-api.codebnb.me/media/uploads/posts/post_FJDCMirn.png",
+      "category": {
+        "id": 2,
+        "slug": "category-2",
+        "name": "Category 2"
+      },
+      "author": {
+        "id": 53,
+        "full_name": "Name Surname"
+      }
+    },
+    {
+      "id": 118,
+      "title": "SSSSSs",
+      "description": "SSSSSSSS",
+      "image": "https://rn-api.codebnb.me/media/uploads/posts/post_SSSSSs.png",
+      "category": {
+        "id": 3,
+        "slug": "category-3",
+        "name": "Category 3"
+      },
+      "author": {
+        "id": 53,
+        "full_name": "Name Surname"
+      }
+    },
+    {
+      "id": 117,
+      "title": "VVVVV",
+      "description": "Something",
+      "image": "https://rn-api.codebnb.me/media/uploads/posts/post_VVVVV.png",
+      "category": {
+        "id": 4,
+        "slug": "category-4",
+        "name": "Category 4"
+      },
+      "author": {
+        "id": 53,
+        "full_name": "Name Surname"
+      }
+    },
+    {
+      "id": 111,
+      "title": "First Post",
+      "description": "Nbjsijij sin windchill kind ciicnd I Dinis",
+      "image": "https://rn-api.codebnb.me/media/uploads/posts/post_First_Post_0UIJ0Mz.png",
+      "category": {
+        "id": 5,
+        "slug": "category-5",
+        "name": "Category 5"
+      },
+      "author": {
+        "id": 53,
+        "full_name": "Name Surname"
+      }
+    },
+    {
+      "id": 110,
+      "title": "First Post",
+      "description": "Nbjsijij sin windchill kind ciicnd I Dinis",
+      "image": "https://rn-api.codebnb.me/media/uploads/posts/post_First_Post_q6ipODA.png",
+      "category": {
+        "id": 5,
+        "slug": "category-5",
+        "name": "Category 5"
+      },
+      "author": {
+        "id": 53,
+        "full_name": "Name Surname"
+      }
+    }
+  ]
+}
