@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CbmCardApplication\**" />
+    <Compile Remove="PostApplication - Copy\**" />
+    <Compile Remove="WorkRequestApplication\**" />
+    <Compile Remove="WorkRequestAttachmentApplication - Copy %282%29\**" />
+    <Compile Remove="WorkRequestAttachmentApplication - Copy %283%29\**" />
+    <Compile Remove="WorkRequestAttachmentApplication - Copy\**" />
+    <Compile Remove="WorkRequestCartableApplication\Queries\FindAllCartableByQiuckFilter\**" />
+    <Compile Remove="WorkRequestCartableApplication\Queries\FindAllSqlOperatorByFieldId\**" />
+    <Compile Remove="WorkRequestPmActivityApplication\**" />
+    <EmbeddedResource Remove="CbmCardApplication\**" />
+    <EmbeddedResource Remove="PostApplication - Copy\**" />
+    <EmbeddedResource Remove="WorkRequestApplication\**" />
+    <EmbeddedResource Remove="WorkRequestAttachmentApplication - Copy %282%29\**" />
+    <EmbeddedResource Remove="WorkRequestAttachmentApplication - Copy %283%29\**" />
+    <EmbeddedResource Remove="WorkRequestAttachmentApplication - Copy\**" />
+    <EmbeddedResource Remove="WorkRequestCartableApplication\Queries\FindAllCartableByQiuckFilter\**" />
+    <EmbeddedResource Remove="WorkRequestCartableApplication\Queries\FindAllSqlOperatorByFieldId\**" />
+    <EmbeddedResource Remove="WorkRequestPmActivityApplication\**" />
+    <None Remove="CbmCardApplication\**" />
+    <None Remove="PostApplication - Copy\**" />
+    <None Remove="WorkRequestApplication\**" />
+    <None Remove="WorkRequestAttachmentApplication - Copy %282%29\**" />
+    <None Remove="WorkRequestAttachmentApplication - Copy %283%29\**" />
+    <None Remove="WorkRequestAttachmentApplication - Copy\**" />
+    <None Remove="WorkRequestCartableApplication\Queries\FindAllCartableByQiuckFilter\**" />
+    <None Remove="WorkRequestCartableApplication\Queries\FindAllSqlOperatorByFieldId\**" />
+    <None Remove="WorkRequestPmActivityApplication\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="CryptoHashVerify" Version="1.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="FluentValidation" Version="11.2.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

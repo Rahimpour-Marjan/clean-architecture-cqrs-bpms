@@ -1,0 +1,17 @@
+G:\KardinoMain\Kardino.Infrastructure\bin\Debug\net6.0\Kardino.Infrastructure.deps.json
+G:\KardinoMain\Kardino.Infrastructure\bin\Debug\net6.0\Kardino.Infrastructure.runtimeconfig.json
+G:\KardinoMain\Kardino.Infrastructure\bin\Debug\net6.0\Kardino.Infrastructure.dll
+G:\KardinoMain\Kardino.Infrastructure\bin\Debug\net6.0\Kardino.Infrastructure.pdb
+G:\KardinoMain\Kardino.Infrastructure\bin\Debug\net6.0\Kardino.Domain.dll
+G:\KardinoMain\Kardino.Infrastructure\bin\Debug\net6.0\Kardino.Domain.pdb
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.csproj.AssemblyReference.cache
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.AssemblyInfoInputs.cache
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.AssemblyInfo.cs
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.csproj.CoreCompileInputs.cache
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.csproj.CopyComplete
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.dll
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\refint\Kardino.Infrastructure.dll
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.pdb
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\Kardino.Infrastructure.genruntimeconfig.cache
+G:\KardinoMain\Kardino.Infrastructure\obj\Debug\net6.0\ref\Kardino.Infrastructure.dll
