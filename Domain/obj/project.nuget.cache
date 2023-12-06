@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZafeiN1PGc47/76C2mTMgVwqQpHZ76oTX43TGpzi9HLKKo5ZMj5T6srJHF5NaTls6DYNeyznwWG2aIXBUeGudg==",
+  "dgSpecHash": "IpC/AdAwl3NDIs663c7hLnvALebccDwodz+BBL3CwMGwz5cZZQ3VAbErL6Pr5i+usaIbcSRMH2bjGiCHnllneQ==",
   "success": true,
-  "projectFilePath": "G:\\Makmon\\Domain\\Domain.csproj",
+  "projectFilePath": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

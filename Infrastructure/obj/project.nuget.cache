@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LNbkRk85WnkD+PPh8+D+LTyG8ubOgivEznJBHQpM7iTvmBkRZaHwhPYoyteYqslrn5uzmddRJrXOP8G1D2C0hQ==",
+  "dgSpecHash": "S1LO9VfWvZAfmS2vSLNu4f0XNh2BLpyBtUw8g7ugnAjbz1drkKpTk9duNxC5oC/Qxk2O5reqlbE6sVby3N3IuQ==",
   "success": true,
-  "projectFilePath": "G:\\Makmon\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "G:\\MakmonProject\\Makmon\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -60,15 +60,15 @@ namespace Application.Person.Commands
                     }
                     else
                     {
-                        var employee = new Domain.Person(request.FirstName, request.LastName, UserType.DynamicUser, request.NationalCode, request.Phone, request.Email, request.FatherName, request.PersonalNumber,
-                                        request.Gender, request.BirthDate, request.IdentityNumber, request.IsActive, request.EmployeementDate, request.WorkingHoursRate, request.ImageUrl, request.DigitalSignatureUrl,request.OrganizationalPost, postCount);
+                        //var employee = new Domain.Person(request.FirstName, request.LastName, UserType.DynamicUser, request.NationalCode, request.Phone, request.Email, request.FatherName, request.PersonalNumber,
+                        //                request.Gender, request.BirthDate, request.IdentityNumber, request.IsActive, request.EmployeementDate, request.WorkingHoursRate, request.ImageUrl, request.DigitalSignatureUrl,request.OrganizationalPost, postCount);
 
-                        var newEmpId = await _uow.PersonRepository.Create(employee);
-                        await _uow.PersonRepository.PersonJuncPostCreate(request.PostIds, newEmpId);
+                        //var newEmpId = await _uow.PersonRepository.Create(employee);
+                        //await _uow.PersonRepository.PersonJuncPostCreate(request.PostIds, newEmpId);
                         var result = OperationResult<Response>
                             .BuildSuccessResult(new Response
                             {
-                                PersonId = newEmpId
+                                PersonId = 0
                             });
 
                         await Task.CompletedTask;

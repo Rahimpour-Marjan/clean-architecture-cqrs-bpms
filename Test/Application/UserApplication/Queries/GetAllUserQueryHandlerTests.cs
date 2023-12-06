@@ -16,10 +16,10 @@ namespace Test.Application.UserApplication.Queries
             //Arrange
             var users = new List<User>
             {
-                new User(1,"Duarte","1234","", "Duarte@gmail.com",UserType.DynamicUser,true,null),
-                new User(1,"Lima","1234","", "Lima@gmail.com",UserType.DynamicUser,true, null),
-                new User(1,"Sousa","1234","", "Sousa@gmail.com",UserType.DynamicUser,true, null),
-                new User(1,"Smitch","1234","", "Smitch@gmail.com",UserType.DynamicUser, true, null),
+                //new User(1,"Duarte","1234","", "Duarte@gmail.com",UserType.DynamicUser,true,null),
+                //new User(1,"Lima","1234","", "Lima@gmail.com",UserType.DynamicUser,true, null),
+                //new User(1,"Sousa","1234","", "Sousa@gmail.com",UserType.DynamicUser,true, null),
+                //new User(1,"Smitch","1234","", "Smitch@gmail.com",UserType.DynamicUser, true, null),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

@@ -30,10 +30,6 @@ namespace Infrastructure.Persistance.Repositories
             return await _db.UserGroups.Include(x => x.UserGroupParent).Include(x => x.PostJuncUserGroups).ThenInclude(x => x.Post).FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<UserGroup> FindByResultCode(int resultCode)
-        {
-            return await _db.UserGroups.FirstOrDefaultAsync(x => x.ApiResultCode == resultCode);
-        }
         public async Task<Tuple<IList<UserGroup>, int>> FindAll(QueryFilter? queryFilter)
         {
             var query = _db.UserGroups.Include(x => x.UserGroupParent).Include(x => x.PostJuncUserGroups).ThenInclude(x => x.Post).AsQueryable();

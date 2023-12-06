@@ -26,23 +26,23 @@ namespace Application.UserGroup.Commands
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
 
-                var usergroup = new Domain.UserGroup(request.Title, request.IsActive,request.IsEditable, request.ApiResultCode,request.UserGroupParentId);
-                try
-                {
-                    var newUserGroupId = await _uow.UserGroupRepository.Create(usergroup);
-                    var result = OperationResult<Response>
-                        .BuildSuccessResult(new Response
-                        {
-                            UserGroupId = newUserGroupId
-                        });
-                    await Task.CompletedTask;
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    var exResult = OperationResult<Response>.BuildFailure(ex);
-                    return exResult;
-                }
+                //var usergroup = new Domain.UserGroup(request.Title, request.IsActive,request.IsEditable, request.ApiResultCode,request.UserGroupParentId);
+                //try
+                //{
+                //    var newUserGroupId = await _uow.UserGroupRepository.Create(usergroup);
+                var result = OperationResult<Response>
+                    .BuildSuccessResult(new Response
+                    {
+                        UserGroupId = 0
+                    });
+                await Task.CompletedTask;
+                return result;
+                //}
+                //catch (Exception ex)
+                //{
+                //    var exResult = OperationResult<Response>.BuildFailure(ex);
+                //    return exResult;
+                //}
             }
         }
 

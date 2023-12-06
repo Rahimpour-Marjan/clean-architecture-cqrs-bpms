@@ -4,7 +4,6 @@
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        //public int ParentId { get; set; }
-        public PostInfo Parent { get; set; }
+        public PostInfo PostParent { get; set; }
     }
 }

@@ -2258,11 +2258,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Makmon\\Application\\Application.csproj",
+      "projectUniqueName": "G:\\MakmonProject\\Makmon\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "G:\\Makmon\\Application\\Application.csproj",
+      "projectPath": "G:\\MakmonProject\\Makmon\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\Makmon\\Application\\obj\\",
+      "outputPath": "G:\\MakmonProject\\Makmon\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2279,11 +2279,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\Makmon\\Domain\\Domain.csproj": {
-              "projectPath": "G:\\Makmon\\Domain\\Domain.csproj"
+            "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj": {
+              "projectPath": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj"
             },
-            "G:\\Makmon\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "G:\\Makmon\\Infrastructure\\Infrastructure.csproj"
+            "G:\\MakmonProject\\Makmon\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "G:\\MakmonProject\\Makmon\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

@@ -19,11 +19,9 @@ namespace Persistance.Configs
             builder.Property(f => f.PersonalNumber).HasMaxLength(10).IsRequired();
             builder.HasIndex(f => f.PersonalNumber).IsUnique();
             builder.Property(f => f.BirthDate).HasMaxLength(10);
-            builder.Property(f => f.IdentityNumber).HasMaxLength(10);
             builder.Property(f => f.IsActive).IsRequired();
             builder.Property(f => f.EmployeementDate).HasMaxLength(10);
             builder.Property(f => f.WorkingHoursRate).HasColumnType("decimal(18,4)");
-            builder.Property(f => f.OrganizationalPost).HasMaxLength(50);
         }
     }
 }

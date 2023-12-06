@@ -20,8 +20,8 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Tuple<IList<Post>, int>> FindAll(QueryFilter? queryFilter, int? parenId)
         {
-            var query = _db.Posts.Where(x => parenId == null || x.ParentId == parenId)
-                         .Include(y => y.Parent).AsQueryable();
+            var query = _db.Posts.Where(x => parenId == null || x.PostParentId == parenId)
+                         .Include(y => y.PostParent).AsQueryable();
 
 
             query = query.ApplyFiltering(queryFilter);
@@ -38,7 +38,7 @@ namespace Infrastructure.Persistance.Repositories
         public async Task<FilterResponse> FilterAllParent(int start, int length)
         {
             var q = from t in _db.Posts
-                    join t1 in _db.Posts on t.Id equals t1.ParentId
+                    join t1 in _db.Posts on t.Id equals t1.PostParentId
                     select new FilterResponseData
                     {
                         Id = t.Id,
@@ -57,7 +57,7 @@ namespace Infrastructure.Persistance.Repositories
         {
             #pragma warning disable CS8603 // Possible null reference return.
             return await _db.Posts
-                            .Include(a => a.Parent)
+                            .Include(a => a.PostParent)
                             .FirstOrDefaultAsync(c => c.Id == id);
         }
     
@@ -104,11 +104,11 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<List<Tree?>> FindPostTree()
         {
-            var posts = await _db.Posts.Include(x => x.Parent).ToListAsync();
+            var posts = await _db.Posts.Include(x => x.PostParent).ToListAsync();
             var tree = new List<Tree>();
             if (posts.Any())
             {
-                var roots = posts.Where(x => x.Parent == null);
+                var roots = posts.Where(x => x.PostParent == null);
                 foreach (var item in roots)
                 {
                     tree.Add(new Tree
@@ -126,7 +126,7 @@ namespace Infrastructure.Persistance.Repositories
         private List<Tree> LoadChilds(List<Post> biUnits, Post current)
         {
             var result = new List<Tree>();
-            var childs = biUnits.Where(x => x.ParentId == current.Id);
+            var childs = biUnits.Where(x => x.PostParentId == current.Id);
             if (!childs.Any())
             {
                 return new List<Tree>();

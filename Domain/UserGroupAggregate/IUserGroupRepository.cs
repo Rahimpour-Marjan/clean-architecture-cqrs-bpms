@@ -14,7 +14,6 @@ namespace Domain
         Task<List<AccessTree?>> FindTree(int? userId,int? userGroupId, int? postId, bool? isSelected);
         Task<List<Tree?>> FindUserGroupTree();
         Task<UserGroup> FindById(int id);
-        Task<UserGroup> FindByResultCode(int resultCode);
         Task Update(UserGroup usergroup);
         Task Delete(int id);
         Task DeleteAll(int[] ids);

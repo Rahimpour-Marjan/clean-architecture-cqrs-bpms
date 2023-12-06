@@ -10,7 +10,7 @@ namespace Application.Post.Commands
         {
             public int Id { get; set; }
             public string Title { get; set; }
-            public int? ParentId { get; set; }
+            public int? PostParentId { get; set; }
 
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -30,10 +30,10 @@ namespace Application.Post.Commands
                     var post = await _uow.PostRepository.FindById(request.Id);
                     if (post == null)
                         return OperationResult<Response>.BuildFailure("سمتی جهت ویرایش یافت نشد!");
-                    else if (post.Id == request.ParentId)
+                    else if (post.Id == request.PostParentId)
                         return OperationResult<Response>.BuildFailure("سمت والد نمیتواند، با سمت فعلی یکسان باشد.");
                     post.Title = request.Title;
-                    post.ParentId = request.ParentId;
+                    post.PostParentId = request.PostParentId;
 
                     await _uow.PostRepository.Update(post);
 

@@ -12,9 +12,9 @@ namespace Persistance.Configs
 
             builder.Property(f => f.Title).HasMaxLength(50).IsRequired();
 
-            builder.HasOne(x => x.Parent)
+            builder.HasOne(x => x.PostParent)
                   .WithMany()
-                  .HasForeignKey(x => x.ParentId)
+                  .HasForeignKey(x => x.PostParentId)
                   .OnDelete(DeleteBehavior.NoAction);
         }
     }

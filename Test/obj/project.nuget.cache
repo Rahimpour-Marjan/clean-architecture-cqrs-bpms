@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ziJE9bObEUMbxkOgKf3kWA7tkSyIaHLE3W3UlQ4JiLqtB7uJpsqQx31qi6i4k8FamMjiaJ19RwziMJteH2JlVg==",
+  "dgSpecHash": "8GeUIXA0B8Hc4T0RVGA6rJDcNpevnOk4X1FMezfaQunB9omCu0qKbQ5cOAf8haV43jGKaCFJz34aYclvfwCYLw==",
   "success": true,
-  "projectFilePath": "G:\\Makmon\\Test\\Test.csproj",
+  "projectFilePath": "G:\\MakmonProject\\Makmon\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\autofixture\\4.17.0\\autofixture.4.17.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",

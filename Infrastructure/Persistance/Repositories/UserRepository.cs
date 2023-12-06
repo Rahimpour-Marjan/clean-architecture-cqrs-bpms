@@ -53,27 +53,12 @@ namespace Infrastructure.Persistance.Repositories
 
             return new Tuple<IList<User>, int>(await query.ToListAsync(), totalRecords);
         }
-        public async Task<IList<User>> FindAllForBizaji()
-        {
-            return await _db.Users
-                            .Where(x => x.ApiResultCode == null)
-                            .ToListAsync();
-        }
-
         public async Task<User> FindById(int id)
         {
             var user = await _db.Users.Include(x => x.Person).ThenInclude(x => x.PersonJuncPosts).ThenInclude(x => x.Post).FirstOrDefaultAsync(a => a.Id == id);
             if (user != null)
                 return user;
             return null;
-        }
-
-        public async Task<User> FindByApiResultCode(int apiResultCode)
-        {
-#pragma warning disable CS8603 // Possible null reference return.
-            return await _db.Users
-                            .Include(x => x.Person)
-                            .FirstOrDefaultAsync(a => a.ApiResultCode == apiResultCode);
         }
 
         public async Task<User> FindByAuthInfo(string userName, string password)

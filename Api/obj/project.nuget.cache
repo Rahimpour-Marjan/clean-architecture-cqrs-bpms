@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MloW04lY69kPZi2nn6JofLm84ssbkV7PNNbc3Ev/VZYr/LJMLByRxhMLRNc10/eekW+2F2hd+5ai1A9x94fUcA==",
+  "dgSpecHash": "dkaKBnQNo9d45RaI2owb4YpgotJUDpfnsm062ONDaC8rGYCG6jZeC5vBOKgLbGXz60uqGiVnPUrMYpP3lZRisg==",
   "success": true,
-  "projectFilePath": "G:\\Makmon\\Api\\Api.csproj",
+  "projectFilePath": "G:\\MakmonProject\\Makmon\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Makmon\\Domain\\Domain.csproj": {}
+    "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "G:\\Makmon\\Domain\\Domain.csproj": {
+    "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Makmon\\Domain\\Domain.csproj",
+        "projectUniqueName": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "G:\\Makmon\\Domain\\Domain.csproj",
+        "projectPath": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\Makmon\\Domain\\obj\\",
+        "outputPath": "G:\\MakmonProject\\Makmon\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

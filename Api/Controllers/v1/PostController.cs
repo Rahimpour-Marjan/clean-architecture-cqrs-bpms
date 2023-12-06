@@ -67,9 +67,9 @@ namespace Api.Controllers.v1
         {
             if (!string.IsNullOrEmpty(columnName))
             {
-                if (string.Equals(columnName.ToLower(), "Parent".ToLower()))
+                if (string.Equals(columnName.ToLower(), "PostParent".ToLower()))
                 {
-                    var model = await _mediator.Send(new Parent.Query
+                    var model = await _mediator.Send(new PostParent.Query
                     {
                         Start = pageNumber,
                         Length = pageSize,
@@ -115,7 +115,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new PostCreate.Command
                 {
                     Title = model.Title,
-                    ParentId = model.ParentId,
+                    PostParentId = model.PostParentId,
                 });
 
                 if (!result.Success)
@@ -191,7 +191,7 @@ namespace Api.Controllers.v1
                 {
                     Id = id,
                     Title = model.Title,
-                    ParentId = model.ParentId,
+                    PostParentId = model.PostParentId,
                 }); 
 
                 if (!result.Success)

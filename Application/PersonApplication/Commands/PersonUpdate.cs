@@ -60,14 +60,11 @@ namespace Application.Person.Commands
                     person.PersonalNumber = request.PersonalNumber;
                     person.Gender = request.Gender;
                     person.BirthDate = request.BirthDate;
-                    person.IdentityNumber = request.IdentityNumber;
                     person.IsActive = request.IsActive;
                     person.EmployeementDate = request.EmployeementDate;
                     person.WorkingHoursRate = request.WorkingHoursRate;
                     person.ImageUrl = request.ImageUrl;
                     person.DigitalSignatureUrl = request.DigitalSignatureUrl;
-                    person.OrganizationalPost = request.OrganizationalPost;
-                    person.PostCount = request.PostCount;
 
                     await _uow.PersonRepository.Update(person);
                     var result = OperationResult<Response>

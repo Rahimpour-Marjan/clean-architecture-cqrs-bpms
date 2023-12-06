@@ -42,15 +42,15 @@ namespace Application.User.Commands
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
 
                 var (hashedPassword, salt) = _authentication.GenerateHashPasswordAndSalt(request.Password);
-                var user = new Domain.User(request.PersonId, request.UserName, hashedPassword, salt, person.Email??"", UserType.DynamicUser, request.IsActive, request.ApiResultCode);
+                //var user = new Domain.User(request.PersonId, request.UserName, hashedPassword, salt, person.Email??"", UserType.DynamicUser, request.IsActive, request.ApiResultCode);
                 try
                 {
-                    var newUserId = await _uow.UserRepository.Create(user);
+                    //var newUserId = await _uow.UserRepository.Create(user);
 
                     var result = OperationResult<Response>
                       .BuildSuccessResult(new Response
                       {
-                          UserId = newUserId
+                          UserId = 0
                       });
                     await Task.CompletedTask;
                     return result;

@@ -8123,11 +8123,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Makmon\\Test\\Test.csproj",
+      "projectUniqueName": "G:\\MakmonProject\\Makmon\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "G:\\Makmon\\Test\\Test.csproj",
+      "projectPath": "G:\\MakmonProject\\Makmon\\Test\\Test.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\Makmon\\Test\\obj\\",
+      "outputPath": "G:\\MakmonProject\\Makmon\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8144,11 +8144,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\Makmon\\Application\\Application.csproj": {
-              "projectPath": "G:\\Makmon\\Application\\Application.csproj"
+            "G:\\MakmonProject\\Makmon\\Application\\Application.csproj": {
+              "projectPath": "G:\\MakmonProject\\Makmon\\Application\\Application.csproj"
             },
-            "G:\\Makmon\\Domain\\Domain.csproj": {
-              "projectPath": "G:\\Makmon\\Domain\\Domain.csproj"
+            "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj": {
+              "projectPath": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj"
             }
           }
         }

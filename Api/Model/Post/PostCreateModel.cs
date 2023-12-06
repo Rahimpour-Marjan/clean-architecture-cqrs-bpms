@@ -5,6 +5,6 @@ namespace Api.Model.Post
     {
         [Required(ErrorMessage = "ارسال نام برای پست الزامی می باشد")]
         public string Title { get; set; }
-        public int? ParentId { get; set; }
+        public int? PostParentId { get; set; }
     }
 }

@@ -14,9 +14,7 @@ namespace Infrastructure.Persistance.Repositories
         Task<IList<User>> FindAllByPost(int postId);
         Task<IList<User>> FindAllByPerson(int personId);
         Task<Tuple<IList<User>, int>> FindAll(QueryFilter? queryFilter);
-        Task<IList<User>> FindAllForBizaji();
         Task<User> FindByAuthInfo(string userName, string password);
-        Task<User> FindByApiResultCode(int apiResultCode);
         Task<List<SiteAction>?> FindAccess(int userId);
         Task Update(User model);
         Task Delete(int id);

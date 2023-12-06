@@ -9,7 +9,7 @@ namespace Application.Post.Commands
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
             public string Title { get; set; }
-            public int? ParentId { get; set; }
+            public int? PostParentId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -24,7 +24,7 @@ namespace Application.Post.Commands
             {
                 try
                 {
-                    var post = new Domain.Post(request.Title,request.ParentId);
+                    var post = new Domain.Post(request.Title,request.PostParentId);
                     var newPostId = await _uow.PostRepository.Create(post);
                    
                     var result = OperationResult<Response>

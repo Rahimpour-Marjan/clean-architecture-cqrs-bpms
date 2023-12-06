@@ -16,7 +16,7 @@ namespace Test.Application.Personpplication.Queries
             //Arrange
             var person = new List<Person>
             {
-                new Person("Marjaneh","Rahimpour",UserType.DynamicUser,"0014867152","09302161127","marjaneh.rahimpour@yahoo.com","Sia","001",Domain.Enums.Gender.Female,DateTime.Now,"145",true,DateTime.Now,10,"","","admin",1),
+                //new Person("Marjaneh","Rahimpour",UserType.DynamicUser,"0014867152","09302161127","marjaneh.rahimpour@yahoo.com","Sia","001",Domain.Enums.Gender.Female,DateTime.Now,"145",true,DateTime.Now,10,"","","admin",1),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

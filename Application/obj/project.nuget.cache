@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DFgi4DGPC5kjXPOYE9y+23kYtdO3iAnHPbITI3sJNnuyVm+49NA+94hoYAdTpNZc/CsAuRx3c2ig+JlCjMm4+Q==",
+  "dgSpecHash": "ZsMORGYcqtyL4VA5Ix8H3QvrJTC9tz+7eWtZwWZER98cyh7oGaLZgCrPTNpFQMLANVf4PnFU+ipHQ4L2PVI8nQ==",
   "success": true,
-  "projectFilePath": "G:\\Makmon\\Application\\Application.csproj",
+  "projectFilePath": "G:\\MakmonProject\\Makmon\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\cryptohashverify\\1.0.0\\cryptohashverify.1.0.0.nupkg.sha512",
