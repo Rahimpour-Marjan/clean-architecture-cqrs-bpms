@@ -10,7 +10,6 @@ using Application.Services;
 using Application.PersonApplication.Queries.FilterData;
 using Api.Enum;
 using Api.Authorization;
-using Application.User.Queries.FindAllByPerson;
 
 namespace Api.Controllers.v1
 {
@@ -20,12 +19,10 @@ namespace Api.Controllers.v1
     {
         private readonly IMediator _mediator;
         private readonly IUriService _uriService;
-        private readonly IConfiguration _configuration;
-        public PersonController(IMediator mediator, IUriService uriService, IConfiguration configuration)
+        public PersonController(IMediator mediator, IUriService uriService)
         {
             _mediator = mediator;
             _uriService = uriService;
-            _configuration = configuration;
         }
 
         [CustomAuthorize(SiteAction.Person_View, SiteAction.Users_View, SiteAction.WorkRequestCartable_SkillsTabView)]
@@ -114,21 +111,48 @@ namespace Api.Controllers.v1
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    NationalCode = model.NationalCode,
-                    Phone = model.Phone,
-                    Email = model.Email,
-                    FatherName = model.FatherName,
-                    PersonalNumber = model.PersonalNumber,
                     Gender = model.Gender,
                     BirthDate = model.BirthDate,
-                    IdentityNumber = model.IdentityNumber,
+                    NationalCode = model.NationalCode,
+                    Phone = model.Phone,
+                    ExtraPhone1 = model.ExtraPhone1,
+                    ExtraPhone2 = model.ExtraPhone2,
+                    ExtraPhone3 = model.ExtraPhone3,
+                    Email = model.Email,
+                    ExtraEmail = model.ExtraEmail,
+                    Fax = model.Fax,
+                    Website = model.Website,
+                    Instagram = model.Instagram,
+                    Telegram = model.Telegram,
+                    WhatsApp = model.WhatsApp,
+                    Linkedin = model.Linkedin,
+                    Facebook = model.Facebook,
+                    CountryId = model.CountryId,
+                    StateId = model.StateId,
+                    CityId = model.CityId,
+                    ZoneId = model.ZoneId,
+                    Address = model.Address,
+                    LocationLong = model.LocationLong,
+                    LocationLat = model.LocationLat,
+                    Job = model.Job,
+                    Company = model.Company,
+                    CompanyNo = model.CompanyNo,
+                    FatherName = model.FatherName,
+                    PersonalNumber = model.PersonalNumber,
                     IsActive = model.IsActive,
-                    EmployeementDate = model.EmployeementDate,
                     WorkingHoursRate = model.WorkingHoursRate,
+                    ReagentName = model.ReagentName,
+                    ReagentCode = model.ReagentCode,
                     ImageUrl = model.ImageUrl,
                     DigitalSignatureUrl = model.DigitalSignatureUrl,
-                    OrganizationalPost = model.OrganizationalPost,
-                    PostIds = model.PostId,
+                    ResumeUrl = model.ResumeUrl,
+                    SpacialAccount = model.SpacialAccount,
+                    IsPublic = model.IsPublic,
+                    PackageId = model.PackageId,
+                    EducationFieldId = model.EducationFieldId,
+                    EducationLevelId = model.EducationLevelId,
+                    EmployeementDate = model.EmployeementDate,
+                    PostIds = model.PostIds,
                 });
 
                 if (!result.Success)
@@ -167,22 +191,48 @@ namespace Api.Controllers.v1
                     Id = id,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    NationalCode = model.NationalCode,
-                    Phone = model.Phone,
-                    Email = model.Email,
-                    FatherName = model.FatherName,
-                    PersonalNumber = model.PersonalNumber,
                     Gender = model.Gender,
                     BirthDate = model.BirthDate,
-                    IdentityNumber = model.IdentityNumber,
+                    NationalCode = model.NationalCode,
+                    Phone = model.Phone,
+                    ExtraPhone1 = model.ExtraPhone1,
+                    ExtraPhone2 = model.ExtraPhone2,
+                    ExtraPhone3 = model.ExtraPhone3,
+                    Email = model.Email,
+                    ExtraEmail = model.ExtraEmail,
+                    Fax = model.Fax,
+                    Website = model.Website,
+                    Instagram = model.Instagram,
+                    Telegram = model.Telegram,
+                    WhatsApp = model.WhatsApp,
+                    Linkedin = model.Linkedin,
+                    Facebook = model.Facebook,
+                    CountryId = model.CountryId,
+                    StateId = model.StateId,
+                    CityId = model.CityId,
+                    ZoneId = model.ZoneId,
+                    Address = model.Address,
+                    LocationLong = model.LocationLong,
+                    LocationLat = model.LocationLat,
+                    Job = model.Job,
+                    Company = model.Company,
+                    CompanyNo = model.CompanyNo,
+                    FatherName = model.FatherName,
+                    PersonalNumber = model.PersonalNumber,
                     IsActive = model.IsActive,
-                    EmployeementDate = model.EmployeementDate,
                     WorkingHoursRate = model.WorkingHoursRate,
+                    ReagentName = model.ReagentName,
+                    ReagentCode = model.ReagentCode,
                     ImageUrl = model.ImageUrl,
                     DigitalSignatureUrl = model.DigitalSignatureUrl,
-                    PostIds = model.PostId,
-                    OrganizationalPost = model.OrganizationalPost,
-                    PostCount = 1,
+                    ResumeUrl = model.ResumeUrl,
+                    SpacialAccount = model.SpacialAccount,
+                    IsPublic = model.IsPublic,
+                    PackageId = model.PackageId,
+                    EducationFieldId = model.EducationFieldId,
+                    EducationLevelId = model.EducationLevelId,
+                    EmployeementDate = model.EmployeementDate,
+                    PostIds = model.PostIds,
                 });
 
                 if (!result.Success)

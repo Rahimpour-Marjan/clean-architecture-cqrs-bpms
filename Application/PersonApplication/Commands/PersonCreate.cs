@@ -13,20 +13,47 @@ namespace Application.Person.Commands
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public string NationalCode { get; set; }
-            public string? Phone { get; set; }
-            public string? Email { get; set; }
-            public string? FatherName { get; set; }
-            public string PersonalNumber { get; set; }
             public Gender? Gender { get; set; }
             public DateTime? BirthDate { get; set; }
-            public string? IdentityNumber { get; set; }
+            public string? NationalCode { get; set; }
+            public string? Phone { get; set; }
+            public string? ExtraPhone1 { get; set; }
+            public string? ExtraPhone2 { get; set; }
+            public string? ExtraPhone3 { get; set; }
+            public string? Email { get; set; }
+            public string? ExtraEmail { get; set; }
+            public string? Fax { get; set; }
+            public string? Website { get; set; }
+            public string? Instagram { get; set; }
+            public string? Telegram { get; set; }
+            public string? WhatsApp { get; set; }
+            public string? Linkedin { get; set; }
+            public string? Facebook { get; set; }
+            public int? CountryId { get; set; }
+            public int? StateId { get; set; }
+            public int? CityId { get; set; }
+            public int? ZoneId { get; set; }
+            public string? Address { get; set; }
+            public long? LocationLong { get; set; }
+            public long? LocationLat { get; set; }
+            public string? Job { get; set; }
+            public string? Company { get; set; }
+            public string? CompanyNo { get; set; }
+            public string? FatherName { get; set; }
+            public string? PersonalNumber { get; set; }
             public bool IsActive { get; set; }
-            public DateTime? EmployeementDate { get; set; }
             public decimal? WorkingHoursRate { get; set; }
+            public string? ReagentName { get; set; }
+            public string? ReagentCode { get; set; }
             public string? ImageUrl { get; set; }
             public string? DigitalSignatureUrl { get; set; }
-            public string? OrganizationalPost { get; set; }
+            public string? ResumeUrl { get; set; }
+            public bool SpacialAccount { get; set; }
+            public bool IsPublic { get; set; }
+            public int? PackageId { get; set; }
+            public int? EducationFieldId { get; set; }
+            public int? EducationLevelId { get; set; }
+            public DateTime? EmployeementDate { get; set; }
             public List<int> PostIds { get; set; }
         }
 
@@ -53,18 +80,22 @@ namespace Application.Person.Commands
             {
                 try
                 {
-                    int postCount = 1;
                     if (request.PostIds.Count > 1)
                     {
                         return OperationResult<Response>.BuildFailure("تعداد پست سازمانی انتخاب شده غیر مجاز می باشد.");
                     }
                     else
                     {
-                        //var employee = new Domain.Person(request.FirstName, request.LastName, UserType.DynamicUser, request.NationalCode, request.Phone, request.Email, request.FatherName, request.PersonalNumber,
-                        //                request.Gender, request.BirthDate, request.IdentityNumber, request.IsActive, request.EmployeementDate, request.WorkingHoursRate, request.ImageUrl, request.DigitalSignatureUrl,request.OrganizationalPost, postCount);
+                        var person = new Domain.Person(request.FirstName, request.LastName, UserType.DynamicUser, request.Gender, request.BirthDate, request.NationalCode, request.Phone, request.ExtraPhone1, request.ExtraPhone2, request.ExtraPhone3,
+                                        request.Email, request.ExtraEmail, request.Fax, request.Website, request.Instagram, request.Telegram, request.WhatsApp, request.Linkedin, request.Facebook,
+                                        request.CountryId, request.StateId, request.CityId, request.ZoneId, request.Address, request.LocationLong, request.LocationLat, request.Job, request.Company, request.CompanyNo,
+                                        request.FatherName, request.PersonalNumber, request.IsActive, request.WorkingHoursRate, request.ReagentName, request.ReagentCode, request.ImageUrl, request.DigitalSignatureUrl, request.ResumeUrl, request.SpacialAccount,
+                                        request.IsPublic, request.PackageId, request.EducationFieldId, request.EducationLevelId, request.EmployeementDate, DateTime.Now);
 
-                        //var newEmpId = await _uow.PersonRepository.Create(employee);
-                        //await _uow.PersonRepository.PersonJuncPostCreate(request.PostIds, newEmpId);
+                        var newPersonId = await _uow.PersonRepository.Create(person);
+
+                        await _uow.PersonRepository.PersonJuncPostCreate(request.PostIds, newPersonId);
+
                         var result = OperationResult<Response>
                             .BuildSuccessResult(new Response
                             {
