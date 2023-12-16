@@ -1,0 +1,17 @@
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Application.deps.json
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Application.dll
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Application.pdb
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Domain.dll
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Infrastructure.dll
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Domain.pdb
+G:\KardinoMain\Kardino.Application\bin\Release\net6.0\Kardino.Infrastructure.pdb
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.csproj.AssemblyReference.cache
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.AssemblyInfoInputs.cache
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.AssemblyInfo.cs
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.csproj.CoreCompileInputs.cache
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.csproj.CopyComplete
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.dll
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\refint\Kardino.Application.dll
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\Kardino.Application.pdb
+G:\KardinoMain\Kardino.Application\obj\Release\net6.0\ref\Kardino.Application.dll
