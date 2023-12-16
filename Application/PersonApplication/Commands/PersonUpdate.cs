@@ -117,6 +117,7 @@ namespace Application.Person.Commands
                     person.EducationFieldId = request.EducationFieldId;
                     person.EducationLevelId = request.EducationLevelId;
                     person.EmployeementDate = request.EmployeementDate;
+                    person.ModifiedDate = DateTime.Now;
 
                     await _uow.PersonRepository.Update(person);
                     var result = OperationResult<Response>

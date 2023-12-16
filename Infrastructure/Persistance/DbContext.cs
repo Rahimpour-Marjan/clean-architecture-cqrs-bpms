@@ -14,6 +14,7 @@ namespace Infrastructure.Persistance
         public DbSet<User> Users { get; set; }
         public DbSet<Unit> Units { get; set; }
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Country> Countries { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PersonJuncPost> PersonJuncPost { get; set; }
         public DbSet<Menu> Menu { get; set; }
@@ -51,7 +52,8 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("Calendar").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("CalendarReceiver").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteMenu").StartsAt(1000).IncrementsBy(1);
-            builder.HasSequence<int>("Person").StartsAt(1001).IncrementsBy(1);
+            builder.HasSequence<int>("Person").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("Country").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Post").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MyQuickAccess").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteAction").StartsAt(1000).IncrementsBy(1);
@@ -59,7 +61,7 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("Ticket").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("TicketAttachment").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Unit").StartsAt(1000).IncrementsBy(1);
-            builder.HasSequence<int>("User").StartsAt(1001).IncrementsBy(1);
+            builder.HasSequence<int>("User").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("UserGroup").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("UserGroupPrivilage").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("UserLog").StartsAt(1000).IncrementsBy(1);
