@@ -2011,19 +2011,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\saeed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\MakmonProject\\Makmon\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "F:\\MakmonProject\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "G:\\MakmonProject\\Makmon\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\MakmonProject\\Makmon\\Infrastructure\\obj\\",
+      "projectPath": "F:\\MakmonProject\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\saeed\\.nuget\\packages\\",
+      "outputPath": "F:\\MakmonProject\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\saeed\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2037,8 +2037,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj": {
-              "projectPath": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj"
+            "F:\\MakmonProject\\Domain\\Domain.csproj": {
+              "projectPath": "F:\\MakmonProject\\Domain\\Domain.csproj"
             }
           }
         }

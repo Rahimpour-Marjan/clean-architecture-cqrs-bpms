@@ -8118,19 +8118,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hp\\.nuget\\packages\\": {}
+    "C:\\Users\\saeed\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\MakmonProject\\Makmon\\Test\\Test.csproj",
+      "projectUniqueName": "F:\\MakmonProject\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "G:\\MakmonProject\\Makmon\\Test\\Test.csproj",
-      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\MakmonProject\\Makmon\\Test\\obj\\",
+      "projectPath": "F:\\MakmonProject\\Test\\Test.csproj",
+      "packagesPath": "C:\\Users\\saeed\\.nuget\\packages\\",
+      "outputPath": "F:\\MakmonProject\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\saeed\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8144,11 +8144,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "G:\\MakmonProject\\Makmon\\Application\\Application.csproj": {
-              "projectPath": "G:\\MakmonProject\\Makmon\\Application\\Application.csproj"
+            "F:\\MakmonProject\\Application\\Application.csproj": {
+              "projectPath": "F:\\MakmonProject\\Application\\Application.csproj"
             },
-            "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj": {
-              "projectPath": "G:\\MakmonProject\\Makmon\\Domain\\Domain.csproj"
+            "F:\\MakmonProject\\Domain\\Domain.csproj": {
+              "projectPath": "F:\\MakmonProject\\Domain\\Domain.csproj"
             }
           }
         }
