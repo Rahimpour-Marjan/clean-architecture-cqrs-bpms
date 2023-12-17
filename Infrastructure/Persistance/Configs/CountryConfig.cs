@@ -8,7 +8,7 @@ namespace Persistance.Configs
     {
         public void Configure(EntityTypeBuilder<Country> builder)
         {
-            builder.Property(f => f.Id).UseHiLo("Unit");
+            builder.Property(f => f.Id).UseHiLo("Country");
 
             builder.Property(f => f.Title).HasMaxLength(200).IsRequired();
             builder.HasIndex(f => f.Title).IsUnique();

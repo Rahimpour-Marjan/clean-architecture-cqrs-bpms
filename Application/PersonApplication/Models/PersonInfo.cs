@@ -30,8 +30,8 @@ namespace Application.Person.Models
         public int? CityId { get; set; }
         public int? ZoneId { get; set; }
         public string? Address { get; set; }
-        public long? LocationLong { get; set; }
-        public long? LocationLat { get; set; }
+        public string? LocationLong { get; set; }
+        public string? LocationLat { get; set; }
         public string? Job { get; set; }
         public string? Company { get; set; }
         public string? CompanyNo { get; set; }

@@ -17,7 +17,7 @@ namespace Test.Application.PersonApplication.Commands
             var posts=new List<int>();
             posts.Add(1076);
 
-            var createUserCommand = new PersonCreate.Command
+            var createPersonCommand = new PersonCreate.Command
             {
                 FirstName = "Marjaneh",
                 LastName = "Rahimpour",
@@ -68,7 +68,7 @@ namespace Test.Application.PersonApplication.Commands
             var createPersonCommandHandler = new PersonCreate.Handler(_uow);
 
             //Act
-            var result = await createPersonCommandHandler.Handle(createUserCommand, new CancellationToken());
+            var result = await createPersonCommandHandler.Handle(createPersonCommand, new CancellationToken());
 
             //Assert
             Assert.True(result.Result.PersonId >= 0);

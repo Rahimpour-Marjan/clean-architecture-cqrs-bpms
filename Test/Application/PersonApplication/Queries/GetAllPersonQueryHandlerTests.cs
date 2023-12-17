@@ -7,7 +7,7 @@ using UnitTest.Common;
 
 namespace Test.Application.Personpplication.Queries
 {
-    public class GetAllPersonQueryHandlerTests:TestBase
+    public class GetAllPersonQueryHandlerTests : TestBase
     {
         [Fact]
         [Trait("GetAllPerson", "Handle")]
@@ -16,7 +16,11 @@ namespace Test.Application.Personpplication.Queries
             //Arrange
             var person = new List<Person>
             {
-                //new Person("Marjaneh","Rahimpour",UserType.DynamicUser,"0014867152","09302161127","marjaneh.rahimpour@yahoo.com","Sia","001",Domain.Enums.Gender.Female,DateTime.Now,"145",true,DateTime.Now,10,"","","admin",1),
+                new Person("مرجانه", "رحیم پور", UserType.DynamicUser, Gender.Female, DateTime.Now, "0014867151", "09302161127", "", "", "",
+                                        "rahimpour.marjaneh@gmail.com", "", "", "", "", "", "", "", "",
+                                        null, null, null, null, "", "", "", "", "makmon", "001",
+                                        "سیاوش", "1", true, null, "خودم", "خودم", "آدرس تصویر", "امضا", "آدرس رزومه", true,
+                                        false, null, null, null, DateTime.Now, DateTime.Now)
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

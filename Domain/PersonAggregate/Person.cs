@@ -9,7 +9,7 @@ namespace Domain
             string? extraPhone1, string? extraPhone2, string? extraPhone3,
             string? email, string? extraEmail, string? fax, string? website,
             string? instagram, string? telegram, string? whatsApp, string? linkedin, string? facebook,
-            int ? countryId, int? stateId, int? cityId, int? zoneId, string? address,long? locationLong, long? locationLat,
+            int ? countryId, int? stateId, int? cityId, int? zoneId, string? address, string? locationLong, string? locationLat,
             string? job, string? company, string? companyNo, 
             string? fatherName,
             string? personalNumber,bool isActive,
@@ -99,8 +99,8 @@ namespace Domain
         public int? CityId { get; set; }
         public int? ZoneId { get; set; }
         public string? Address { get; set; }
-        public long? LocationLong { get; set; }
-        public long? LocationLat { get; set; }
+        public string? LocationLong { get; set; }
+        public string? LocationLat { get; set; }
         public string? Job { get; set; }
         public string? Company { get; set; }
         public string? CompanyNo { get; set; }

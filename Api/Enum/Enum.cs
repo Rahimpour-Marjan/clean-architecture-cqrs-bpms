@@ -107,6 +107,13 @@ namespace Api.Enum
         Country_Edit,
         Country_Delete,
 
+        //State Permission
+        State_View,
+        State_Add,
+        State_Edit,
+        State_Delete,
+
+
         //EducationField Permission
         EducationField_View,
         EducationField_Add,

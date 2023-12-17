@@ -7,12 +7,12 @@ using Domain.Resources;
 
 namespace Application.CountryApplication.Queries.FindAll
 {
-    class FindAllCountryHandler : IRequestHandler<FindAllCountryQuery, FindAllQueryResponse<IList<CountryInfo>>>
+    public class FindAllCountryQueryHandler : IRequestHandler<FindAllCountryQuery, FindAllQueryResponse<IList<CountryInfo>>>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
         
-        public FindAllCountryHandler(IUnitOfWork uow, IMapper mapper)
+        public FindAllCountryQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;
             _mapper = mapper;
