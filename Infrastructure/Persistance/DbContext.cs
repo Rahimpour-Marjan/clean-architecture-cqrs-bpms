@@ -17,6 +17,7 @@ namespace Infrastructure.Persistance
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<Zone> Zones { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PersonJuncPost> PersonJuncPost { get; set; }
         public DbSet<Menu> Menu { get; set; }
@@ -58,6 +59,7 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("Country").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("State").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("City").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("Zone").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Post").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MyQuickAccess").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteAction").StartsAt(1000).IncrementsBy(1);

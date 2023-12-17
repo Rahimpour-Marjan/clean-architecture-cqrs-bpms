@@ -119,6 +119,11 @@ namespace Api.Enum
         City_Edit,
         City_Delete,
 
+        //Zone Permission
+        Zone_View,
+        Zone_Add,
+        Zone_Edit,
+        Zone_Delete,
 
         //EducationField Permission
         EducationField_View,
