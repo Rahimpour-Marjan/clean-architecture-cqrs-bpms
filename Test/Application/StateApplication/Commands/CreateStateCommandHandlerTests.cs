@@ -8,7 +8,7 @@ namespace Test.Application.StateApplication.Commands
     public class CreateStateCommandHandlerTests : TestBase
     {
         [Fact]
-        [Trait("Country", "Handle")]
+        [Trait("State", "Handle")]
         public async void InputState_Created_ReturnId()
         {
             //Arrage

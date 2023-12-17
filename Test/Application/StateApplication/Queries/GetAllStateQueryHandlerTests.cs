@@ -10,7 +10,7 @@ namespace Test.Application.Statepplication.Queries
     {
         [Fact]
         [Trait("GetAllState", "Handle")]
-        public async Task FourCountryExist_Fetched_ReturnFourPersonViewModels()
+        public async Task FourStateExist_Fetched_ReturnFourStateViewModels()
         {
             //Arrange
             var state = new List<State>

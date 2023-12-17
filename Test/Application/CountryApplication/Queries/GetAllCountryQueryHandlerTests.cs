@@ -10,7 +10,7 @@ namespace Test.Application.Countrypplication.Queries
     {
         [Fact]
         [Trait("GetAllCountry", "Handle")]
-        public async Task FourCountryExist_Fetched_ReturnFourPersonViewModels()
+        public async Task FourCountryExist_Fetched_ReturnFourCountryViewModels()
         {
             //Arrange
             var country = new List<Country>

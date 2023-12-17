@@ -113,6 +113,12 @@ namespace Api.Enum
         State_Edit,
         State_Delete,
 
+        //City Permission
+        City_View,
+        City_Add,
+        City_Edit,
+        City_Delete,
+
 
         //EducationField Permission
         EducationField_View,

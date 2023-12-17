@@ -10,6 +10,7 @@ namespace Infrastructure.Persistance.Repositories
         IPersonRepository PersonRepository { get; }
         ICountryRepository CountryRepository { get; }
         IStateRepository StateRepository { get; }
+        ICityRepository CityRepository { get; }
         IMenuRepository MenuRepository { get; }
         ISitePageRepository SitePageRepository { get; }
         IQuickAccessRepository QuickAccessRepository { get; }
@@ -34,6 +35,7 @@ namespace Infrastructure.Persistance.Repositories
             PersonRepository = new PersonRepository(_db);
             CountryRepository = new CountryRepository(_db);
             StateRepository = new StateRepository(_db);
+            CityRepository = new CityRepository(_db);
             MenuRepository = new MenuRepository(_db);
             SitePageRepository = new SitePageRepository(_db);
             QuickAccessRepository = new QuickAccessRepository(_db);
@@ -51,6 +53,7 @@ namespace Infrastructure.Persistance.Repositories
         public IPersonRepository PersonRepository { get; }
         public ICountryRepository CountryRepository { get; }
         public IStateRepository StateRepository { get; }
+        public ICityRepository CityRepository { get; }
         public IMenuRepository MenuRepository { get; }
         public ISitePageRepository SitePageRepository { get; }
         public IQuickAccessRepository QuickAccessRepository { get; }

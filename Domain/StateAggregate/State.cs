@@ -29,5 +29,7 @@
         public string? ImageUrl { get; set; }
         public DateTime ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public virtual ICollection<City> Cities { get; set; }
     }
 }
