@@ -146,6 +146,13 @@ namespace Domain.Enums
 
     }
 
+    public enum PackageType
+    {
+        [Display(Name = "نوع 1")]
+        Type1 = 0,
+
+    }
+
     public enum Permisions
     {
         Admin,

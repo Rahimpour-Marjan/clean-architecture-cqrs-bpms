@@ -125,6 +125,12 @@ namespace Api.Enum
         Zone_Edit,
         Zone_Delete,
 
+        //Package Permission
+        Package_View,
+        Package_Add,
+        Package_Edit,
+        Package_Delete,
+
         //EducationField Permission
         EducationField_View,
         EducationField_Add,

@@ -59,7 +59,7 @@ namespace Test.Application.PersonApplication.Commands
                 SpacialAccount = false,
                 IsPublic = false,
                 PackageId = null,
-                EducationFieldId = null,
+                EducationSubFieldId = null,
                 EducationLevelId = null,
                 EmployeementDate = null,
                 PostIds = posts,

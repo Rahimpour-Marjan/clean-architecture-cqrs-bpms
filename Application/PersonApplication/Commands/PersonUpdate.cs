@@ -50,7 +50,7 @@ namespace Application.Person.Commands
             public bool SpacialAccount { get; set; }
             public bool IsPublic { get; set; }
             public int? PackageId { get; set; }
-            public int? EducationFieldId { get; set; }
+            public int? EducationSubFieldId { get; set; }
             public int? EducationLevelId { get; set; }
             public DateTime? EmployeementDate { get; set; }
             public List<int> PostIds { get; set; }
@@ -114,7 +114,7 @@ namespace Application.Person.Commands
                     person.SpacialAccount = request.SpacialAccount;
                     person.IsPublic = request.IsPublic;
                     person.PackageId = request.PackageId;
-                    person.EducationFieldId = request.EducationFieldId;
+                    person.EducationSubFieldId = request.EducationSubFieldId;
                     person.EducationLevelId = request.EducationLevelId;
                     person.EmployeementDate = request.EmployeementDate;
                     person.ModifiedDate = DateTime.Now;

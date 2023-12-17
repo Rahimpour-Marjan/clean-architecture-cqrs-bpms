@@ -9,8 +9,16 @@ namespace Domain
         Task<int> Create(Person model);
         Task<bool> IsExistNationCode(string nationalCode);
         Task<bool> IsExistPersonalNumber(string personalNumber);
-        Task<Tuple<IList<Person>, int>> FindAll(QueryFilter? queryFilter);
+        Task<Tuple<IList<PersonView>, int>> FindAll(QueryFilter? queryFilter);
         Task<FilterResponse> FilterAllPost(int start, int length);
+        Task<FilterResponse> FilterAllCountry(int start, int length);
+        Task<FilterResponse> FilterAllState(int start, int length);
+        Task<FilterResponse> FilterAllCity(int start, int length);
+        Task<FilterResponse> FilterAllZone(int start, int length);
+        Task<FilterResponse> FilterAllPackage(int start, int length);
+        Task<FilterResponse> FilterAllEducationField(int start, int length);
+        Task<FilterResponse> FilterAllEducationSubField(int start, int length);
+        Task<FilterResponse> FilterAllEducationLevel(int start, int length);
         Task<IList<Person>> FindAllByPost(int[] postIds);
         Task<Person> FindById(int id);
         Task Update(Person model);

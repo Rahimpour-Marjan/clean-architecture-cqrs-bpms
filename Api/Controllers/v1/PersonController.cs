@@ -71,6 +71,78 @@ namespace Api.Controllers.v1
                     });
                     return StatusCode((int)HttpStatusCode.OK, model);
                 }
+                else if (string.Equals(columnName.ToLower(), "Country".ToLower()))
+                {
+                    var model = await _mediator.Send(new Country.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "State".ToLower()))
+                {
+                    var model = await _mediator.Send(new State.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "City".ToLower()))
+                {
+                    var model = await _mediator.Send(new City.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "Zone".ToLower()))
+                {
+                    var model = await _mediator.Send(new Zone.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "Package".ToLower()))
+                {
+                    var model = await _mediator.Send(new Package.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "EducationField".ToLower()))
+                {
+                    var model = await _mediator.Send(new EducationField.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "EducationSubField".ToLower()))
+                {
+                    var model = await _mediator.Send(new EducationSubField.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
+                else if (string.Equals(columnName.ToLower(), "EducationLevel".ToLower()))
+                {
+                    var model = await _mediator.Send(new EducationLevel.Query
+                    {
+                        Start = pageNumber,
+                        Length = pageSize,
+                    });
+                    return StatusCode((int)HttpStatusCode.OK, model);
+                }
                 else
                 {
                     return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
@@ -149,7 +221,7 @@ namespace Api.Controllers.v1
                     SpacialAccount = model.SpacialAccount,
                     IsPublic = model.IsPublic,
                     PackageId = model.PackageId,
-                    EducationFieldId = model.EducationFieldId,
+                    EducationSubFieldId = model.EducationSubFieldId,
                     EducationLevelId = model.EducationLevelId,
                     EmployeementDate = model.EmployeementDate,
                     PostIds = model.PostIds,
@@ -229,7 +301,7 @@ namespace Api.Controllers.v1
                     SpacialAccount = model.SpacialAccount,
                     IsPublic = model.IsPublic,
                     PackageId = model.PackageId,
-                    EducationFieldId = model.EducationFieldId,
+                    EducationSubFieldId = model.EducationSubFieldId,
                     EducationLevelId = model.EducationLevelId,
                     EmployeementDate = model.EmployeementDate,
                     PostIds = model.PostIds,

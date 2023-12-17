@@ -12,6 +12,10 @@ namespace Infrastructure.Persistance.Repositories
         IStateRepository StateRepository { get; }
         ICityRepository CityRepository { get; }
         IZoneRepository ZoneRepository { get; }
+        IPackageRepository PackageRepository { get; }
+        IEducationFieldRepository EducationFieldRepository { get; }
+        IEducationSubFieldRepository EducationSubFieldRepository { get; }
+        IEducationLevelRepository EducationLevelRepository { get; }
         IMenuRepository MenuRepository { get; }
         ISitePageRepository SitePageRepository { get; }
         IQuickAccessRepository QuickAccessRepository { get; }
@@ -38,6 +42,10 @@ namespace Infrastructure.Persistance.Repositories
             StateRepository = new StateRepository(_db);
             CityRepository = new CityRepository(_db);
             ZoneRepository = new ZoneRepository(_db);
+            PackageRepository = new PackageRepository(_db);
+            EducationFieldRepository = new EducationFieldRepository(_db);
+            EducationSubFieldRepository = new EducationSubFieldRepository(_db);
+            EducationLevelRepository = new EducationLevelRepository(_db);
             MenuRepository = new MenuRepository(_db);
             SitePageRepository = new SitePageRepository(_db);
             QuickAccessRepository = new QuickAccessRepository(_db);
@@ -57,6 +65,10 @@ namespace Infrastructure.Persistance.Repositories
         public IStateRepository StateRepository { get; }
         public ICityRepository CityRepository { get; }
         public IZoneRepository ZoneRepository { get; }
+        public IPackageRepository PackageRepository { get; }
+        public IEducationFieldRepository EducationFieldRepository { get; }
+        public IEducationSubFieldRepository EducationSubFieldRepository { get; }
+        public IEducationLevelRepository EducationLevelRepository { get; }
         public IMenuRepository MenuRepository { get; }
         public ISitePageRepository SitePageRepository { get; }
         public IQuickAccessRepository QuickAccessRepository { get; }

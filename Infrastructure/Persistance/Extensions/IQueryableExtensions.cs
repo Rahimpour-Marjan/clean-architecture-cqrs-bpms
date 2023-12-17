@@ -205,6 +205,166 @@ namespace Infrastructure.Persistance.Extensions
             return query;
         }
 
+        //Search Person
+        public static string ApplyFiltering(this string query, QueryFilter? queryFilter, MakmonDbContext _db)
+        {
+            var numericType = "integer,decimal,float";
+            string filterString = "";
+            string treeFilterString = "";
+            if (queryFilter != null)
+            {
+                if (queryFilter.QueryFilterItem != null && queryFilter.QueryFilterItem.Any())
+                {
+                    int i = 0;
+                    filterString = "";
+                    int queryFilterCount = queryFilter.QueryFilterItem.Count - queryFilter.QueryFilterItem.Count(x => x.ColumnName != null && x.ColumnName.StartsWith("Tree"));
+                    foreach (var item in queryFilter.QueryFilterItem)
+                    {
+                        if (!string.IsNullOrEmpty(item.ColumnName))
+                        {
+                            var columnName = item.ColumnName;
+                            var columnType = "";
+                            var searchText = "";
+                            var condition = "";
+
+                            if (columnName == "PmRequierment")
+                                columnName = "PMRequierment";
+
+                            var propertyWithId = typeof(Person).GetProperty(columnName + "Id");
+                            var propertyWithoutId = typeof(Person).GetProperty(columnName);
+
+                            i += 1;
+                            if (!string.IsNullOrEmpty(item.SearchText))
+                            {
+                                if (propertyWithId != null && propertyWithoutId != null)
+                                {
+                                    columnName = propertyWithoutId.Name + ".Title";
+                                    columnType = "string";
+                                }
+                                else if (propertyWithId == null && propertyWithoutId != null)
+                                {
+                                    columnName = nameof(Person) + "." + propertyWithoutId.Name;
+                                    columnType = propertyWithoutId.PropertyType.ToString();
+                                }
+                                searchText = item.SearchText;
+                                if (item.ConditionType == null)
+                                {
+                                    if (!numericType.Contains(columnType.ToLower()))
+                                        item.ConditionType = ConditionType.Contains;
+                                    else
+                                        item.ConditionType = ConditionType.Equal;
+                                }
+
+                                switch (item.ConditionType)
+                                {
+                                    case ConditionType.Equal:
+                                        {
+                                            condition = "=";
+                                            searchText = "N'" + searchText.ToString() + "'";
+                                        }
+                                        break;
+                                    case ConditionType.NotEqual:
+                                        {
+                                            condition = "<>";
+                                            searchText = "N'" + searchText.ToString() + "'";
+                                        }
+                                        break;
+                                    case ConditionType.Contains:
+                                        {
+                                            condition = "LIKE";
+                                            searchText = "N'%" + searchText.ToString() + "%'";
+                                        }
+                                        break;
+                                    case ConditionType.NotContains:
+                                        {
+                                            condition = "NOT LIKE";
+                                            searchText = "N'%" + searchText.ToString() + "%'";
+                                        }
+                                        break;
+                                    default:
+                                        searchText = !numericType.Contains(columnType.ToLower()) ? "'" + searchText + "'" : searchText;
+                                        break;
+                                }
+
+                                filterString = filterString + " " + columnName + " " + condition + " " + searchText + " ";
+                                if (i != queryFilterCount || (item.Filter != null && item.Filter.Any()))
+                                    filterString = filterString + " AND ";
+                            }
+
+                            if (item.Filter != null && item.Filter.Any())
+                            {
+                                if (propertyWithId != null)
+                                    columnName = nameof(Person) + "." + propertyWithId.Name;
+                                else if (propertyWithoutId != null)
+                                    columnName = nameof(Person) + "." + propertyWithoutId.Name;
+                                if (propertyWithId != null || propertyWithoutId != null)
+                                {
+                                    condition = "IN";
+                                    searchText = "(" + string.Join(",", item.Filter) + ")";
+
+                                    filterString = filterString + " " + columnName + " " + condition + " " + searchText + " ";
+
+                                    if (i != queryFilterCount)
+                                        filterString = filterString + " AND ";
+                                }
+                            }
+
+                            // Search by Column blank value
+                            if (item.Blank != null && item.Blank == true)
+                            {
+                                if (propertyWithId != null && propertyWithoutId != null)
+                                {
+                                    columnName = propertyWithoutId.Name + ".Title";
+                                }
+                                else if (propertyWithId == null && propertyWithoutId != null)
+                                {
+                                    columnName = propertyWithoutId.Name;
+                                }
+
+                                if ((item.Filter != null && item.Filter.Any()) || item.SearchText != null)
+                                    filterString = filterString + " || ";
+
+
+                                filterString = filterString + "x." + columnName + " == null";
+
+                                if (i != queryFilterCount)
+                                    filterString = filterString + " AND ";
+                            }
+
+                            if (item.FromDate != null || item.ToDate != null)
+                            {
+                                if (item.FromDate != null && item.ToDate != null)
+                                {
+                                    columnName = nameof(Person) + "." + item.ColumnName;
+                                    filterString = filterString + "(" + columnName + " >= " + "'" + (item.FromDate ?? DateTime.Now).Date + "'" + " AND " + columnName + " <= " + "'" + (item.ToDate ?? DateTime.Now).Date + "'" + ")";
+                                }
+                                else if (item.FromDate != null)
+                                {
+                                    filterString = filterString + "(" + columnName + " >= " + "'" + (item.FromDate ?? DateTime.Now).Date + "'" + ")";
+                                }
+                                else if (item.ToDate != null)
+                                {
+                                    filterString = filterString + "(" + columnName + " <= " + "'" + (item.ToDate ?? DateTime.Now).Date + "'" + ")";
+                                }
+
+                                if (i != queryFilterCount)
+                                    filterString = filterString + " AND ";
+                            }
+                        }
+
+                    }
+                    if (filterString != "")
+                        filterString = "(" + filterString + ")";
+
+
+                    if (treeFilterString != "")
+                        filterString = "(" + treeFilterString + ")" + (filterString != "" ? " AND " + filterString : "");
+                    query = query + " where " + filterString;
+                }
+            }
+
+            return query;
+        }
         public static IQueryable<T> ApplyOrdering<T>(this IQueryable<T> query, QueryFilter? queryFilter, string type)
         {
             var expression = "x=>";

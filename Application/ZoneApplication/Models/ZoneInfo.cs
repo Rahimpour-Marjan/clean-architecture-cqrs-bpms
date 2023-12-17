@@ -1,5 +1,7 @@
 ﻿
 using Application.CityApplication.Models;
+using Application.CountryApplication.Models;
+using Application.StateApplication.Models;
 
 namespace Application.ZoneApplication.Models
 {
@@ -7,6 +9,8 @@ namespace Application.ZoneApplication.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public CountryInfo Country { get; set; }
+        public StateInfo State { get; set; }
         public CityInfo City { get; set; }
         public string Code { get; set; }
         public string? ZipCode { get; set; }

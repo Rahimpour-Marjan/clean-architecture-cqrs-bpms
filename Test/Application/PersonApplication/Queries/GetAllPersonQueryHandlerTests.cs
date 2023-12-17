@@ -29,7 +29,7 @@ namespace Test.Application.Personpplication.Queries
 
             var queryFilter = new QueryFilter();
             var result = new Tuple<IList<Person>, int>(person.ToList(), 1);
-            personRepositoryMock.Setup(pr => pr.FindAll(queryFilter).Result).Returns(result);
+            //personRepositoryMock.Setup(pr => pr.FindAll(queryFilter).Result).Returns(result);
 
             var getAllpersonQuery = new FindAllPersonQuery();
             var getAllpersonQueryHandler = new FindAllPersonQueryHandler(_uow, _mapper.Object);

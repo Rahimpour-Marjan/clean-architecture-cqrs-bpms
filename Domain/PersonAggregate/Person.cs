@@ -4,6 +4,10 @@ namespace Domain
 {
     public class Person
     {
+        protected Person()
+        {
+        }
+
         public Person(string firstName, string lastName, UserType userType,
             Gender? gender, DateTime? birthDate, string? nationalCode, string? phone,
             string? extraPhone1, string? extraPhone2, string? extraPhone3,
@@ -19,7 +23,7 @@ namespace Domain
             string? digitalSignatureUrl,
             string? resumeUrl,
             bool spacialAccount,bool isPublic,
-            int? packageId, int? educationFieldId, int? educationLevelId,
+            int? packageId, int? educationSubFieldId, int? educationLevelId,
             DateTime? employeementDate,DateTime? modifiedDate)
         {
             FirstName = firstName;
@@ -63,17 +67,14 @@ namespace Domain
             SpacialAccount = spacialAccount;
             IsPublic = isPublic;
             PackageId = packageId;
-            EducationFieldId = educationFieldId;
+            EducationSubFieldId = educationSubFieldId;
             EducationLevelId = educationLevelId;
             EmployeementDate = employeementDate;
             ModifiedDate = modifiedDate;
             CreateDate = DateTime.Now;
 
         }
-        protected Person()
-        {
-        }
-
+        
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -94,10 +95,19 @@ namespace Domain
         public string? WhatsApp { get; set; }
         public string? Linkedin { get; set; }
         public string? Facebook { get; set; }
+
         public int? CountryId { get; set; }
+        public Country? Country { get; set; }
+
         public int? StateId { get; set; }
+        public State? State { get; set; }
+
         public int? CityId { get; set; }
+        public City? City { get; set; }
+
         public int? ZoneId { get; set; }
+        public Zone? Zone { get; set; }
+
         public string? Address { get; set; }
         public string? LocationLong { get; set; }
         public string? LocationLat { get; set; }
@@ -117,9 +127,13 @@ namespace Domain
         public bool IsPublic { get; set; }
 
         public int? PackageId { get; set; }
+        public Package? Package { get; set; }
 
-        public int? EducationFieldId { get; set; }
+        public int? EducationSubFieldId { get; set; }
+        public EducationSubField? EducationSubField { get; set; }
+
         public int? EducationLevelId { get; set; }
+        public EducationLevel? EducationLevel { get; set; }
 
         public DateTime? EmployeementDate { get; set; }
         public DateTime? ModifiedDate { get; set; }

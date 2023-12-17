@@ -8,6 +8,7 @@ namespace Application.Person
         public PersonMapper()
         {
             CreateMap<Domain.Person, PersonInfo>();
+            CreateMap<Domain.PersonView, PersonView>();
         }
     }
 }

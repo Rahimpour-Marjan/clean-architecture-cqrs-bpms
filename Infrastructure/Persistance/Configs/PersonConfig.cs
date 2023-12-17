@@ -45,6 +45,8 @@ namespace Persistance.Configs
             builder.Property(f => f.DigitalSignatureUrl).HasMaxLength(100);
             builder.Property(f => f.ResumeUrl).HasMaxLength(100);
             builder.Property(f => f.WorkingHoursRate).HasColumnType("decimal(18,4)");
+            builder.Property(f => f.ModifiedDate).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
         }
     }
 }

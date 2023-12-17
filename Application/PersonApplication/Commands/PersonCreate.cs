@@ -51,7 +51,7 @@ namespace Application.Person.Commands
             public bool SpacialAccount { get; set; }
             public bool IsPublic { get; set; }
             public int? PackageId { get; set; }
-            public int? EducationFieldId { get; set; }
+            public int? EducationSubFieldId { get; set; }
             public int? EducationLevelId { get; set; }
             public DateTime? EmployeementDate { get; set; }
             public List<int> PostIds { get; set; }
@@ -90,7 +90,7 @@ namespace Application.Person.Commands
                                         request.Email, request.ExtraEmail, request.Fax, request.Website, request.Instagram, request.Telegram, request.WhatsApp, request.Linkedin, request.Facebook,
                                         request.CountryId, request.StateId, request.CityId, request.ZoneId, request.Address, request.LocationLong, request.LocationLat, request.Job, request.Company, request.CompanyNo,
                                         request.FatherName, request.PersonalNumber, request.IsActive, request.WorkingHoursRate, request.ReagentName, request.ReagentCode, request.ImageUrl, request.DigitalSignatureUrl, request.ResumeUrl, request.SpacialAccount,
-                                        request.IsPublic, request.PackageId, request.EducationFieldId, request.EducationLevelId, request.EmployeementDate, DateTime.Now);
+                                        request.IsPublic, request.PackageId, request.EducationSubFieldId, request.EducationLevelId, request.EmployeementDate, DateTime.Now);
 
                         var newPersonId = await _uow.PersonRepository.Create(person);
 

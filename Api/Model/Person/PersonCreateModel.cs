@@ -49,7 +49,7 @@ namespace Api.Model.Employee
         public bool SpacialAccount { get; set; }
         public bool IsPublic { get; set; }
         public int? PackageId { get; set; }
-        public int? EducationFieldId { get; set; }
+        public int? EducationSubFieldId { get; set; }
         public int? EducationLevelId { get; set; }
         public DateTime? EmployeementDate { get; set; }
 

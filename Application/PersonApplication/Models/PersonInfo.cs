@@ -1,4 +1,11 @@
-﻿
+﻿using Application.CityApplication.Models;
+using Application.CountryApplication.Models;
+using Application.EducationFieldApplication.Models;
+using Application.EducationLevelApplication.Models;
+using Application.EducationSubFieldApplication.Models;
+using Application.PackageApplication.Models;
+using Application.StateApplication.Models;
+using Application.ZoneApplication.Models;
 using Domain.Enums;
 
 namespace Application.Person.Models
@@ -25,10 +32,10 @@ namespace Application.Person.Models
         public string? WhatsApp { get; set; }
         public string? Linkedin { get; set; }
         public string? Facebook { get; set; }
-        public int? CountryId { get; set; }
-        public int? StateId { get; set; }
-        public int? CityId { get; set; }
-        public int? ZoneId { get; set; }
+        public CountryInfo? Country { get; set; }
+        public StateInfo? State { get; set; }
+        public CityInfo? City { get; set; }
+        public ZoneInfo? Zone { get; set; }
         public string? Address { get; set; }
         public string? LocationLong { get; set; }
         public string? LocationLat { get; set; }
@@ -46,9 +53,10 @@ namespace Application.Person.Models
         public string? ResumeUrl { get; set; }
         public bool SpacialAccount { get; set; }
         public bool IsPublic { get; set; }
-        public int? PackageId { get; set; }
-        public int? EducationFieldId { get; set; }
-        public int? EducationLevelId { get; set; }
+        public PackageInfo Package { get; set; }
+        public EducationFieldInfo? EducationField { get; set; }
+        public EducationSubFieldInfo? EducationSubField { get; set; }
+        public EducationLevelInfo? EducationLevel { get; set; }
 
         public DateTime? EmployeementDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
