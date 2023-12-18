@@ -10,9 +10,9 @@ namespace Application.User
         {
             CreateMap<Domain.User, UserInfo>()
                 .ForMember(dto => dto.Title, opt => opt.MapFrom(src =>
-                    src.Person.FirstName + " " + src.Person.LastName))
+                    src.Account.FirstName + " " + src.Account.LastName))
                  .ForMember(dto => dto.Email, opt => opt.MapFrom(src =>
-                    src.Person.Email));
+                    src.Account.Email));
 
             CreateMap<Domain.SiteAction, SiteActionInfo>();
         }

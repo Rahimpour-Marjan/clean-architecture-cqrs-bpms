@@ -13,7 +13,7 @@ namespace Application.User.Commands
             public string UserName { get; set; }
             public string Password { get; set; }
             public bool IsActive { get; set; }
-            public int PersonId { get; set; }
+            public int AccountId { get; set; }
             public int? ApiResultCode { get; set; }
             
         }
@@ -37,12 +37,12 @@ namespace Application.User.Commands
                 if (!checkPassword.Success)
                     return OperationResult<Response>.BuildFailure(checkPassword.ErrorMessage);
 
-                var person = await _uow.PersonRepository.FindById(request.PersonId);
-                if (person == null)
+                var Account = await _uow.AccountRepository.FindById(request.AccountId);
+                if (Account == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
 
                 var (hashedPassword, salt) = _authentication.GenerateHashPasswordAndSalt(request.Password);
-                //var user = new Domain.User(request.PersonId, request.UserName, hashedPassword, salt, person.Email??"", UserType.DynamicUser, request.IsActive, request.ApiResultCode);
+                //var user = new Domain.User(request.AccountId, request.UserName, hashedPassword, salt, Account.Email??"", UserType.DynamicUser, request.IsActive, request.ApiResultCode);
                 try
                 {
                     //var newUserId = await _uow.UserRepository.Create(user);

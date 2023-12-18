@@ -21,15 +21,15 @@ namespace Application.User.Queries.FindById
             var result = _mapper.Map<Domain.User, UserInfo>(model);
 
             var userPost = "";
-            if (model.Person != null)
+            if (model.Account != null)
             {
-                var post = model.Person.PersonJuncPosts.Select(x => x.Post).FirstOrDefault();
+                var post = model.Account.AccountJuncPosts.Select(x => x.Post).FirstOrDefault();
                 if (post != null)
                     userPost = post.Title;
 
                 result.Post = userPost;
-                var tempPost = model.Person.PersonJuncPosts.Select(x => x.Post);
-                result.Person.Posts = tempPost.ToList();
+                var tempPost = model.Account.AccountJuncPosts.Select(x => x.Post);
+                result.Account.Posts = tempPost.ToList();
 
             }
 

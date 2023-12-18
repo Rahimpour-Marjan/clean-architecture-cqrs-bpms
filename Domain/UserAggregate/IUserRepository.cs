@@ -12,7 +12,7 @@ namespace Infrastructure.Persistance.Repositories
         Task<User> FindByType(UserType userType);
         Task<IList<User>> FindAll();
         Task<IList<User>> FindAllByPost(int postId);
-        Task<IList<User>> FindAllByPerson(int personId);
+        Task<IList<User>> FindAllByAccount(int AccountId);
         Task<Tuple<IList<User>, int>> FindAll(QueryFilter? queryFilter);
         Task<User> FindByAuthInfo(string userName, string password);
         Task<List<SiteAction>?> FindAccess(int userId);

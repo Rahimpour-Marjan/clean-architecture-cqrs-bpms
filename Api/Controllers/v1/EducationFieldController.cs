@@ -25,7 +25,7 @@ namespace Api.Controllers
         }
 
         // GET: api/<UserController>
-        [CustomAuthorize(SiteAction.EducationField_View, SiteAction.Person_View)]
+        [CustomAuthorize(SiteAction.EducationField_View, SiteAction.Account_View)]
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery)
         {

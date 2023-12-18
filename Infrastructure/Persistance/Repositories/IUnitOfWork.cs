@@ -6,7 +6,7 @@ namespace Infrastructure.Persistance.Repositories
     {
         IUserRepository UserRepository { get; }
         IUnitRepository UnitRepository { get; }
-        IPersonRepository PersonRepository { get; }
+        IAccountRepository AccountRepository { get; }
         ICountryRepository CountryRepository { get; }
         IStateRepository StateRepository { get; }
         ICityRepository CityRepository { get; }
@@ -16,7 +16,7 @@ namespace Infrastructure.Persistance.Repositories
         IEducationSubFieldRepository EducationSubFieldRepository { get; }
         IEducationLevelRepository EducationLevelRepository { get; }
         IPostRepository PostRepository { get; }
-        IPersonAddressRepository PersonAddressRepository { get; }
+        IAccountAddressRepository AccountAddressRepository { get; }
         IMenuRepository MenuRepository { get; }
         ISitePageRepository SitePageRepository { get; }
         IQuickAccessRepository QuickAccessRepository { get; }
@@ -37,7 +37,7 @@ namespace Infrastructure.Persistance.Repositories
             _db = db;
             UserRepository = new UserRepository(_db);
             UnitRepository = new UnitRepository(_db);
-            PersonRepository = new PersonRepository(_db);
+            AccountRepository = new AccountRepository(_db);
             CountryRepository = new CountryRepository(_db);
             StateRepository = new StateRepository(_db);
             CityRepository = new CityRepository(_db);
@@ -47,7 +47,7 @@ namespace Infrastructure.Persistance.Repositories
             EducationSubFieldRepository = new EducationSubFieldRepository(_db);
             EducationLevelRepository = new EducationLevelRepository(_db);
             PostRepository = new PostRepository(_db);
-            PersonAddressRepository = new PersonAddressRepository(_db);
+            AccountAddressRepository = new AccountAddressRepository(_db);
             MenuRepository = new MenuRepository(_db);
             SitePageRepository = new SitePageRepository(_db);
             QuickAccessRepository = new QuickAccessRepository(_db);
@@ -61,7 +61,7 @@ namespace Infrastructure.Persistance.Repositories
 
         public IUserRepository UserRepository { get; }
         public IUnitRepository UnitRepository { get; }
-        public IPersonRepository PersonRepository { get; }
+        public IAccountRepository AccountRepository { get; }
         public ICountryRepository CountryRepository { get; }
         public IStateRepository StateRepository { get; }
         public ICityRepository CityRepository { get; }
@@ -71,7 +71,7 @@ namespace Infrastructure.Persistance.Repositories
         public IEducationSubFieldRepository EducationSubFieldRepository { get; }
         public IEducationLevelRepository EducationLevelRepository { get; }
         public IPostRepository PostRepository { get; }
-        public IPersonAddressRepository PersonAddressRepository { get; }
+        public IAccountAddressRepository AccountAddressRepository { get; }
         public IMenuRepository MenuRepository { get; }
         public ISitePageRepository SitePageRepository { get; }
         public IQuickAccessRepository QuickAccessRepository { get; }

@@ -1,5 +1,5 @@
 ﻿using Domain.Values;
-using Application.Person.Models;
+using Application.Account.Models;
 using Domain.Enums;
 
 namespace Application.Users.Models
@@ -15,6 +15,6 @@ namespace Application.Users.Models
         public string Email { get; set; }
         public bool IsActive { get; set; }
         public UserType? UserType { get; set; }
-        public PersonInfo Person { get; set; }
+        public AccountInfo Account { get; set; }
     }
 }

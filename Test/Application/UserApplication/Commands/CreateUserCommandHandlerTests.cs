@@ -20,7 +20,7 @@ namespace Test.Application.UserApplication.Commands
             {
                 UserName = "Test",
                 Password = "1234",
-                PersonId = 1,
+                AccountId = 1,
             };
 
             var createUserCommandHandler = new UserCreate.Handler(_uow, authserviceMock.Object);

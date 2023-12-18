@@ -29,7 +29,7 @@ namespace Api.Controllers.v1
         }
 
         // GET: api/<UserController>
-        [CustomAuthorize(SiteAction.Groups_View, SiteAction.Person_View, SiteAction.Users_View)]
+        [CustomAuthorize(SiteAction.Groups_View, SiteAction.Account_View, SiteAction.Users_View)]
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery)
         {
@@ -50,7 +50,7 @@ namespace Api.Controllers.v1
             return StatusCode((int)HttpStatusCode.OK, pagedReponse);
         }
 
-        [CustomAuthorize(SiteAction.Groups_View, SiteAction.Person_View, SiteAction.Users_View)]
+        [CustomAuthorize(SiteAction.Groups_View, SiteAction.Account_View, SiteAction.Users_View)]
         [HttpGet("GetColumnFilter")]
         public async Task<IActionResult> GetColumnFilter(string columnName, int pageNumber = 1, int pageSize = 10)
         {
@@ -103,7 +103,7 @@ namespace Api.Controllers.v1
             });
         }
 
-        [CustomAuthorize(SiteAction.Groups_View, SiteAction.Person_View, SiteAction.Users_View)]
+        [CustomAuthorize(SiteAction.Groups_View, SiteAction.Account_View, SiteAction.Users_View)]
         [HttpGet("GetTree")]
         public async Task<IActionResult> GetTree()
         {

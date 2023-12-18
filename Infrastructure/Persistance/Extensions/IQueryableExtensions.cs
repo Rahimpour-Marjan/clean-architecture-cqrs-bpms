@@ -36,9 +36,9 @@ namespace Infrastructure.Persistance.Extensions
                                 // Search by Column Text
                                 if (item.SearchText != null)
                                 {
-                                    if (item.ColumnName == "Posts" && query.ElementType.Name == nameof(Person))
+                                    if (item.ColumnName == "Posts" && query.ElementType.Name == nameof(Account))
                                     {
-                                        expression = expression + "x.PersonJuncPosts.Any(p=>p.Post.Title.Contains(\"" + item.SearchText + "\"))";
+                                        expression = expression + "x.AccountJuncPosts.Any(p=>p.Post.Title.Contains(\"" + item.SearchText + "\"))";
                                     }
                                     else if (item.ColumnName == "Post" && query.ElementType.Name == nameof(UserGroup))
                                     {
@@ -72,10 +72,10 @@ namespace Infrastructure.Persistance.Extensions
                                 {
                                     var arrayName = "";
 
-                                    if (item.ColumnName == "Posts" && query.ElementType.Name == nameof(Person))
+                                    if (item.ColumnName == "Posts" && query.ElementType.Name == nameof(Account))
                                     {
                                         arrayName = item.ColumnName + "array";
-                                        expression = expression + "x.PersonJuncPosts.Any(p=> " + arrayName + ".Contains(p.PostId))";
+                                        expression = expression + "x.AccountJuncPosts.Any(p=> " + arrayName + ".Contains(p.PostId))";
                                     }
                                     else if (item.ColumnName == nameof(Post) && query.ElementType.Name == nameof(UserGroup))
                                     {
@@ -124,7 +124,7 @@ namespace Infrastructure.Persistance.Extensions
                                         }
                                         args.Add(arrayName, boolArray);
                                     }
-                                    else if (item.ColumnName == nameof(Gender) && query.ElementType.Name == nameof(Person))
+                                    else if (item.ColumnName == nameof(Gender) && query.ElementType.Name == nameof(Account))
                                     {
                                         var enumArray = item.Filter.Cast<Gender>().ToArray();
                                         args.Add(arrayName, enumArray);
@@ -156,8 +156,8 @@ namespace Infrastructure.Persistance.Extensions
 
                                     if ((item.Filter != null && item.Filter.Any()) || item.SearchText != null)
                                         expression = expression + " || ";
-                                    else if (item.ColumnName == "Posts" && query.ElementType.Name == nameof(Person))
-                                        expression = expression + "!x.PersonJuncPosts.Any()";
+                                    else if (item.ColumnName == "Posts" && query.ElementType.Name == nameof(Account))
+                                        expression = expression + "!x.AccountJuncPosts.Any()";
                                     else
                                         expression = expression + "x." + columnName + " == null";
 
@@ -205,7 +205,7 @@ namespace Infrastructure.Persistance.Extensions
             return query;
         }
 
-        //Search Person
+        //Search Account
         public static string ApplyFiltering(this string query, QueryFilter? queryFilter, MakmonDbContext _db)
         {
             var numericType = "integer,decimal,float";
@@ -230,8 +230,8 @@ namespace Infrastructure.Persistance.Extensions
                             if (columnName == "PmRequierment")
                                 columnName = "PMRequierment";
 
-                            var propertyWithId = typeof(Person).GetProperty(columnName + "Id");
-                            var propertyWithoutId = typeof(Person).GetProperty(columnName);
+                            var propertyWithId = typeof(Account).GetProperty(columnName + "Id");
+                            var propertyWithoutId = typeof(Account).GetProperty(columnName);
 
                             i += 1;
                             if (!string.IsNullOrEmpty(item.SearchText))
@@ -243,7 +243,7 @@ namespace Infrastructure.Persistance.Extensions
                                 }
                                 else if (propertyWithId == null && propertyWithoutId != null)
                                 {
-                                    columnName = nameof(Person) + "." + propertyWithoutId.Name;
+                                    columnName = nameof(Account) + "." + propertyWithoutId.Name;
                                     columnType = propertyWithoutId.PropertyType.ToString();
                                 }
                                 searchText = item.SearchText;
@@ -294,9 +294,9 @@ namespace Infrastructure.Persistance.Extensions
                             if (item.Filter != null && item.Filter.Any())
                             {
                                 if (propertyWithId != null)
-                                    columnName = nameof(Person) + "." + propertyWithId.Name;
+                                    columnName = nameof(Account) + "." + propertyWithId.Name;
                                 else if (propertyWithoutId != null)
-                                    columnName = nameof(Person) + "." + propertyWithoutId.Name;
+                                    columnName = nameof(Account) + "." + propertyWithoutId.Name;
                                 if (propertyWithId != null || propertyWithoutId != null)
                                 {
                                     condition = "IN";
@@ -335,7 +335,7 @@ namespace Infrastructure.Persistance.Extensions
                             {
                                 if (item.FromDate != null && item.ToDate != null)
                                 {
-                                    columnName = nameof(Person) + "." + item.ColumnName;
+                                    columnName = nameof(Account) + "." + item.ColumnName;
                                     filterString = filterString + "(" + columnName + " >= " + "'" + (item.FromDate ?? DateTime.Now).Date + "'" + " AND " + columnName + " <= " + "'" + (item.ToDate ?? DateTime.Now).Date + "'" + ")";
                                 }
                                 else if (item.FromDate != null)

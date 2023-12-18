@@ -95,11 +95,11 @@ namespace Api.Enum
         Department_Edit,
         Department_Delete,
 
-        //Person Permission
-        Person_View,
-        Person_Add,
-        Person_Edit,
-        Person_Delete,
+        //Account Permission
+        Account_View,
+        Account_Add,
+        Account_Edit,
+        Account_Delete,
 
         //Country Permission
         Country_View,
@@ -149,11 +149,11 @@ namespace Api.Enum
         EducationLevel_Edit,
         EducationLevel_Delete,
 
-        //PersonAddress Permission
-        PersonAddress_View,
-        PersonAddress_Add,
-        PersonAddress_Edit,
-        PersonAddress_Delete,
+        //AccountAddress Permission
+        AccountAddress_View,
+        AccountAddress_Add,
+        AccountAddress_Edit,
+        AccountAddress_Delete,
 
         //Skill Permission
         Skill_View,

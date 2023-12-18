@@ -20,7 +20,7 @@ namespace Persistance.Configs
             builder.Property(f => f.IsArchive).IsRequired();
             builder.Property(f => f.IsDeleted).IsRequired();
 
-            builder.HasOne(x => x.Person)
+            builder.HasOne(x => x.Account)
                       .WithMany(x => x.Notifications)
                       .HasForeignKey(x => x.ReceiverId)
                       .OnDelete(DeleteBehavior.NoAction);

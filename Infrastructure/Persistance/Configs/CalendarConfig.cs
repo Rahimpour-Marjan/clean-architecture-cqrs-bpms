@@ -20,7 +20,7 @@ namespace Persistance.Configs
             builder.Property(f => f.NotificationDate).HasColumnType("char(10)");
             builder.Property(f => f.NotificationTime).HasColumnType("char(8)");
 
-            builder.HasOne(x => x.Person)
+            builder.HasOne(x => x.Account)
                       .WithMany(x => x.Calendars)
                       .HasForeignKey(x => x.SenderId)
                       .OnDelete(DeleteBehavior.NoAction);

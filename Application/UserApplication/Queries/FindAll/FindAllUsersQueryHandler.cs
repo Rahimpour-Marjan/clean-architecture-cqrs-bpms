@@ -33,8 +33,8 @@ namespace Application.User.Queries.FindAll
                     int i = 0;
                     foreach (var item in result)
                     {
-                        var tempPost = model.Item1[i].Person.PersonJuncPosts.Select(x => x.Post);
-                        item.Person.Posts = tempPost.ToList();
+                        var tempPost = model.Item1[i].Account.AccountJuncPosts.Select(x => x.Post);
+                        item.Account.Posts = tempPost.ToList();
                         i++;
                     }
                 }

@@ -26,7 +26,7 @@ namespace Api.Controllers.v1
         }
 
         // GET: api/<UserController>
-        [CustomAuthorize(SiteAction.EducationSubField_View, SiteAction.Person_View)]
+        [CustomAuthorize(SiteAction.EducationSubField_View, SiteAction.Account_View)]
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery,int? educationFieldId)
         {
@@ -61,7 +61,7 @@ namespace Api.Controllers.v1
 
         }
 
-        [CustomAuthorize(SiteAction.EducationSubField_View, SiteAction.Person_View)]
+        [CustomAuthorize(SiteAction.EducationSubField_View, SiteAction.Account_View)]
         [HttpGet("GetColumnFilter")]
         public async Task<IActionResult> GetColumnFilter(string columnName, int pageNumber = 1, int pageSize = 10)
         {

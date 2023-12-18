@@ -49,16 +49,16 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Ticket> FindById(int id)
         {
-            return await _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x=>x.Person).Include(x => x.TicketAttachments)
+            return await _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x=>x.Account).Include(x => x.TicketAttachments)
                 .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketCreator).ThenInclude(x=>x.Person).OrderBy(x => x.TicketCreateDate)
+                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketCreator).ThenInclude(x=>x.Account).OrderBy(x => x.TicketCreateDate)
                 .FirstOrDefaultAsync(x=>x.Id==id);
         }
         public async Task<Tuple<IList<Ticket>, int>> FindAll(int userId,bool isAdmin, QueryFilter? queryFilter)
         {
-            var query = _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x=>x.Person).Include(x => x.TicketAttachments)
+            var query = _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x=>x.Account).Include(x => x.TicketAttachments)
                 .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketCreator).ThenInclude(x=>x.Person)
+                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketCreator).ThenInclude(x=>x.Account)
                 .Where(x=>(isAdmin == true || x.TicketCreatorId == userId) && x.TicketParentId == null).OrderBy(x=>x.TicketCreateDate)
                 .AsQueryable();
 
@@ -76,7 +76,7 @@ namespace Infrastructure.Persistance.Repositories
         {
             return await _db.Tickets
                         .Where(t => t.TicketCreatorId == UserId)
-                        .Include(t=>t.TicketAttachments).Include(x => x.TicketChilds).Include(x => x.TicketCreator).ThenInclude(x=>x.Person)
+                        .Include(t=>t.TicketAttachments).Include(x => x.TicketChilds).Include(x => x.TicketCreator).ThenInclude(x=>x.Account)
                         .ToListAsync();
         }
         public async Task Update(Ticket ticket)

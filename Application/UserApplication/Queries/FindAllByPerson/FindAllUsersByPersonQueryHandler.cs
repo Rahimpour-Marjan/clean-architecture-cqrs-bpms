@@ -1,18 +1,18 @@
 ﻿using MediatR;
 using Infrastructure.Persistance.Repositories;
 
-namespace Application.User.Queries.FindAllByPerson
+namespace Application.User.Queries.FindAllByAccount
 {
-    public class FindAllUsersByPersonQueryHandler : IRequestHandler<FindAllUsersByPersonQuery, IList<Domain.User>>
+    public class FindAllUsersByAccountQueryHandler : IRequestHandler<FindAllUsersByAccountQuery, IList<Domain.User>>
     {
         private readonly IUnitOfWork _uow;
-        public FindAllUsersByPersonQueryHandler(IUnitOfWork uow)
+        public FindAllUsersByAccountQueryHandler(IUnitOfWork uow)
         {
             _uow = uow;
         }
-        public async Task<IList<Domain.User>> Handle(FindAllUsersByPersonQuery request, CancellationToken cancellationToken)
+        public async Task<IList<Domain.User>> Handle(FindAllUsersByAccountQuery request, CancellationToken cancellationToken)
         {
-                var model = await _uow.UserRepository.FindAllByPerson(request.PersonId);
+                var model = await _uow.UserRepository.FindAllByAccount(request.AccountId);
 
                 return model.ToList();
         }

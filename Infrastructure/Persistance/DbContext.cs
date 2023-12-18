@@ -13,7 +13,7 @@ namespace Infrastructure.Persistance
 
         public DbSet<User> Users { get; set; }
         public DbSet<Unit> Units { get; set; }
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
@@ -23,8 +23,8 @@ namespace Infrastructure.Persistance
         public DbSet<EducationSubField> EducationSubFields { get; set; }
         public DbSet<EducationLevel> EducationLevels { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<PersonJuncPost> PersonJuncPost { get; set; }
-        public DbSet<PersonAddress> PersonAddresses { get; set; }
+        public DbSet<AccountJuncPost> AccountJuncPost { get; set; }
+        public DbSet<AccountAddress> AccountAddresses { get; set; }
         public DbSet<Menu> Menu { get; set; }
         public DbSet<SitePage> SitePage { get; set; }
         public DbSet<QuickAccess> QuickAccess { get; set; }
@@ -60,7 +60,7 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("Calendar").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("CalendarReceiver").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteMenu").StartsAt(1000).IncrementsBy(1);
-            builder.HasSequence<int>("Person").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("Account").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Country").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("State").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("City").StartsAt(1000).IncrementsBy(1);
@@ -70,7 +70,7 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("EducationSubField").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("EducationLevel").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Post").StartsAt(1000).IncrementsBy(1);
-            builder.HasSequence<int>("PersonAddress").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("AccountAddress").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MyQuickAccess").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteAction").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MySitePage").StartsAt(1000).IncrementsBy(1);

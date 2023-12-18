@@ -15,6 +15,6 @@ namespace Api.Model.User
         public bool IsActive { get; set; }
 
         [Required(ErrorMessage = "انتخاب کاربر ضروری می باشد")]
-        public int PersonId { get; set; }
+        public int AccountId { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using MediatR;
-namespace Application.User.Queries.FindAllByPerson
+namespace Application.User.Queries.FindAllByAccount
 {
-    public class FindAllUsersByPersonQuery : IRequest<IList<Domain.User>>
+    public class FindAllUsersByAccountQuery : IRequest<IList<Domain.User>>
     {
-        public int PersonId { get; set; }
+        public int AccountId { get; set; }
     }
 }

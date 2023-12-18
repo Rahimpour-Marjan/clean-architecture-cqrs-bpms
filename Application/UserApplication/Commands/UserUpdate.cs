@@ -14,7 +14,7 @@ namespace Application.User.Commands
             public int UserId { get; set; }
             public string UserName { get; set; }  
             public bool IsActive { get; set; }
-            public int PersonId { get; set; }
+            public int AccountId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -35,14 +35,14 @@ namespace Application.User.Commands
                 if (user.UserName != request.UserName && userIsExist != null)
                     return OperationResult<Response>.BuildFailure("نام کاربری تکراری می باشد.");
 
-                var person = await _uow.PersonRepository.FindById(request.PersonId);
-                if (person == null)
+                var Account = await _uow.AccountRepository.FindById(request.AccountId);
+                if (Account == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
 
                 user.UserName = request.UserName;
                 user.IsActive = request.IsActive;
-                user.Email = person.Email??"";
-                user.PersonId = request.PersonId;
+                user.Email = Account.Email??"";
+                user.AccountId = request.AccountId;
                 try
                 {
                     await _uow.UserRepository.Update(user);

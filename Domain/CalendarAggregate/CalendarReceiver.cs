@@ -16,6 +16,6 @@
         public int CalendarId { get; set; }
         public virtual Calendar Calendar { get; set; }
         public int ReceiverId { get; set; }
-        public virtual Person Person { get; set; }
+        public virtual Account Account { get; set; }
     }
 }
