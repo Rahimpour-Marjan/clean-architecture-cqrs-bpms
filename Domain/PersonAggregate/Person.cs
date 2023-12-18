@@ -144,5 +144,6 @@ namespace Domain
         public virtual ICollection<Calendar> Calendars { get; set; }
         public virtual ICollection<CalendarReceiver> CalendarReceivers { get; set; }
         public virtual ICollection<PersonJuncPost> PersonJuncPosts { get; set; }
+        public virtual ICollection<PersonAddress> PersonAddresses { get; set; }
     }
 }

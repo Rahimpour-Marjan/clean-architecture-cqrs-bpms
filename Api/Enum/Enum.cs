@@ -149,6 +149,12 @@ namespace Api.Enum
         EducationLevel_Edit,
         EducationLevel_Delete,
 
+        //PersonAddress Permission
+        PersonAddress_View,
+        PersonAddress_Add,
+        PersonAddress_Edit,
+        PersonAddress_Delete,
+
         //Skill Permission
         Skill_View,
         Skill_Add,

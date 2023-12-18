@@ -24,6 +24,7 @@ namespace Infrastructure.Persistance
         public DbSet<EducationLevel> EducationLevels { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PersonJuncPost> PersonJuncPost { get; set; }
+        public DbSet<PersonAddress> PersonAddresses { get; set; }
         public DbSet<Menu> Menu { get; set; }
         public DbSet<SitePage> SitePage { get; set; }
         public DbSet<QuickAccess> QuickAccess { get; set; }
@@ -69,6 +70,7 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("EducationSubField").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("EducationLevel").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Post").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("PersonAddress").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MyQuickAccess").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteAction").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MySitePage").StartsAt(1000).IncrementsBy(1);
