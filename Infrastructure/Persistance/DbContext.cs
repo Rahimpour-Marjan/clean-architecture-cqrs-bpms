@@ -25,6 +25,11 @@ namespace Infrastructure.Persistance
         public DbSet<Post> Posts { get; set; }
         public DbSet<AccountJuncPost> AccountJuncPost { get; set; }
         public DbSet<AccountAddress> AccountAddresses { get; set; }
+        public DbSet<Bank> Banks { get; set; }
+        public DbSet<AccountCheck> AccountChecks { get; set; }
+        public DbSet<CurrencyType> CurrencyTypes { get; set; }
+        public DbSet<AccountCredit> AccountCredits { get; set; }
+        public DbSet<CreditPayment> CreditPayments { get; set; }
         public DbSet<Menu> Menu { get; set; }
         public DbSet<SitePage> SitePage { get; set; }
         public DbSet<QuickAccess> QuickAccess { get; set; }
@@ -71,6 +76,11 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("EducationLevel").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Post").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("AccountAddress").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("Bank").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("AccountCheck").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("CurrencyType").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("AccountCredit").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("CreditPayment").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MyQuickAccess").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("SiteAction").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("MySitePage").StartsAt(1000).IncrementsBy(1);

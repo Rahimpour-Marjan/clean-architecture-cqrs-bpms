@@ -8,7 +8,9 @@ namespace Application.ZoneApplication
     {
         public ZoneMapper()
         {
-            CreateMap<Zone, ZoneInfo>();
+            CreateMap<Zone, ZoneInfo>()
+                 .ForMember(dto => dto.Country, opt => opt.MapFrom(src => src.City.State.Country))
+                 .ForMember(dto => dto.State, opt => opt.MapFrom(src => src.City.State));
         }
     }
 }

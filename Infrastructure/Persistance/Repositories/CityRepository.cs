@@ -21,7 +21,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Tuple<IList<City>, int>> FindAll(QueryFilter? queryFilter)
         {
-            var query = _db.Cities.AsQueryable();
+            var query = _db.Cities.Include(x=>x.State).ThenInclude(x=>x.Country).AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);
 
@@ -36,7 +36,7 @@ namespace Infrastructure.Persistance.Repositories
         public async Task<City> FindById(int id)
         {
             #pragma warning disable CS8603 // Possible null reference return.
-            return await _db.Cities.FindAsync(id);
+            return await _db.Cities.Include(x => x.State).ThenInclude(x => x.Country).FirstOrDefaultAsync(x=>x.Id == id);
         }
 
         public async Task<FilterResponse> FilterAllState(int start, int length)

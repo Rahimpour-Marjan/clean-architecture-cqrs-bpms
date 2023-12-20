@@ -8,7 +8,8 @@ namespace Application.CityApplication
     {
         public CityMapper()
         {
-            CreateMap<City, CityInfo>();
+            CreateMap<City, CityInfo>()
+                .ForMember(dto => dto.Country, opt => opt.MapFrom(src => src.State.Country));
         }
     }
 }

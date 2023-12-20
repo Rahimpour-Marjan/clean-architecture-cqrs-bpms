@@ -25,7 +25,7 @@ namespace Api.Controllers.v1
             _uriService = uriService;
         }
 
-        [CustomAuthorize(SiteAction.Account_View, SiteAction.Users_View, SiteAction.WorkRequestCartable_SkillsTabView)]
+        [CustomAuthorize(SiteAction.Account_View, SiteAction.Users_View)]
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery)
         {
@@ -56,7 +56,7 @@ namespace Api.Controllers.v1
             }
         }
 
-        [CustomAuthorize(SiteAction.Account_View, SiteAction.Users_View, SiteAction.WorkRequestCartable_SkillsTabView)]
+        [CustomAuthorize(SiteAction.Account_View, SiteAction.Users_View)]
         [HttpGet("GetColumnFilter")]
         public async Task<IActionResult> GetColumnFilter(string columnName, int pageNumber = 1, int pageSize = 10)
         {

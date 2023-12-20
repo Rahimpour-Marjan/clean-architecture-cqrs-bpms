@@ -159,4 +159,23 @@ namespace Domain.Enums
         User
     }
 
+    public enum PaymentStatus
+    {
+        [Display(Name = "پرداخت شده")]
+        Paid = 0,
+        [Display(Name = "نا موفق")]
+        UnPaid = 1,
+        [Display(Name = "لغو شده")]
+        Canceled = 2,
+    }
+
+    public enum CreditType
+    {
+        [Display(Name = "واریز")]
+        Deposit = 0,
+        [Display(Name = "برداشت")]
+        Withdraw = 1,
+        [Display(Name = "معوق")]
+        Overdue = 2,
+    }
 }

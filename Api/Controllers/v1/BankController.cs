@@ -1,0 +1,192 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Application.BankApplication.Commands;
+using Api.Model.Bank;
+using Application.BankApplication.Queries.FindAll;
+using Application.BankApplication.Queries.FindById;
+using System.Net;
+using Application.Helpers;
+using Application.Services;
+using Api.Enum;
+using Api.Authorization;
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace Api.Controllers.v1
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class BankController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+        private readonly IUriService _uriService;
+        public BankController(IMediator mediator, IUriService uriService)
+        {
+            _mediator = mediator;
+            _uriService = uriService;
+        }
+
+        // GET: api/<UserController>
+        [CustomAuthorize(SiteAction.Bank_View)]
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery)
+        {
+            var model = await _mediator.Send(new FindAllBankQuery
+            {
+                Query = apiQuery.Query,
+            });
+
+            if (apiQuery.Query == null)
+                return StatusCode((int)HttpStatusCode.OK, new ApiResponse
+                {
+                    Data = model.Result,
+                });
+
+            var route = Request.Path.Value;
+            var pagedReponse = PaginationHelper.CreatePagedResponse(model.Result, model.PageNumber, model.PageSize, model.ResultCount, _uriService, route, null);
+
+            return StatusCode((int)HttpStatusCode.OK, pagedReponse);
+        }
+
+        //GET api/<UserController>/5
+        [CustomAuthorize(SiteAction.Bank_View)]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var model = await _mediator.Send(new FindBankByIdQuery
+            {
+                Id = id
+            });
+            return StatusCode((int)HttpStatusCode.OK, new ApiResponse
+            {
+                Data = model,
+            });
+        }
+
+        // POST api/<UserController>
+        [CustomAuthorize(SiteAction.Bank_Add)]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] BankInfoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _mediator.Send(new BankCreate.Command
+                {
+                    Title = model.Title,
+                    IsActive = model.IsActive,
+                    ImageUrl = model.ImageUrl,
+                });
+
+                if (!result.Success)
+                {
+                    return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
+                    {
+                        Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) },
+                    });
+                }
+                else
+                {
+                    return StatusCode((int)HttpStatusCode.OK, new ApiResponse
+                    {
+                        Data = result.Result.BankId,
+                    });
+                }
+            }
+            else
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
+                {
+                    Errors = ModelState.GetModelErrors(),
+                });
+            }
+        }
+
+        // PUT api/<UserController>/5
+        [CustomAuthorize(SiteAction.Bank_Edit)]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] BankInfoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _mediator.Send(new BankUpdate.Command
+                {
+                    BankId = id,
+                    Title = model.Title,
+                    IsActive = model.IsActive,
+                    ImageUrl = model.ImageUrl,
+                });
+
+                if (!result.Success)
+                {
+                    return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
+                    {
+                        Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) },
+                    });
+                }
+                else
+                {
+                    return StatusCode((int)HttpStatusCode.OK, new ApiResponse
+                    {
+                        Data = result.Result.BankId,
+                    });
+                }
+            }
+            else
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
+                {
+                    Errors = ModelState.GetModelErrors(),
+                });
+            }
+        }
+
+        [CustomAuthorize(SiteAction.Bank_Delete)]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _mediator.Send(new BankDelete.Command
+            {
+                BankId = id
+            });
+
+            if (!result.Success)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
+                {
+                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) },
+                });
+            }
+            else
+            {
+                return StatusCode((int)HttpStatusCode.OK, new ApiResponse
+                {
+                    Data = result.Result.BankId,
+                });
+            }
+        }
+
+        [CustomAuthorize(SiteAction.Bank_Delete)]
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int[] ids)
+        {
+            var result = await _mediator.Send(new BankDeleteAll.Command
+            {
+                BankIds = ids
+            });
+
+            if (!result.Success)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
+                {
+                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) },
+                });
+            }
+            else
+            {
+                return StatusCode((int)HttpStatusCode.OK, new ApiResponse
+                {
+                    Data = result.Result.Result,
+                });
+            }
+        }
+    }
+}
