@@ -13,7 +13,7 @@ namespace Persistance.Configs
             builder.Property(f => f.CalendarId).IsRequired();
             builder.Property(f => f.ReceiverId).IsRequired();
 
-            builder.HasOne(x => x.Person)
+            builder.HasOne(x => x.Account)
                       .WithMany(x => x.CalendarReceivers)
                       .HasForeignKey(x => x.ReceiverId)
                       .OnDelete(DeleteBehavior.NoAction);

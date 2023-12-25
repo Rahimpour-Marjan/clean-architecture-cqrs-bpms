@@ -1,0 +1,146 @@
+﻿using Domain;
+using Domain.Common;
+using Domain.Resources;
+using Infrastructure.Persistance.Extensions;
+using Microsoft.EntityFrameworkCore;
+
+namespace Infrastructure.Persistance.Repositories
+{
+    public class AccountAddressRepository : IAccountAddressRepository
+    {
+        private readonly MakmonDbContext _db;
+
+        public AccountAddressRepository(MakmonDbContext db)
+        {
+            _db = db;
+        }
+        public async Task<int> Create(AccountAddress accountAddress)
+        {
+            var result = await _db.AccountAddresses.AddAsync(accountAddress);
+            return result.Entity.Id;
+        }
+        public async Task<Tuple<IList<AccountAddress>, int>> FindAll(QueryFilter? queryFilter)
+        {
+            var query = _db.AccountAddresses.Include(x=>x.Account).Include(x => x.Country).Include(x => x.State).Include(x => x.City).Include(x => x.Zone).AsQueryable();
+
+            query = query.ApplyFiltering(queryFilter);
+
+            var totalRecords = query.Count();
+
+            query = query.ApplyOrdering(queryFilter, "Entity");
+
+            query = query.ApplyPaging(queryFilter);
+
+            return new Tuple<IList<AccountAddress>, int>(await query.ToListAsync(), totalRecords);
+        }
+        public async Task<AccountAddress> FindById(int id)
+        {
+            #pragma warning disable CS8603 // Possible null reference return.
+            return await _db.AccountAddresses.Include(x => x.Account).Include(x => x.Country).Include(x => x.State).Include(x => x.City).Include(x => x.Zone).FirstOrDefaultAsync(x=>x.Id == id);
+        }
+
+        public async Task<FilterResponse> FilterAllAccount(int start, int length)
+        {
+            var q = from p in _db.Accounts
+                    join pa in _db.AccountAddresses on p.Id equals pa.AccountId
+                    select new FilterResponseData
+                    {
+                        Id = p.Id,
+                        Title = p.FirstName + " " + p.LastName,
+                    };
+            return new FilterResponse
+            {
+                Length = length,
+                Start = start,
+                TotalRecords = q.Distinct().Count(),
+                Data = await q.Distinct().Skip((start - 1) * length).Take(length).ToListAsync()
+            };
+        }
+
+        public async Task<FilterResponse> FilterAllCountry(int start, int length)
+        {
+            var q = from c in _db.Countries
+                    join pa in _db.AccountAddresses on c.Id equals pa.CountryId
+                    select new FilterResponseData
+                    {
+                        Id = c.Id,
+                        Title = c.Title
+                    };
+            return new FilterResponse
+            {
+                Length = length,
+                Start = start,
+                TotalRecords = q.Distinct().Count(),
+                Data = await q.Distinct().Skip((start - 1) * length).Take(length).ToListAsync()
+            };
+        }
+        public async Task<FilterResponse> FilterAllState(int start, int length)
+        {
+            var q = from st in _db.States
+                    join pa in _db.AccountAddresses on st.Id equals pa.StateId
+                    select new FilterResponseData
+                    {
+                        Id = st.Id,
+                        Title = st.Title
+                    };
+            return new FilterResponse
+            {
+                Length = length,
+                Start = start,
+                TotalRecords = q.Distinct().Count(),
+                Data = await q.Distinct().Skip((start - 1) * length).Take(length).ToListAsync()
+            };
+        }
+
+        public async Task<FilterResponse> FilterAllCity(int start, int length)
+        {
+            var q = from c in _db.Cities
+                    join pa in _db.AccountAddresses on c.Id equals pa.CityId
+                    select new FilterResponseData
+                    {
+                        Id = c.Id,
+                        Title = c.Title
+                    };
+            return new FilterResponse
+            {
+                Length = length,
+                Start = start,
+                TotalRecords = q.Distinct().Count(),
+                Data = await q.Distinct().Skip((start - 1) * length).Take(length).ToListAsync()
+            };
+        }
+
+        public async Task<FilterResponse> FilterAllZone(int start, int length)
+        {
+            var q = from z in _db.Zones
+                    join pa in _db.AccountAddresses on z.Id equals pa.ZoneId
+                    select new FilterResponseData
+                    {
+                        Id = z.Id,
+                        Title = z.Title
+                    };
+            return new FilterResponse
+            {
+                Length = length,
+                Start = start,
+                TotalRecords = q.Distinct().Count(),
+                Data = await q.Distinct().Skip((start - 1) * length).Take(length).ToListAsync()
+            };
+        }
+        public async Task Update(AccountAddress model)
+        {
+            _db.Entry((AccountAddress)model).State = EntityState.Modified;
+        }
+        public async Task Delete(int id)
+        {
+            var accountAddress = await FindById(id);
+
+            _db.Entry(accountAddress).State = EntityState.Deleted;
+        }
+        public async Task DeleteAll(int[] ids)
+        {
+            var accountAddresses = await _db.AccountAddresses.Where(x => ids.Contains(x.Id)).ToListAsync();
+            _db.AccountAddresses.RemoveRange(accountAddresses);
+        }
+    }
+}

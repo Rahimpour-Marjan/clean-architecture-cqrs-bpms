@@ -51,7 +51,7 @@ namespace Infrastructure.Persistance.Repositories
             var tree = new List<Tree>();
             if (user != null)
             {
-                var post = _db.PersonJuncPost.FirstOrDefault(x => x.PersonId == user.PersonId);
+                var post = _db.AccountJuncPost.FirstOrDefault(x => x.AccountId == user.AccountId);
                 if (post != null)
                 {
                     var userGroups = await _db.UserGroups.Where(x => x.PostJuncUserGroups.Any(a => a.PostId == post.PostId)).Include(x => x.UserGroupParent).Include(x => x.PostJuncUserGroups).ThenInclude(x => x.Post).ToListAsync();
@@ -102,10 +102,10 @@ namespace Infrastructure.Persistance.Repositories
                 var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
                 if (user != null)
                 {
-                    var person = await _db.Persons.Include(x => x.PersonJuncPosts).FirstOrDefaultAsync(x => x.Id == user.PersonId);
-                    if (person != null)
+                    var Account = await _db.Accounts.Include(x => x.AccountJuncPosts).FirstOrDefaultAsync(x => x.Id == user.AccountId);
+                    if (Account != null)
                     {
-                        var posts = person.PersonJuncPosts;
+                        var posts = Account.AccountJuncPosts;
                         if (posts != null)
                         {
                             foreach (var subitem in posts)

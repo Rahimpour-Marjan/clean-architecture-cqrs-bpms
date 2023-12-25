@@ -1,5 +1,5 @@
 ﻿using Domain.Values;
-using Application.Person.Models;
+using Application.Account.Models;
 
 namespace Application.Users.Models
 {

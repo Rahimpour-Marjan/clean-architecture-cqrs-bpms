@@ -5,12 +5,12 @@ using Application.CountryApplication.Models;
 
 namespace Application.CountryApplication.Queries.FindById
 {
-    class FindUnitByIdQueryHandler : IRequestHandler<FindCountryByIdQuery, CountryInfo>
+    class FindCountryByIdQueryHandler : IRequestHandler<FindCountryByIdQuery, CountryInfo>
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
 
-        public FindUnitByIdQueryHandler(IUnitOfWork uow, IMapper mapper)
+        public FindCountryByIdQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;
             _mapper = mapper;

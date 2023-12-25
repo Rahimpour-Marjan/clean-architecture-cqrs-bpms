@@ -21,13 +21,13 @@ namespace Infrastructure.Persistance.Repositories
         public async Task<IList<UserLog>> FindAll()
         {
             return await _db.UserLogs
-                            .Include(x => x.User).ThenInclude(x=>x.Person)
+                            .Include(x => x.User).ThenInclude(x=>x.Account)
                             .ToListAsync();
         }
         public async Task<Tuple<IList<UserLog>, int>> FindAll(int? userId, QueryFilter? queryFilter)
         {
             var query = _db.UserLogs.Where(x=> userId == null || x.UserId==userId)
-                            .Include(x => x.User).ThenInclude(x=>x.Person).AsQueryable();
+                            .Include(x => x.User).ThenInclude(x=>x.Account).AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);
 
@@ -42,7 +42,7 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<UserLog> FindById(int id)
         {
-            var userLog = await _db.UserLogs.Include(x => x.User).ThenInclude(x => x.Person).FirstOrDefaultAsync(a => a.Id == id);
+            var userLog = await _db.UserLogs.Include(x => x.User).ThenInclude(x => x.Account).FirstOrDefaultAsync(a => a.Id == id);
             if (userLog != null)
                 return userLog;
             return null;

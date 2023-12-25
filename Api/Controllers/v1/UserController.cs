@@ -129,7 +129,7 @@ namespace Api.Controllers
                     UserName = model.UserName,
                     Password = model.Password,
                     IsActive = model.IsActive,
-                    PersonId = model.PersonId
+                    AccountId = model.AccountId
                 });
 
                 if (!result.Success)
@@ -166,7 +166,7 @@ namespace Api.Controllers
                 {
                     UserId = id,
                     UserName = model.UserName,
-                    PersonId = model.PersonId,
+                    AccountId = model.AccountId,
                     IsActive = model.IsActive,
                 });
 

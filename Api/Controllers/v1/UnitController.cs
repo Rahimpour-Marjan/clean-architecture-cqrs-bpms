@@ -26,7 +26,7 @@ namespace Api.Controllers.v1
         }
 
         // GET: api/<UserController>
-        [CustomAuthorize(SiteAction.Unit_View, SiteAction.StorePart_View, SiteAction.Equipment_View)]
+        [CustomAuthorize(SiteAction.Unit_View, SiteAction.StorePart_View)]
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery)
         {

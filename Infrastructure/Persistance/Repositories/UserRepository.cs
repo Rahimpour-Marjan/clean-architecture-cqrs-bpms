@@ -22,25 +22,25 @@ namespace Infrastructure.Persistance.Repositories
         public async Task<IList<User>> FindAll()
         {
             return await _db.Users
-                            .Include(x => x.Person).ThenInclude(x => x.PersonJuncPosts).ThenInclude(x => x.Post)
+                            .Include(x => x.Account).ThenInclude(x => x.AccountJuncPosts).ThenInclude(x => x.Post)
                             .Where(x => x.UserType != Domain.Enums.UserType.SystemUser)
                             .ToListAsync();
         }
         public async Task<IList<User>> FindAllByPost(int postId)
         {
-            return await _db.Users.Include(x => x.Person).ThenInclude(x => x.PersonJuncPosts)
-                .ThenInclude(x => x.Post).Where(x => x.Person.PersonJuncPosts.Any(a => a.PostId == postId) && x.UserType != Domain.Enums.UserType.SystemUser).ToListAsync();
+            return await _db.Users.Include(x => x.Account).ThenInclude(x => x.AccountJuncPosts)
+                .ThenInclude(x => x.Post).Where(x => x.Account.AccountJuncPosts.Any(a => a.PostId == postId) && x.UserType != Domain.Enums.UserType.SystemUser).ToListAsync();
         }
 
-        public async Task<IList<User>> FindAllByPerson(int personId)
+        public async Task<IList<User>> FindAllByAccount(int AccountId)
         {
-            return await _db.Users.Include(x => x.Person).ThenInclude(x => x.PersonJuncPosts)
-                .ThenInclude(x => x.Post).Where(x => x.PersonId == personId && x.UserType != Domain.Enums.UserType.SystemUser).ToListAsync();
+            return await _db.Users.Include(x => x.Account).ThenInclude(x => x.AccountJuncPosts)
+                .ThenInclude(x => x.Post).Where(x => x.AccountId == AccountId && x.UserType != Domain.Enums.UserType.SystemUser).ToListAsync();
         }
         public async Task<Tuple<IList<User>, int>> FindAll(QueryFilter? queryFilter)
         {
             var query = _db.Users
-                            .Include(x => x.Person).ThenInclude(x => x.PersonJuncPosts).ThenInclude(x => x.Post)
+                            .Include(x => x.Account).ThenInclude(x => x.AccountJuncPosts).ThenInclude(x => x.Post)
                             .Where(x => x.UserType != Domain.Enums.UserType.SystemUser).AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);
@@ -55,7 +55,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<User> FindById(int id)
         {
-            var user = await _db.Users.Include(x => x.Person).ThenInclude(x => x.PersonJuncPosts).ThenInclude(x => x.Post).FirstOrDefaultAsync(a => a.Id == id);
+            var user = await _db.Users.Include(x => x.Account).ThenInclude(x => x.AccountJuncPosts).ThenInclude(x => x.Post).FirstOrDefaultAsync(a => a.Id == id);
             if (user != null)
                 return user;
             return null;
@@ -72,10 +72,10 @@ namespace Infrastructure.Persistance.Repositories
             var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
             if (user != null)
             {
-                var person = await _db.Persons.Include(x => x.PersonJuncPosts).FirstOrDefaultAsync(x => x.Id == user.PersonId);
-                if (person != null)
+                var Account = await _db.Accounts.Include(x => x.AccountJuncPosts).FirstOrDefaultAsync(x => x.Id == user.AccountId);
+                if (Account != null)
                 {
-                    var posts = person.PersonJuncPosts;
+                    var posts = Account.AccountJuncPosts;
                     if (posts != null)
                     {
                         foreach (var subitem in posts)
@@ -96,13 +96,13 @@ namespace Infrastructure.Persistance.Repositories
         {
             return await _db.Users
                             .Where(x => x.UserName == userName && x.UserType != Domain.Enums.UserType.SystemUser)
-                            .Include(x => x.Person)
+                            .Include(x => x.Account)
                             .FirstOrDefaultAsync();
         }
 
         public async Task<User> FindByType(UserType userType)
         {
-            return await _db.Users.Include(x => x.Person)
+            return await _db.Users.Include(x => x.Account)
                             .FirstOrDefaultAsync(x => x.UserType == userType);
         }
 

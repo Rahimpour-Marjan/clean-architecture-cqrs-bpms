@@ -9,6 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Application\EducationFieldApplication - Copy\**" />
+    <Compile Remove="Application\EducationFieldApplication\**" />
+    <Compile Remove="EducationLevelApplication\**" />
+    <EmbeddedResource Remove="Application\EducationFieldApplication - Copy\**" />
+    <EmbeddedResource Remove="Application\EducationFieldApplication\**" />
+    <EmbeddedResource Remove="EducationLevelApplication\**" />
+    <None Remove="Application\EducationFieldApplication - Copy\**" />
+    <None Remove="Application\EducationFieldApplication\**" />
+    <None Remove="EducationLevelApplication\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Application\EducationFieldApplication\Commands\EducationFieldCommandHandlerTests.cs" />
+    <Compile Include="Application\EducationFieldApplication\Queries\GetAllEducationFieldQueryHandlerTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.17.0" />
     <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />

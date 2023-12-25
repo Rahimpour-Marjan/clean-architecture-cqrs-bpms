@@ -29,7 +29,7 @@ namespace Domain
         public string EventDate { get; set; }
         public string EventTime { get; set; }
         public int SenderId { get; set; }
-        public virtual Person Person { get; set; }
+        public virtual Account Account { get; set; }
         public string? NotificationDate { get; set; }
         public string? NotificationTime { get; set; }
         public bool? HasTwoStepNotification { get; set; }

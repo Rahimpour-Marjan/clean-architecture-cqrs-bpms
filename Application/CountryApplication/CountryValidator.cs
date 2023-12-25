@@ -7,8 +7,8 @@ namespace Application.CountryApplication
     {
         public CountryValidator()
         {
-            RuleFor(u => u.Title).NotEmpty().WithMessage("Unit should have a Name.");
-            RuleFor(u => u.Code).NotEmpty().WithMessage("Unit should have a AbbreviatedTitle.");
+            RuleFor(u => u.Title).NotEmpty().WithMessage("Country should have a Title.");
+            RuleFor(u => u.Code).NotEmpty().WithMessage("Country should have a Code.");
         }
     }
 }

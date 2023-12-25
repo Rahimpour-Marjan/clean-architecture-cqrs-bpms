@@ -7,9 +7,9 @@ namespace Domain
     {
         protected User() { }
 
-        public User(int personId, string userName, string password, string salt, string email, UserType userType,bool isActive)
+        public User(int AccountId, string userName, string password, string salt, string email, UserType userType,bool isActive)
         {
-            PersonId = personId;
+            AccountId = AccountId;
             UserName = userName;
             Password = password;
             Salt = salt;
@@ -22,10 +22,10 @@ namespace Domain
         public string Password { get; set; }
         public string Salt { get; set; }
         public string Email { get; set; }
-        public int PersonId { get; set; }
+        public int AccountId { get; set; }
         public UserType? UserType { get; set; }
         public bool IsActive { get; set; }
-        public virtual Person Person { get; set; }
+        public virtual Account Account { get; set; }
         public string VerifyCode { get; set; }
         public int VerifyTryCount { get; set; }
         public DateTime? LastVerifyTryDateTime { get; set; }
