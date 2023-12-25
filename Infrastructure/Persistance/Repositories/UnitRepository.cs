@@ -34,7 +34,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Unit> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.Units.FindAsync(id);
         }
         public async Task Update(Unit model)

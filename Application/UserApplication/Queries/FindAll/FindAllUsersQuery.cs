@@ -1,10 +1,10 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.Users.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.User.Queries.FindAll
 {
-    public class FindAllUsersQuery:IRequest<FindAllQueryResponse<IList<UserInfo>>>
+    public class FindAllUsersQuery : IRequest<FindAllQueryResponse<IList<UserInfo>>>
     {
         public string? Query { get; set; }
     }

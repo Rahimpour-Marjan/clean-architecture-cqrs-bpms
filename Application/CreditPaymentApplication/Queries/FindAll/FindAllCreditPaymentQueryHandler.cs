@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance.Repositories;
+﻿using Application.Common;
 using Application.CreditPaymentApplication.Models;
-using Application.Common;
+using AutoMapper;
 using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.CreditPaymentApplication.Queries.FindAll
 {
@@ -11,7 +11,7 @@ namespace Application.CreditPaymentApplication.Queries.FindAll
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
-        
+
         public FindAllCreditPaymentQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;

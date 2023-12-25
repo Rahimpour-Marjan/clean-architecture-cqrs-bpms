@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Application.Users.Models;
+﻿using Application.SiteActionApplication.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
-using Domain;
-using Application.SiteActionApplication.Models;
+using MediatR;
 
 namespace Application.User.Queries.FindAccessById
 {

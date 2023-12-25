@@ -27,7 +27,7 @@ namespace Application.SitePage.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var sitepage = new Domain.SitePage(request.Title,request.Url,request.Icon,request.Priority,request.MenuId,request.Key);
+                var sitepage = new Domain.SitePage(request.Title, request.Url, request.Icon, request.Priority, request.MenuId, request.Key);
                 try
                 {
                     var newSitePageId = await _uow.SitePageRepository.Create(sitepage);

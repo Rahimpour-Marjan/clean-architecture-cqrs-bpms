@@ -1,15 +1,13 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.Notification.Models;
-using Api.Model.Notification;
-using Application.Notification.Commands;
-using Application.Notification.Queries.FindById;
-using Application.Notification.Queries.FindAll;
-using Domain;
-using System.Net;
-using Application.Users.Models;
+﻿using Api.Model.Notification;
 using Application.Helpers;
+using Application.Notification.Commands;
+using Application.Notification.Queries.FindAll;
+using Application.Notification.Queries.FindById;
 using Application.Services;
+using Application.Users.Models;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers
 {
@@ -74,11 +72,11 @@ namespace Api.Controllers
                     SenderId = userId,
                     Icon = model.Icon,
                     Link = model.Link,
-                    IsRead= _IsRead,
-                    IsStar= _IsStar,    
-                    IsDeleted=_IsDeleted,
-                    IsArchive= _IsArchive
-                   
+                    IsRead = _IsRead,
+                    IsStar = _IsStar,
+                    IsDeleted = _IsDeleted,
+                    IsArchive = _IsArchive
+
                 });
 
                 if (!result.Success)

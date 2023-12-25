@@ -1,5 +1,4 @@
-﻿using Domain.Values;
-using Application.Account.Models;
+﻿using Application.Account.Models;
 using Domain.Enums;
 
 namespace Application.Users.Models

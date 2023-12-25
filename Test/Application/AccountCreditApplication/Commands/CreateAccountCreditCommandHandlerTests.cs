@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.AccountCreditApplication.Commands;
 using Domain;
-using Application.AccountCreditApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.AccountCreditApplication.Commands
 {

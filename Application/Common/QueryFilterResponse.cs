@@ -1,5 +1,4 @@
-﻿using Domain.Enums;
-using Domain.Resources;
+﻿using Domain.Resources;
 using Newtonsoft.Json;
 
 namespace Application.Common
@@ -15,7 +14,7 @@ namespace Application.Common
                     queryFilter = queryFilter.Replace("true", "1");
                 if (queryFilter.Contains("false"))
                     queryFilter = queryFilter.Replace("false", "0");
-                var result=JsonConvert.DeserializeObject<QueryFilter>(queryFilter);
+                var result = JsonConvert.DeserializeObject<QueryFilter>(queryFilter);
                 if (result != null)
                     return result;
             }

@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using Application.SiteActionApplication.Models;
+﻿using Application.SiteActionApplication.Models;
 using Application.Users.Models;
+using AutoMapper;
 
 namespace Application.User
 {

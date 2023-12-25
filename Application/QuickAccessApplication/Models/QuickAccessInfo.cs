@@ -1,5 +1,4 @@
-﻿using Domain.Values;
-using Application.SitePage.Models;
+﻿using Application.SitePage.Models;
 
 namespace Application.QuickAccess.Models
 {

@@ -1,6 +1,4 @@
-﻿using Domain.Enums;
-
-namespace Domain
+﻿namespace Domain
 {
     public class UserGroup
     {

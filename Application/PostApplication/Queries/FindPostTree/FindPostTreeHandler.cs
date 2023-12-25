@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Domain.Resources;
 using Infrastructure.Persistance.Repositories;
-using Domain.Resources;
+using MediatR;
 
 namespace Application.PostApplication.Queries.FindPostTree
 {

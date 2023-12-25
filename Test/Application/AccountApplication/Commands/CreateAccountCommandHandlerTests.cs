@@ -1,11 +1,11 @@
-﻿using Moq;
-using Application.Account.Commands;
-using UnitTest.Common;
+﻿using Application.Account.Commands;
 using Domain;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.AccountApplication.Commands
 {
-    public class CreateAccountCommandHandlerTests: TestBase
+    public class CreateAccountCommandHandlerTests : TestBase
     {
         [Fact]
         [Trait("AccountUser", "Handle")]
@@ -14,7 +14,7 @@ namespace Test.Application.AccountApplication.Commands
             //Arrage
             var accountRepositoryMock = new Mock<IAccountRepository>();
 
-            var posts=new List<int>();
+            var posts = new List<int>();
             posts.Add(1076);
 
             var createAccountCommand = new AccountCreate.Command
@@ -41,7 +41,7 @@ namespace Test.Application.AccountApplication.Commands
                 StateId = null,
                 CityId = null,
                 ZoneId = null,
-                Address ="",
+                Address = "",
                 LocationLong = null,
                 LocationLat = null,
                 Job = "",

@@ -13,7 +13,7 @@ namespace Application.Common
 
         public static OperationResult<TResult> BuildSuccessResult(TResult result)
         {
-            return new OperationResult<TResult> { Success = true,Result=result };
+            return new OperationResult<TResult> { Success = true, Result = result };
         }
 
         public static OperationResult<TResult> BuildFailure(string errorMessage)
@@ -32,7 +32,7 @@ namespace Application.Common
 
         public static OperationResult<TResult> BuildFailure(Enum_Message message)
         {
-            return new OperationResult<TResult> { Success = false, ErrorMessage = BaseMessage.GetMessage(Enum_MessageType.ERROR,message).Body };
+            return new OperationResult<TResult> { Success = false, ErrorMessage = BaseMessage.GetMessage(Enum_MessageType.ERROR, message).Body };
         }
     }
 }

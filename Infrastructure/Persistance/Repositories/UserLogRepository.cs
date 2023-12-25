@@ -21,13 +21,13 @@ namespace Infrastructure.Persistance.Repositories
         public async Task<IList<UserLog>> FindAll()
         {
             return await _db.UserLogs
-                            .Include(x => x.User).ThenInclude(x=>x.Account)
+                            .Include(x => x.User).ThenInclude(x => x.Account)
                             .ToListAsync();
         }
         public async Task<Tuple<IList<UserLog>, int>> FindAll(int? userId, QueryFilter? queryFilter)
         {
-            var query = _db.UserLogs.Where(x=> userId == null || x.UserId==userId)
-                            .Include(x => x.User).ThenInclude(x=>x.Account).AsQueryable();
+            var query = _db.UserLogs.Where(x => userId == null || x.UserId == userId)
+                            .Include(x => x.User).ThenInclude(x => x.Account).AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);
 

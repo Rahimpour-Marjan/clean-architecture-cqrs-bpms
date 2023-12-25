@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.EducationFieldApplication.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.EducationFieldApplication.Queries.FindAll
 {

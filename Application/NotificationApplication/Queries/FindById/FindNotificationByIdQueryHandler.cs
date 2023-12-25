@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance;
-using Application.Notification.Queries.FindById;
-using Application.Notification.Models;
+﻿using Application.Notification.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.Notification.Queries.FindById
 {
@@ -18,7 +16,7 @@ namespace Application.Notification.Queries.FindById
         }
         public async Task<NotificationInfo> Handle(FindNotificationByIdQuery request, CancellationToken cancellationToken)
         {
-            var model = await _uow.NotificationRepository.FindById(request.Id,request.UserId); 
+            var model = await _uow.NotificationRepository.FindById(request.Id, request.UserId);
             return _mapper.Map<Domain.Notification, NotificationInfo>(model);
         }
     }

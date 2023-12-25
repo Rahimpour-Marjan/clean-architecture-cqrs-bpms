@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.Ticket.Models;
+﻿using Application.Ticket.Models;
+using AutoMapper;
 using Domain;
 
 namespace Application.Ticket

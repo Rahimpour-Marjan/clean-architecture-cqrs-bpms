@@ -12,17 +12,17 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<int> Create(Calendar calendar)
         {
-            var result =await _db.Calendars.AddAsync(calendar);
+            var result = await _db.Calendars.AddAsync(calendar);
             return result.Entity.Id;
         }
-        public async Task Create(int[] receiversId,int calendarId)
+        public async Task Create(int[] receiversId, int calendarId)
         {
             foreach (var item in receiversId)
             {
                 var validCalendarReceiver = new Domain.CalendarReceiver(calendarId, item);
                 await _db.CalendarReceivers.AddAsync(validCalendarReceiver);
             }
-             
+
         }
 
         public async Task<int> Create(CalendarAttachment calendarAttachment)
@@ -32,9 +32,9 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Calendar> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.Calendars
-                        .FirstOrDefaultAsync(x=>x.Id==id);
+                        .FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<IList<Calendar>> FindAll()
         {
@@ -58,7 +58,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task CalendarRecevierDelete(int calendarId)
         {
-            var calendarRecevier = await _db.CalendarReceivers.Where(x => x.CalendarId==calendarId).ToListAsync();
+            var calendarRecevier = await _db.CalendarReceivers.Where(x => x.CalendarId == calendarId).ToListAsync();
             _db.CalendarReceivers.RemoveRange(calendarRecevier);
         }
     }

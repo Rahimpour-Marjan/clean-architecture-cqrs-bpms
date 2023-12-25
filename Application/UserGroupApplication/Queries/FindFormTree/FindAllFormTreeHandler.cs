@@ -1,13 +1,13 @@
-﻿using MediatR;
+﻿using Domain.Resources;
 using Infrastructure.Persistance.Repositories;
-using Domain.Resources;
+using MediatR;
 
 namespace Application.UserGroup.Queries.FindFormTree
 {
     class FindAllFormTreeHandler : IRequestHandler<FindAllFormTreeQuery, List<AccessTree?>>
     {
         private readonly IUnitOfWork _uow;
-        
+
         public FindAllFormTreeHandler(IUnitOfWork uow)
         {
             _uow = uow;
@@ -15,7 +15,7 @@ namespace Application.UserGroup.Queries.FindFormTree
 
         public async Task<List<AccessTree?>> Handle(FindAllFormTreeQuery request, CancellationToken cancellationToken)
         {
-            var model = await _uow.UserGroupRepository.FindTree(request.UserId,request.UserGroupId, request.PostId, request.IsSelected);
+            var model = await _uow.UserGroupRepository.FindTree(request.UserId, request.UserGroupId, request.PostId, request.IsSelected);
 
             return model;
         }

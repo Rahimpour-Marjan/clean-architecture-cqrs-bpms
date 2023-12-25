@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.UserLogApplication.Models;
+﻿using Application.UserLogApplication.Models;
+using AutoMapper;
 using Domain;
 
 namespace Application.UserLogApplication

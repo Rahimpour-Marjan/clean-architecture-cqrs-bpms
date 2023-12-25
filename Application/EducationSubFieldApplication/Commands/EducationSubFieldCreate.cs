@@ -24,7 +24,7 @@ namespace Application.EducationSubFieldApplication.Commands
             {
                 try
                 {
-                    var eduSubField = new Domain.EducationSubField(request.Title, request.EducationFieldId,DateTime.Now);
+                    var eduSubField = new Domain.EducationSubField(request.Title, request.EducationFieldId, DateTime.Now);
                     var newEduSubFieldId = await _uow.EducationSubFieldRepository.Create(eduSubField);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

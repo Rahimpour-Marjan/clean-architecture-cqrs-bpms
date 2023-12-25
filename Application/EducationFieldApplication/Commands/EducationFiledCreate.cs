@@ -23,7 +23,7 @@ namespace Application.EducationFieldApplication.Commands
             {
                 try
                 {
-                    var eduField = new Domain.EducationField(request.Title,DateTime.Now);
+                    var eduField = new Domain.EducationField(request.Title, DateTime.Now);
                     var newEduFieldId = await _uow.EducationFieldRepository.Create(eduField);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

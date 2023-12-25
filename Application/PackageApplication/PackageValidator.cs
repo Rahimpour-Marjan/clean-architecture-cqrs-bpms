@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.PackageApplication.Commands;
+﻿using Application.PackageApplication.Commands;
+using FluentValidation;
 
 namespace Application.PackageApplication
 {

@@ -20,10 +20,10 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<SitePage> FindById(long id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.SitePage
                           .Where(b => b.Id == id)
-                          .Include(b => b.Menu).Include(b=>b.SiteActions)
+                          .Include(b => b.Menu).Include(b => b.SiteActions)
                           .FirstOrDefaultAsync();
         }
 

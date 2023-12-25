@@ -22,7 +22,7 @@ namespace Application.Notification.Commands
             {
                 try
                 {
-                    await _uow.NotificationRepository.Delete(request.Id,request.UserId);
+                    await _uow.NotificationRepository.Delete(request.Id, request.UserId);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response
                         {

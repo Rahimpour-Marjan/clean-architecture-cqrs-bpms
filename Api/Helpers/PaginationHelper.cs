@@ -5,15 +5,15 @@ namespace Application.Helpers
 {
     internal class PaginationHelper
     {
-        public static PagedResponse CreatePagedResponse(object pagedData, int? pageNumber, int? pageSize, int totalRecords, IUriService uriService, string route,string[] errors)
+        public static PagedResponse CreatePagedResponse(object pagedData, int? pageNumber, int? pageSize, int totalRecords, IUriService uriService, string route, string[] errors)
         {
             int pagenumber = 1;
             int pagesize = 1;
-        
+
             if (pageNumber != null)
-                pagenumber = pageNumber??1;
+                pagenumber = pageNumber ?? 1;
             if (pageSize != null)
-                pagesize = pageSize??10;
+                pagesize = pageSize ?? 10;
             var respose = new PagedResponse(pagedData, pagenumber, pagesize, errors);
             var totalPages = ((double)totalRecords / (double)pagesize);
             int roundedTotalPages = Convert.ToInt32(Math.Ceiling(totalPages));

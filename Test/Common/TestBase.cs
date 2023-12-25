@@ -5,7 +5,6 @@ using Infrastructure.Persistance.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using System.ComponentModel;
 
 namespace UnitTest.Common
 {

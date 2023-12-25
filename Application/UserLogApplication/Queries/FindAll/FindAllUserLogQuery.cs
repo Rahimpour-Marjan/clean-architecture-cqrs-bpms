@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.UserLogApplication.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.UserLogApplication.Queries.FindAll
 {

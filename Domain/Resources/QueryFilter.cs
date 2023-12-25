@@ -1,6 +1,6 @@
 ﻿namespace Domain.Resources
 {
-    public class QueryFilter: IQueryFilter
+    public class QueryFilter : IQueryFilter
     {
         public string SortBy { get; set; }
         public bool IsSortAscending { get; set; }

@@ -3,7 +3,7 @@ namespace Api.Model.Notification
 {
     public class NotificationCreateModel
     {
-      
+
         [Required(ErrorMessage = "ارسال عنوان برای پیام الزامی می باشد")]
         public string Title { get; set; }
         [Required(ErrorMessage = "ارسال متن پیام الزامی می باشد")]

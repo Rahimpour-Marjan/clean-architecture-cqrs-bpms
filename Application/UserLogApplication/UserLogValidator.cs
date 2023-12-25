@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.UserLogApplication.Commands;
+﻿using Application.UserLogApplication.Commands;
+using FluentValidation;
 
 namespace Application.UserLogApplication
 {

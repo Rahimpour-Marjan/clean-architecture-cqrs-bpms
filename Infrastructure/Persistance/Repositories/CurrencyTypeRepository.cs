@@ -34,7 +34,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<CurrencyType> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.CurrencyTypes.FindAsync(id);
         }
         public async Task Update(CurrencyType model)

@@ -1,17 +1,17 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Api.Model.UserGroup;
-using Application.UserGroup.Commands;
-using Application.UserGroup.Queries.FindById;
-using Application.UserGroup.Queries.FindAll;
-using System.Net;
-using Application.Services;
-using Application.Helpers;
-using Application.UserGroup.Queries.FindFormTree;
-using Application.UserGroupApplication.Queries.FindUserGroupTree;
-using Application.UserGroupApplication.Queries.FilterData;
-using Api.Authorization;
+﻿using Api.Authorization;
 using Api.Enum;
+using Api.Model.UserGroup;
+using Application.Helpers;
+using Application.Services;
+using Application.UserGroup.Commands;
+using Application.UserGroup.Queries.FindAll;
+using Application.UserGroup.Queries.FindById;
+using Application.UserGroup.Queries.FindFormTree;
+using Application.UserGroupApplication.Queries.FilterData;
+using Application.UserGroupApplication.Queries.FindUserGroupTree;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {
@@ -140,7 +140,7 @@ namespace Api.Controllers.v1
                     Title = model.Title,
                     IsActive = model.IsActive,
                     IsEditable = true,
-                    UserGroupParentId =model.UserGroupParentId,
+                    UserGroupParentId = model.UserGroupParentId,
                 });
 
                 if (!result.Success)
@@ -217,7 +217,7 @@ namespace Api.Controllers.v1
                     Id = id,
                     Title = model.Title,
                     IsActive = model.IsActive,
-                    IsEditable =true,
+                    IsEditable = true,
                     UserGroupParentId = model.UserGroupParentId,
                 }); ;
 

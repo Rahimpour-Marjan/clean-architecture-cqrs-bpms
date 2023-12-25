@@ -31,18 +31,18 @@ namespace Application.Ticket.Commands
             {
                 if (request.TicketParentId != null)
                 {
-                    var ticketParent = await _uow.TicketRepository.FindById(request.TicketParentId??0);
+                    var ticketParent = await _uow.TicketRepository.FindById(request.TicketParentId ?? 0);
                     if (ticketParent != null)
                     {
                         ticketParent.Status = request.Status;
                         await _uow.TicketRepository.Update(ticketParent);
                     }
                 }
-                    
+
                 var code = await _uow.TicketRepository.GenerateCode(request.TicketParentId);
 
                 var ticket = new Domain.Ticket(request.Title, code, request.TicketParentId, request.TicketText, request.TicketCreatorId, request.WorkRequestId, request.Status, request.TicketPriority, request.TicketType);
-               
+
                 try
                 {
                     var newTicketId = await _uow.TicketRepository.Create(ticket);

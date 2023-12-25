@@ -7,7 +7,7 @@ namespace Domain
     {
         protected User() { }
 
-        public User(int AccountId, string userName, string password, string salt, string email, UserType userType,bool isActive)
+        public User(int AccountId, string userName, string password, string salt, string email, UserType userType, bool isActive)
         {
             AccountId = AccountId;
             UserName = userName;

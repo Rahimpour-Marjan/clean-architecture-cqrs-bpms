@@ -6,7 +6,7 @@ namespace Domain
     {
         protected CreditPayment() { }
 
-        public CreditPayment(int accountId, int accountCreditId, PaymentStatus status, string? refNumber, string? externalInfo1, string? externalInfo2, long amount,string ipAddress, string? description,int currencyTypeId, bool isInPlace, string? imageUrl, DateTime modifiedDate)
+        public CreditPayment(int accountId, int accountCreditId, PaymentStatus status, string? refNumber, string? externalInfo1, string? externalInfo2, long amount, string ipAddress, string? description, int currencyTypeId, bool isInPlace, string? imageUrl, DateTime modifiedDate)
         {
             AccountId = accountId;
             AccountCreditId = accountCreditId;

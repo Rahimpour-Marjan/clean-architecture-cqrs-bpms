@@ -1,5 +1,4 @@
 ﻿using Application.Common;
-using Domain;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
 

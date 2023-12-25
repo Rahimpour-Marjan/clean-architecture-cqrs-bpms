@@ -1,8 +1,8 @@
 ﻿using Application.Common;
 using Application.LoginApplication.Interfaces;
+using Domain.Enums;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
-using Domain.Enums;
 
 namespace Application.User.Commands
 {

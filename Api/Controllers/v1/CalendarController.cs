@@ -1,13 +1,13 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.Calendar;
 using Application.Calendar.Commands;
-using Application.Calendar.Queries.FindById;
 using Application.Calendar.Queries.FindAll;
-using System.Net;
+using Application.Calendar.Queries.FindById;
 using Application.Users.Models;
-using Api.Authorization;
-using Api.Enum;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers
 {
@@ -52,15 +52,15 @@ namespace Api.Controllers
                 var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
                 var result = await _mediator.Send(new CalendarCreate.Command
                 {
-                    Subject= model.Subject,
-                    Description=model.Description,
-                    EventDate= model.EventDate,
-                    EventTime= model.EventTime,
-                    SenderId= userId,
-                    NotificationDate=model.NotificationDate,
-                    NotificationTime=model.NotificationTime,
-                    HasTwoStepNotification=model.HasTwoStepNotification,
-                    ReceiversId=model.ReceiversId
+                    Subject = model.Subject,
+                    Description = model.Description,
+                    EventDate = model.EventDate,
+                    EventTime = model.EventTime,
+                    SenderId = userId,
+                    NotificationDate = model.NotificationDate,
+                    NotificationTime = model.NotificationTime,
+                    HasTwoStepNotification = model.HasTwoStepNotification,
+                    ReceiversId = model.ReceiversId
                 });
 
                 if (!result.Success)
@@ -129,7 +129,7 @@ namespace Api.Controllers
             {
                 var result = await _mediator.Send(new CalendarUpdate.Command
                 {
-                    Id= id,
+                    Id = id,
                     Subject = model.Subject,
                     Description = model.Description,
                     EventDate = model.EventDate,
@@ -139,7 +139,7 @@ namespace Api.Controllers
                     NotificationTime = model.NotificationTime,
                     HasTwoStepNotification = model.HasTwoStepNotification,
                     ReceiversId = model.ReceiversId
-                }); 
+                });
 
                 if (!result.Success)
                 {

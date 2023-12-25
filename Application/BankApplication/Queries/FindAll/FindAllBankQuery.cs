@@ -1,6 +1,6 @@
-﻿using MediatR;
-using Application.BankApplication.Models;
+﻿using Application.BankApplication.Models;
 using Application.Common;
+using MediatR;
 
 namespace Application.BankApplication.Queries.FindAll
 {

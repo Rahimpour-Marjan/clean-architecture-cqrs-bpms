@@ -34,7 +34,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Bank> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.Banks.FindAsync(id);
         }
         public async Task Update(Bank model)

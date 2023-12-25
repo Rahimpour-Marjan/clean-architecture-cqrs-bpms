@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.EducationFieldApplication.Commands;
+﻿using Application.EducationFieldApplication.Commands;
+using FluentValidation;
 
 namespace Application.EducationFiledApplication
 {

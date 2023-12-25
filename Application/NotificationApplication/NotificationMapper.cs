@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.Notification.Models;
+﻿using Application.Notification.Models;
+using AutoMapper;
 
 namespace Application.Notification
 {

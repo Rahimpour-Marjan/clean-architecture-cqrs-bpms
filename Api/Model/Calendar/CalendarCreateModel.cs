@@ -16,7 +16,7 @@ namespace Api.Model.Calendar
         public string? NotificationDate { get; set; }
         public string? NotificationTime { get; set; }
         public bool? HasTwoStepNotification { get; set; }
-         [Required(ErrorMessage = "ارسال دریافت کننده رویداد اجباری می باشد")]
+        [Required(ErrorMessage = "ارسال دریافت کننده رویداد اجباری می باشد")]
         public int[] ReceiversId { get; set; }
     }
 }

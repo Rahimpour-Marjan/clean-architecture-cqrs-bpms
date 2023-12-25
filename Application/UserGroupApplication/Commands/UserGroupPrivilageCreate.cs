@@ -33,7 +33,7 @@ namespace Application.UserGroup.Commands
                         var siteActionId = siteAction.Id;
                         var sitePageId = siteAction.SitePageId;
                         var sitePage = await _uow.SitePageRepository.FindById(sitePageId);
-                        var menuId = sitePage.MenuId??0;
+                        var menuId = sitePage.MenuId ?? 0;
 
                         var userGroupPrivilage = new Domain.UserGroupPrivilage(request.UserGroupId, menuId, sitePageId, siteActionId);
 

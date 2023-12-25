@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance;
-using Application.SitePage.Models;
+﻿using Application.SitePage.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.SitePage.Queries.FindById
 {
@@ -10,7 +9,7 @@ namespace Application.SitePage.Queries.FindById
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
-        public FindSitePageByIdQueryHandler( IMapper mapper, IUnitOfWork uow)
+        public FindSitePageByIdQueryHandler(IMapper mapper, IUnitOfWork uow)
         {
             _uow = uow;
             _mapper = mapper;

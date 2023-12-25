@@ -1,9 +1,7 @@
 ﻿using Application.Common;
-using Application.LoginApplication.Interfaces;
-using Domain;
+using Domain.Enums;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
-using Domain.Enums;
 
 namespace Application.User.Commands
 {
@@ -12,7 +10,7 @@ namespace Application.User.Commands
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
             public int UserId { get; set; }
-            public string UserName { get; set; }  
+            public string UserName { get; set; }
             public bool IsActive { get; set; }
             public int AccountId { get; set; }
         }
@@ -41,7 +39,7 @@ namespace Application.User.Commands
 
                 user.UserName = request.UserName;
                 user.IsActive = request.IsActive;
-                user.Email = Account.Email??"";
+                user.Email = Account.Email ?? "";
                 user.AccountId = request.AccountId;
                 try
                 {

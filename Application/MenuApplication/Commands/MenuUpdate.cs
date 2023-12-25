@@ -16,7 +16,7 @@ namespace Application.Menu.Commands
             public int Priority { get; set; }
             public bool IsActive { get; set; }
             public long? ParentId { get; set; }
-			public string Key { get; set; }
+            public string Key { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -31,9 +31,9 @@ namespace Application.Menu.Commands
             {
                 var menu = await _uow.MenuRepository.FindById(request.Id);
                 if (menu == null)
-                    return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND); 
+                    return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
                 menu.Title = request.Title;
-                menu.Url = request.Url; 
+                menu.Url = request.Url;
                 menu.Icon = request.Icon;
                 menu.Priority = request.Priority;
                 menu.IsActive = request.IsActive;

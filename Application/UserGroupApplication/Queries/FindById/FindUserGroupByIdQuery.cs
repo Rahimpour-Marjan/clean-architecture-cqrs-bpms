@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.UserGroup.Models;
+﻿using Application.UserGroup.Models;
+using MediatR;
 
 namespace Application.UserGroup.Queries.FindById
 {

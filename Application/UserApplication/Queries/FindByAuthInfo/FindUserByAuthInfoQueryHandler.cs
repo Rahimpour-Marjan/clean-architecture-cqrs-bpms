@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using Application.User.Queries.FindByAuthInfo;
 using Application.Users.Models;
-using Domain;
-using Application.User.Queries.FindByAuthInfo;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.User.Queries.FindByLoginInfo
 {

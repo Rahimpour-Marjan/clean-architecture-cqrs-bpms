@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.EducationSubFieldApplication.Models;
+﻿using Application.EducationSubFieldApplication.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
 

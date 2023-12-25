@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.CountryApplication.Commands;
 using Domain;
-using Application.CountryApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.CountryApplication.Commands
 {
@@ -16,13 +16,13 @@ namespace Test.Application.CountryApplication.Commands
 
             var createCountryCommand = new CountryCreate.Command
             {
-                Title="ایران",
-                Code="01",
-                ZipCode="0098",
-                PostalCode="1369",
+                Title = "ایران",
+                Code = "01",
+                ZipCode = "0098",
+                PostalCode = "1369",
                 LocationLong = "",
                 LocationLat = "",
-                ImageUrl="",
+                ImageUrl = "",
             };
 
             var createCountryCommandHandler = new CountryCreate.Handler(_uow);

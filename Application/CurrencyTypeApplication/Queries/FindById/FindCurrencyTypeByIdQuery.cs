@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.CurrencyTypeApplication.Models;
+﻿using Application.CurrencyTypeApplication.Models;
+using MediatR;
 
 namespace Application.CurrencyTypeApplication.Queries.FindById
 {

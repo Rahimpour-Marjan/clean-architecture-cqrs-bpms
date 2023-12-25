@@ -1,10 +1,10 @@
-﻿using AutoMapper;
+﻿using Application.Common;
+using Application.Notification.Models;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.Notification.Models;
-using Infrastructure.Persistance.Repositories;
-using Application.Common;
-using Domain.Resources;
 
 namespace Application.Notification.Queries.FindAll
 {
@@ -25,7 +25,7 @@ namespace Application.Notification.Queries.FindAll
                 if (request.Query != null)
                     queryFilter = QueryFilterResponse.Response(request.Query);
 
-                var model = await _uow.NotificationRepository.FindAll(queryFilter,request.UserId);
+                var model = await _uow.NotificationRepository.FindAll(queryFilter, request.UserId);
                 var result = model.Item1.Select(_mapper.Map<Domain.Notification, NotificationInfo>).ToList();
 
                 return FindAllQueryResponse<IList<NotificationInfo>>

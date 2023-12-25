@@ -14,9 +14,9 @@
 
         public int Id { get; private set; }
         public int AccountId { get; private set; }
-        public virtual Account Account { get;  set; }
+        public virtual Account Account { get; set; }
         public int PostId { get; private set; }
-        public virtual Post Post { get;  set; }
-        
+        public virtual Post Post { get; set; }
+
     }
 }

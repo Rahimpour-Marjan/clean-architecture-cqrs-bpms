@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Users.Models;
+﻿using Application.Users.Models;
+using MediatR;
 
 namespace Application.User.Queries.FindByAuthInfo
 {

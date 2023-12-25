@@ -1,14 +1,14 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.BankApplication.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.Bank;
+using Application.BankApplication.Commands;
 using Application.BankApplication.Queries.FindAll;
 using Application.BankApplication.Queries.FindById;
-using System.Net;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1

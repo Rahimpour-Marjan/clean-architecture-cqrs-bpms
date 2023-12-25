@@ -32,16 +32,16 @@ namespace Application.Calendar.Commands
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
                 var calendar = await _uow.CalendarRepository.FindById(request.Id);
-                if (calendar == null) 
+                if (calendar == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
                 calendar.Subject = request.Subject;
                 calendar.Description = request.Description;
-                calendar.EventDate = request.EventDate; 
-                calendar.EventTime = request.EventTime; 
+                calendar.EventDate = request.EventDate;
+                calendar.EventTime = request.EventTime;
                 //calendar.SenderId = request.SenderId;
-                calendar.NotificationDate= request.NotificationDate;
+                calendar.NotificationDate = request.NotificationDate;
                 calendar.NotificationTime = request.NotificationTime;
-                calendar.HasTwoStepNotification= request.HasTwoStepNotification;
+                calendar.HasTwoStepNotification = request.HasTwoStepNotification;
                 try
                 {
                     await _uow.CalendarRepository.Update(calendar);

@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using Application.AccountCreditApplication.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
-using Application.AccountCreditApplication.Models;
+using MediatR;
 
 namespace Application.AccountCreditApplication.Queries.FindById
 {

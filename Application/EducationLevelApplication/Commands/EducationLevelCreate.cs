@@ -23,7 +23,7 @@ namespace Application.EducationLevelApplication.Commands
             {
                 try
                 {
-                    var eduLevel = new Domain.EducationLevel(request.Title,DateTime.Now);
+                    var eduLevel = new Domain.EducationLevel(request.Title, DateTime.Now);
                     var newEduLevelId = await _uow.EducationLevelRepository.Create(eduLevel);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

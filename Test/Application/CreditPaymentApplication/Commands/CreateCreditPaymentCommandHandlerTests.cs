@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.CreditPaymentApplication.Commands;
 using Domain;
-using Application.CreditPaymentApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.CreditPaymentApplication.Commands
 {
@@ -26,7 +26,7 @@ namespace Test.Application.CreditPaymentApplication.Commands
                 IpAddress = "164.152.12.11",
                 Description = "",
                 CurrencyTypeId = 1000,
-                IsInPlace =false,
+                IsInPlace = false,
                 ImageUrl = "",
             };
 

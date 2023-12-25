@@ -1,6 +1,4 @@
-﻿using Domain.Values;
-
-namespace Application.Notification.Models
+﻿namespace Application.Notification.Models
 {
     public class NotificationInfo
     {

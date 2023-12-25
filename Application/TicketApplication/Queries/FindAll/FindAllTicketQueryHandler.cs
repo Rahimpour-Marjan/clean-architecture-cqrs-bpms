@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using Application.Common;
+using Application.Ticket.Models;
+using Application.User.Queries.FindAccessById;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.Ticket.Models;
-using Infrastructure.Persistance.Repositories;
-using Application.Common;
-using Domain.Resources;
-using Application.User.Queries.FindAccessById;
 
 namespace Application.Ticket.Queries.FindAll
 {
@@ -32,11 +32,11 @@ namespace Application.Ticket.Queries.FindAll
                 var userAccess = await _mediator.Send(new FindAccessByIdQuery { Id = request.UserId });
                 if (userAccess != null && userAccess.Any())
                 {
-                    if (userAccess.Any(x=>x.Controller == "TicketManagement"))
-                        isAdmin=true;
+                    if (userAccess.Any(x => x.Controller == "TicketManagement"))
+                        isAdmin = true;
                 }
 
-                if (!isAdmin && queryFilter.QueryFilterItem != null && queryFilter.QueryFilterItem.Any(x=>x.ColumnName == "User"))
+                if (!isAdmin && queryFilter.QueryFilterItem != null && queryFilter.QueryFilterItem.Any(x => x.ColumnName == "User"))
                     return FindAllQueryResponse<IList<TicketInfo>>.BuildFailure("شما مجوز دسترسی به این صفحه را ندارید.");
 
                 var model = await _uow.TicketRepository.FindAll(request.UserId, isAdmin, queryFilter);

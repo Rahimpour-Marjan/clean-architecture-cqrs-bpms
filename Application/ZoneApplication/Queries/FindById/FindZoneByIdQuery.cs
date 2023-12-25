@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.ZoneApplication.Models;
+﻿using Application.ZoneApplication.Models;
+using MediatR;
 
 namespace Application.ZoneApplication.Queries.FindById
 {

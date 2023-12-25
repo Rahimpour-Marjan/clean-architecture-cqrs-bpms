@@ -15,7 +15,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<int> Create(QuickAccess model)
         {
-            var result =await _db.QuickAccess.AddAsync(model);
+            var result = await _db.QuickAccess.AddAsync(model);
             return result.Entity.Id;
         }
         public async Task<QuickAccess?> FindWithParam(int userId, long pageId)
@@ -44,7 +44,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<List<QuickAccess?>> FindByUserId(int userId)
         {
-            #pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
+#pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
             return await _db.QuickAccess.Where(x => x.UserId == userId).ToListAsync();
         }
         public async Task<Tuple<IList<QuickAccess>, int>> FindAll(QueryFilter? queryFilter, int userId)

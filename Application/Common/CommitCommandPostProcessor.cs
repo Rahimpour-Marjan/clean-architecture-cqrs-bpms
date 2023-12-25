@@ -1,6 +1,6 @@
-﻿using MediatR.Pipeline;
-using Infrastructure.Persistance;
+﻿using Infrastructure.Persistance;
 using MediatR;
+using MediatR.Pipeline;
 
 namespace Application.Common
 {

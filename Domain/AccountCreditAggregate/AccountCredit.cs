@@ -6,12 +6,12 @@ namespace Domain
     {
         protected AccountCredit() { }
 
-        public AccountCredit(int accountId, string? description, long amount, long remain , int? accountCheckId, bool isActive, CreditType creditType, DateTime modifiedDate)
+        public AccountCredit(int accountId, string? description, long amount, long remain, int? accountCheckId, bool isActive, CreditType creditType, DateTime modifiedDate)
         {
             AccountId = accountId;
             Description = description;
             Amount = amount;
-            Remain=remain;
+            Remain = remain;
             AccountCheckId = accountCheckId;
             IsActive = isActive;
             CreditType = creditType;

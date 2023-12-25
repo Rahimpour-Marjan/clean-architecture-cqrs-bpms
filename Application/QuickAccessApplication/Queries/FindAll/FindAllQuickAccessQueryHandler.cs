@@ -1,10 +1,10 @@
-﻿using AutoMapper;
+﻿using Application.Common;
+using Application.QuickAccess.Models;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.QuickAccess.Models;
-using Infrastructure.Persistance.Repositories;
-using Application.Common;
-using Domain.Resources;
 
 namespace Application.QuickAccess.Queries.FindAll
 {
@@ -25,7 +25,7 @@ namespace Application.QuickAccess.Queries.FindAll
                 if (request.Query != null)
                     queryFilter = QueryFilterResponse.Response(request.Query);
 
-                var model = await _uow.QuickAccessRepository.FindAll(queryFilter,request.UserId);
+                var model = await _uow.QuickAccessRepository.FindAll(queryFilter, request.UserId);
                 var result = model.Item1.Select(_mapper.Map<Domain.QuickAccess, QuickAccessInfo>).ToList();
 
                 return FindAllQueryResponse<IList<QuickAccessInfo>>

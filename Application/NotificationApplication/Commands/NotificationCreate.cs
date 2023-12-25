@@ -30,7 +30,7 @@ namespace Application.Notification.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var notification = new Domain.Notification(request.Title, request.Text, request.SenderId, request.ReceiverId, request.Icon, request.Link,request.IsRead, request.IsStar,request.IsArchive,request.IsDeleted);
+                var notification = new Domain.Notification(request.Title, request.Text, request.SenderId, request.ReceiverId, request.Icon, request.Link, request.IsRead, request.IsStar, request.IsArchive, request.IsDeleted);
                 try
                 {
                     var newNotificationId = await _uow.NotificationRepository.Create(notification);

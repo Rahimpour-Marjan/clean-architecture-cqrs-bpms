@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.BankApplication.Commands;
 using Domain;
-using Application.BankApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.BankApplication.Commands
 {
@@ -16,9 +16,9 @@ namespace Test.Application.BankApplication.Commands
 
             var createBankCommand = new BankCreate.Command
             {
-                Title="ایران",
-                IsActive=true,
-                ImageUrl="",
+                Title = "ایران",
+                IsActive = true,
+                ImageUrl = "",
             };
 
             var createBankCommandHandler = new BankCreate.Handler(_uow);

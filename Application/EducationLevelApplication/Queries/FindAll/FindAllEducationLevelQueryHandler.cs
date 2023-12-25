@@ -1,11 +1,10 @@
-﻿using AutoMapper;
+﻿using Application.Common;
+using Application.EducationLevelApplication.Models;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.EducationLevelApplication.Models;
-using Infrastructure.Persistance.Repositories;
-using Domain;
-using Application.Common;
-using Domain.Resources;
 
 namespace Application.EducationLevelApplication.Queries.FindAll
 {

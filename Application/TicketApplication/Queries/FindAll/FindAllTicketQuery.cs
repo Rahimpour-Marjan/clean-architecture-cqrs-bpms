@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.Ticket.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.Ticket.Queries.FindAll
 {

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Application.Users.Models;
-
-namespace Application.Users
+﻿namespace Application.Users
 {
     public interface IUserService
     {

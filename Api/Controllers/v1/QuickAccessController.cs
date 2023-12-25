@@ -1,14 +1,13 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Api.Model.QuickAccess;
+﻿using Api.Model.QuickAccess;
+using Application.Common;
 using Application.QuickAccess.Commands;
 using Application.QuickAccess.Queries.FindAll;
-using System.Net;
-using Application.Users.Models;
-using Application.Common;
 using Application.QuickAccess.Queries.FindByKey;
-using Application.Helpers;
 using Application.Services;
+using Application.Users.Models;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {

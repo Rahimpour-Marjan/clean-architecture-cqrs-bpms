@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.CurrencyTypeApplication.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.CurrencyTypeApplication.Queries.FindAll
 {

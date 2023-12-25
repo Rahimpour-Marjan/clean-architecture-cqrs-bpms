@@ -1,13 +1,12 @@
 ﻿using Application.User.Queries.FindAll;
 using Domain;
-using Domain.Enums;
 using Infrastructure.Persistance.Repositories;
 using Moq;
 using UnitTest.Common;
 
 namespace Test.Application.UserApplication.Queries
 {
-    public class GetAllUserQueryHandlerTests:TestBase
+    public class GetAllUserQueryHandlerTests : TestBase
     {
         [Fact]
         [Trait("GetAllUser", "Handle")]

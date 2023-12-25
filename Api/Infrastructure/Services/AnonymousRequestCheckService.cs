@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Linq;
-using Microsoft.Extensions.Configuration;
-using Api.Infrastructure.Services.Contracts;
+﻿using Api.Infrastructure.Services.Contracts;
 
 namespace Api.Infrastructure.Services
 {

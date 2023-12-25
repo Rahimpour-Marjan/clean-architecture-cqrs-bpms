@@ -23,10 +23,10 @@ namespace Application.Notification.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var notification = await _uow.NotificationRepository.FindById(request.Id,request.UserId);
-                if (notification == null) 
+                var notification = await _uow.NotificationRepository.FindById(request.Id, request.UserId);
+                if (notification == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
-               notification.IsStar = request.IsStar;
+                notification.IsStar = request.IsStar;
                 try
                 {
                     await _uow.NotificationRepository.Update(notification);

@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.SiteActionApplication.Commands;
+﻿using Application.SiteActionApplication.Commands;
+using FluentValidation;
 
 namespace Application.SiteActionApplication
 {

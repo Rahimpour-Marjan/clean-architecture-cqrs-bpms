@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using MediatR;
-using Application.SitePage.Models;
+﻿using Application.SitePage.Models;
 using Application.SitePage.Queries.FindByKey;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.QuickAccess.Queries.FindById
 {

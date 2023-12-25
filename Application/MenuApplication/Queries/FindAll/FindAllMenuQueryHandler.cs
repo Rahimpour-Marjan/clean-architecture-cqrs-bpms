@@ -1,6 +1,5 @@
-﻿using AutoMapper;
+﻿using Infrastructure.Persistance.Repositories;
 using MediatR;
-using Infrastructure.Persistance.Repositories;
 
 namespace Application.Menu.Queries.FindAll
 {

@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.ZoneApplication.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.Zone;
-using Application.ZoneApplication.Queries.FindAll;
-using Application.ZoneApplication.Queries.FindById;
-using System.Net;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
+using Application.ZoneApplication.Commands;
 using Application.ZoneApplication.Queries.FilterData;
+using Application.ZoneApplication.Queries.FindAll;
+using Application.ZoneApplication.Queries.FindById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1
@@ -105,7 +105,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new ZoneCreate.Command
                 {
                     Title = model.Title,
-                    CityId=model.CityId,
+                    CityId = model.CityId,
                     Code = model.Code,
                     ZipCode = model.ZipCode,
                     PostalCode = model.PostalCode,
@@ -149,7 +149,7 @@ namespace Api.Controllers.v1
                 {
                     ZoneId = id,
                     Title = model.Title,
-                    CityId=model.CityId,
+                    CityId = model.CityId,
                     Code = model.Code,
                     ZipCode = model.ZipCode,
                     PostalCode = model.PostalCode,
@@ -195,7 +195,7 @@ namespace Api.Controllers.v1
             {
                 return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
                 {
-                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage)??"" },
+                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) ?? "" },
                 });
             }
             else

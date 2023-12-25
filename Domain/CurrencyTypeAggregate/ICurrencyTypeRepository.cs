@@ -1,5 +1,4 @@
-﻿using Domain.Common;
-using Domain.Resources;
+﻿using Domain.Resources;
 
 namespace Domain
 {

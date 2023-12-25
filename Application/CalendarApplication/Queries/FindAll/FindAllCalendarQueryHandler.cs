@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using Dapper;
+﻿using Application.Calendar.Models;
+using AutoMapper;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.Calendar.Models;
-using Domain;
-using Infrastructure.Persistance.Repositories;
 
 namespace Application.Calendar.Queries.FindAll
 {

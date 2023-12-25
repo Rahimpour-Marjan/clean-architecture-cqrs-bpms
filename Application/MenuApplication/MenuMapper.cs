@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.Menu.Models;
+﻿using Application.Menu.Models;
+using AutoMapper;
 
 namespace Application.Menu
 {

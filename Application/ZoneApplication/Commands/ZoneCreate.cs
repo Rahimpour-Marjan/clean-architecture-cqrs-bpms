@@ -29,7 +29,7 @@ namespace Application.ZoneApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var zone = new Zone(request.Title,request.CityId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
+                var zone = new Zone(request.Title, request.CityId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
                 try
                 {
                     var newZoneId = await _uow.ZoneRepository.Create(zone);

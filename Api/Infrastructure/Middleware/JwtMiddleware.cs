@@ -1,7 +1,4 @@
 ﻿using Application.LoginApplication.Options;
-using Application.User.Queries.FindById;
-using Application.Users.Models;
-using MediatR;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;

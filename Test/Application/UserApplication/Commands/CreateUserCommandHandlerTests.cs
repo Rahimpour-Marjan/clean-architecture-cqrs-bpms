@@ -1,12 +1,12 @@
-﻿using Moq;
-using Infrastructure.Persistance.Repositories;
+﻿using Application.LoginApplication.Interfaces;
 using Application.User.Commands;
+using Infrastructure.Persistance.Repositories;
+using Moq;
 using UnitTest.Common;
-using Application.LoginApplication.Interfaces;
 
 namespace Test.Application.UserApplication.Commands
 {
-    public class CreateUserCommandHandlerTests: TestBase
+    public class CreateUserCommandHandlerTests : TestBase
     {
         [Fact]
         [Trait("CreateUser", "Handle")]

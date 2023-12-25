@@ -26,9 +26,9 @@ namespace Application.Post.Commands
                 {
                     for (int i = 0; i < request.UserGroupIds.Length; i++)
                     {
-                        var post = new Domain.PostJuncUserGroup(request.PostId, request.UserGroupIds[i],false);
+                        var post = new Domain.PostJuncUserGroup(request.PostId, request.UserGroupIds[i], false);
                         await _uow.PostRepository.Create(post);
-                        
+
                     }
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

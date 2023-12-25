@@ -25,7 +25,7 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<Ticket> FindParent(int id)
         {
-            return await _db.Tickets.Include(x=>x.TicketCreator).Include(x=>x.TicketChilds).Include(t => t.TicketAttachments).Where(t => t.Id == id && t.TicketParentId==null).FirstOrDefaultAsync();
+            return await _db.Tickets.Include(x => x.TicketCreator).Include(x => x.TicketChilds).Include(t => t.TicketAttachments).Where(t => t.Id == id && t.TicketParentId == null).FirstOrDefaultAsync();
         }
         public async Task<string> GenerateCode(int? ticketParentId)
         {
@@ -35,7 +35,7 @@ namespace Infrastructure.Persistance.Repositories
                 if (ticket != null)
                     return ticket.Code;
             }
-                
+
             var lastItem = await _db.Tickets.Where(x => x.Code != null && x.TicketParentId == null).OrderByDescending(x => x.TicketCreateDate).FirstOrDefaultAsync();
             var code = "100000";
             if (lastItem != null)
@@ -49,17 +49,17 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Ticket> FindById(int id)
         {
-            return await _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x=>x.Account).Include(x => x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketCreator).ThenInclude(x=>x.Account).OrderBy(x => x.TicketCreateDate)
-                .FirstOrDefaultAsync(x=>x.Id==id);
+            return await _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x => x.Account).Include(x => x.TicketAttachments)
+                .Include(x => x.TicketChilds).ThenInclude(x => x.TicketAttachments)
+                .Include(x => x.TicketChilds).ThenInclude(x => x.TicketCreator).ThenInclude(x => x.Account).OrderBy(x => x.TicketCreateDate)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task<Tuple<IList<Ticket>, int>> FindAll(int userId,bool isAdmin, QueryFilter? queryFilter)
+        public async Task<Tuple<IList<Ticket>, int>> FindAll(int userId, bool isAdmin, QueryFilter? queryFilter)
         {
-            var query = _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x=>x.Account).Include(x => x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x=>x.TicketCreator).ThenInclude(x=>x.Account)
-                .Where(x=>(isAdmin == true || x.TicketCreatorId == userId) && x.TicketParentId == null).OrderBy(x=>x.TicketCreateDate)
+            var query = _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x => x.Account).Include(x => x.TicketAttachments)
+                .Include(x => x.TicketChilds).ThenInclude(x => x.TicketAttachments)
+                .Include(x => x.TicketChilds).ThenInclude(x => x.TicketCreator).ThenInclude(x => x.Account)
+                .Where(x => (isAdmin == true || x.TicketCreatorId == userId) && x.TicketParentId == null).OrderBy(x => x.TicketCreateDate)
                 .AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);
@@ -76,7 +76,7 @@ namespace Infrastructure.Persistance.Repositories
         {
             return await _db.Tickets
                         .Where(t => t.TicketCreatorId == UserId)
-                        .Include(t=>t.TicketAttachments).Include(x => x.TicketChilds).Include(x => x.TicketCreator).ThenInclude(x=>x.Account)
+                        .Include(t => t.TicketAttachments).Include(x => x.TicketChilds).Include(x => x.TicketCreator).ThenInclude(x => x.Account)
                         .ToListAsync();
         }
         public async Task Update(Ticket ticket)
@@ -91,7 +91,7 @@ namespace Infrastructure.Persistance.Repositories
         public async Task DeleteAll(int[] ids)
         {
             var ticket = await _db.Tickets.Where(x => ids.Contains(x.Id)).ToListAsync();
-            _db. Tickets.RemoveRange(ticket);
+            _db.Tickets.RemoveRange(ticket);
         }
     }
 }

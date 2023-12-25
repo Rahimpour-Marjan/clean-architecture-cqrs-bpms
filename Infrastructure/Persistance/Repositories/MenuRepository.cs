@@ -28,7 +28,7 @@ namespace Infrastructure.Persistance.Repositories
         //}
         public async Task<List<Domain.Resources.Menu?>> FindAll()
         {
-            var menues = await _db.Menu.Include(x => x.SitePages).Include(x => x.SubMenus).Include(x => x.Parent).OrderBy(x=>x.Priority).ToListAsync();
+            var menues = await _db.Menu.Include(x => x.SitePages).Include(x => x.SubMenus).Include(x => x.Parent).OrderBy(x => x.Priority).ToListAsync();
             var tree = new List<Domain.Resources.Menu>();
             if (menues.Any())
             {
@@ -40,7 +40,7 @@ namespace Infrastructure.Persistance.Repositories
                         Id = item.Id,
                         Title = item.Title,
                         Key = item.SitePages.FirstOrDefault() != null ? item.SitePages.FirstOrDefault().Key : "",
-                        IsPage=(item.SitePages != null && item.SitePages.Any()) ? true : false,
+                        IsPage = (item.SitePages != null && item.SitePages.Any()) ? true : false,
                         Children = LoadChilds(menues, item)
                     });
                 }

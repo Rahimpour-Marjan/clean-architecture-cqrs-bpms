@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.EducationLevelApplication.Models;
+﻿using Application.EducationLevelApplication.Models;
+using MediatR;
 
 
 namespace Application.EducationLevelApplication.Queries.FindById

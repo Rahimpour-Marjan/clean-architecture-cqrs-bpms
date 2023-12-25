@@ -1,6 +1,5 @@
-﻿using MediatR;
-using Application.QuickAccess.Models;
-using Application.SitePage.Models;
+﻿using Application.SitePage.Models;
+using MediatR;
 
 namespace Application.SitePage.Queries.FindByKey
 {

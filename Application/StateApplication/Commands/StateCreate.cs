@@ -29,7 +29,7 @@ namespace Application.StateApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var state = new State(request.Title,request.CountryId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
+                var state = new State(request.Title, request.CountryId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
                 try
                 {
                     var newStateId = await _uow.StateRepository.Create(state);

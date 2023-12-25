@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.Post.Models;
+﻿using Application.Post.Models;
+using AutoMapper;
 
 namespace Application.Post
 {

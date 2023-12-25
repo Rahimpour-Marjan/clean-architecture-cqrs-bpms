@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.StateApplication.Commands;
 using Domain;
-using Application.StateApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.StateApplication.Commands
 {
@@ -16,14 +16,14 @@ namespace Test.Application.StateApplication.Commands
 
             var createStateCommand = new StateCreate.Command
             {
-                Title="تهران",
-                CountryId=1000,
-                Code="01",
-                ZipCode="021",
-                PostalCode="1369",
+                Title = "تهران",
+                CountryId = 1000,
+                Code = "01",
+                ZipCode = "021",
+                PostalCode = "1369",
                 LocationLong = "",
                 LocationLat = "",
-                ImageUrl="",
+                ImageUrl = "",
             };
 
             var createStateCommandHandler = new StateCreate.Handler(_uow);

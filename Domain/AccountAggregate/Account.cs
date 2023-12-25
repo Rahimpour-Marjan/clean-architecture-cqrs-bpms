@@ -13,18 +13,18 @@ namespace Domain
             string? extraPhone1, string? extraPhone2, string? extraPhone3,
             string? email, string? extraEmail, string? fax, string? website,
             string? instagram, string? telegram, string? whatsApp, string? linkedin, string? facebook,
-            int ? countryId, int? stateId, int? cityId, int? zoneId, string? address, string? locationLong, string? locationLat,
-            string? job, string? company, string? companyNo, 
+            int? countryId, int? stateId, int? cityId, int? zoneId, string? address, string? locationLong, string? locationLat,
+            string? job, string? company, string? companyNo,
             string? fatherName,
-            string? AccountalNumber,bool isActive,
+            string? AccountalNumber, bool isActive,
             decimal? workingHoursRate,
             string? reagentName, string? reagentCode,
             string? imageUrl,
             string? digitalSignatureUrl,
             string? resumeUrl,
-            bool spacialAccount,bool isPublic,
+            bool spacialAccount, bool isPublic,
             int? packageId, int? educationSubFieldId, int? educationLevelId,
-            DateTime? employeementDate,DateTime? modifiedDate)
+            DateTime? employeementDate, DateTime? modifiedDate)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -74,7 +74,7 @@ namespace Domain
             CreateDate = DateTime.Now;
 
         }
-        
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -138,8 +138,8 @@ namespace Domain
         public DateTime? EmployeementDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public DateTime? CreateDate { get; set; }
-       
-       
+
+
         public virtual ICollection<Notification> Notifications { get; set; }
         public virtual ICollection<Calendar> Calendars { get; set; }
         public virtual ICollection<CalendarReceiver> CalendarReceivers { get; set; }

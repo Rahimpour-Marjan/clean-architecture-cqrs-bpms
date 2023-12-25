@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance;
-using Application.QuickAccess.Models;
+﻿using Application.QuickAccess.Models;
 using Application.QuickAccess.Queries.FindByUserId;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.QuickAccess.Queries.FindById
 {
@@ -18,7 +17,7 @@ namespace Application.QuickAccess.Queries.FindById
         }
         public async Task<IList<QuickAccessInfo>> Handle(FindQuickAccessByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var model =await _uow.QuickAccessRepository.FindByUserId(request.UserId);
+            var model = await _uow.QuickAccessRepository.FindByUserId(request.UserId);
             return model.Select(_mapper.Map<Domain.QuickAccess, QuickAccessInfo>).ToList();
 
         }

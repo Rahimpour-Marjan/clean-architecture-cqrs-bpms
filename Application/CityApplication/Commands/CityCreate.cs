@@ -29,7 +29,7 @@ namespace Application.CityApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var city = new City(request.Title,request.StateId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
+                var city = new City(request.Title, request.StateId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
                 try
                 {
                     var newCityId = await _uow.CityRepository.Create(city);

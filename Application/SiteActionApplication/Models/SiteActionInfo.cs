@@ -1,7 +1,4 @@
-﻿
-using Application.SitePage.Models;
-
-namespace Application.SiteActionApplication.Models
+﻿namespace Application.SiteActionApplication.Models
 {
     public class SiteActionInfo
     {

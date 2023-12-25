@@ -1,11 +1,11 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance;
-using System.Data;
+﻿using Application.Common;
 using Application.Post.Models;
-using Infrastructure.Persistance.Repositories;
-using Application.Common;
+using AutoMapper;
 using Domain.Resources;
+using Infrastructure.Persistance;
+using Infrastructure.Persistance.Repositories;
+using MediatR;
+using System.Data;
 
 namespace Application.Post.Queries.FindAll
 {
@@ -28,9 +28,9 @@ namespace Application.Post.Queries.FindAll
                 if (request.Query != null)
                     queryFilter = QueryFilterResponse.Response(request.Query);
 
-                var model = await _uow.PostRepository.FindAll(queryFilter,request.ParentId);
+                var model = await _uow.PostRepository.FindAll(queryFilter, request.ParentId);
                 var result = model.Item1.Select(_mapper.Map<Domain.Post, PostInfo>).ToList();
-            
+
                 return FindAllQueryResponse<IList<PostInfo>>
                             .BuildSuccessResult(result, model.Item2, queryFilter?.PageSize, queryFilter?.PageNumber);
             }

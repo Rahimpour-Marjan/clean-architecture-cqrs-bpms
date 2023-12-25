@@ -1,6 +1,4 @@
 ﻿using Application.User.Queries.FindById;
-using Infrastructure.Persistance;
-using Infrastructure.Persistance.Repositories;
 using MediatR;
 
 namespace Api.Infrastructure.Middleware

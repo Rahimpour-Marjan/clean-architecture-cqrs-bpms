@@ -1,12 +1,12 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Api.Model.SitePage;
-using Application.SitePage.Commands;
-using Application.SitePage.Queries.FindById;
-using Application.SitePage.Queries.FindAll;
-using System.Net;
+﻿using Api.Model.SitePage;
 using Application.Helpers;
 using Application.Services;
+using Application.SitePage.Commands;
+using Application.SitePage.Queries.FindAll;
+using Application.SitePage.Queries.FindById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {

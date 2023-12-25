@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.Account.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.Employee;
+using Application.Account.Commands;
 using Application.Account.Queries.FindAll;
 using Application.Account.Queries.FindById;
-using System.Net;
+using Application.AccountApplication.Queries.FilterData;
 using Application.Helpers;
 using Application.Services;
-using Application.AccountApplication.Queries.FilterData;
-using Api.Enum;
-using Api.Authorization;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {

@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using Application.Account.Models;
+﻿using Application.Account.Models;
 using Application.AccountAddressApplication.Models;
+using AutoMapper;
 
 namespace Application.Account
 {

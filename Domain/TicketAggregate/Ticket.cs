@@ -4,11 +4,11 @@ namespace Domain
 {
     public class Ticket
     {
-        public Ticket(string title, string code, int? ticketParentId, string ticketText, int ticketCreatorId,int? workRequestId, TicketStatus status,TicketPriority ticketPriority, TicketType ticketType)
+        public Ticket(string title, string code, int? ticketParentId, string ticketText, int ticketCreatorId, int? workRequestId, TicketStatus status, TicketPriority ticketPriority, TicketType ticketType)
         {
             Title = title;
             Code = code;
-            TicketParentId= ticketParentId;
+            TicketParentId = ticketParentId;
             TicketText = ticketText;
             TicketCreatorId = ticketCreatorId;
             Status = status;
@@ -27,7 +27,7 @@ namespace Domain
         public Ticket? TicketParent { get; set; }
         public string TicketText { get; set; }
         public int TicketCreatorId { get; set; }
-        public  User TicketCreator { get; set; }
+        public User TicketCreator { get; set; }
         public TicketStatus Status { get; set; }
         public TicketPriority TicketPriority { get; set; }
         public TicketType TicketType { get; set; }

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Application.Menu.Models;
 
 namespace Application.Menu.Queries.FindAll
 {

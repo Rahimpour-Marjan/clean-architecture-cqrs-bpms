@@ -1,12 +1,12 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Model.SiteAction;
+using Application.Helpers;
+using Application.Services;
 using Application.SiteActionApplication.Commands;
-using Api.Model.SiteAction;
 using Application.SiteActionApplication.Queries.FindAll;
 using Application.SiteActionApplication.Queries.FindById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using Application.Services;
-using Application.Helpers;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1
@@ -66,10 +66,10 @@ namespace Api.Controllers.v1
             {
                 var result = await _mediator.Send(new SiteActionCreate.Command
                 {
-                    Title=model.Title,
+                    Title = model.Title,
                     Controller = model.Controller,
                     Action = model.Action,
-                    SitePageId=model.SitePageId
+                    SitePageId = model.SitePageId
                 });
 
                 if (!result.Success)

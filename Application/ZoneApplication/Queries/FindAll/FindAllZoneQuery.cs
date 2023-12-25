@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.ZoneApplication.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.ZoneApplication.Queries.FindAll
 {

@@ -1,8 +1,7 @@
-using System.Linq.Dynamic.Core;
 using Domain;
 using Domain.Enums;
 using Domain.Resources;
-using Infrastructure.Persistance.Repositories;
+using System.Linq.Dynamic.Core;
 
 namespace Infrastructure.Persistance.Extensions
 {

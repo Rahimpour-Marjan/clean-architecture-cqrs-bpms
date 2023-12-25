@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.Post.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.Post.Queries.FindAll
 {

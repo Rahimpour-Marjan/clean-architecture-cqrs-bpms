@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.CityApplication.Commands;
+﻿using Application.CityApplication.Commands;
+using FluentValidation;
 
 namespace Application.CityApplication
 {

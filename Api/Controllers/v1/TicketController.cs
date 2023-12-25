@@ -1,16 +1,16 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.Ticket;
-using Application.Ticket.Commands;
-using Application.Ticket.Queries.FindAll;
-using System.Net;
-using Application.Users.Models;
-using Domain.Enums;
 using Application.Helpers;
 using Application.Services;
+using Application.Ticket.Commands;
+using Application.Ticket.Queries.FindAll;
 using Application.Ticket.Queries.FindById;
-using Api.Authorization;
-using Api.Enum;
+using Application.Users.Models;
+using Domain.Enums;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers
 {
@@ -33,7 +33,7 @@ namespace Api.Controllers
             var currentUserId = (int)HttpContext.Items["UserId"];
             var model = await _mediator.Send(new FindAllTicketQuery
             {
-                UserId=currentUserId,
+                UserId = currentUserId,
                 Query = apiQuery.Query
             });
 
@@ -160,7 +160,7 @@ namespace Api.Controllers
                         else
                             model.Status = TicketStatus.Answered;
                     }
-                    
+
 
                     var result = await _mediator.Send(new TicketCreate.Command
                     {
@@ -168,7 +168,7 @@ namespace Api.Controllers
                         TicketParentId = model.TicketParentId,
                         WorkRequestId = ticket.WorkRequestId,
                         TicketText = model.TicketText,
-                        Status = model.Status?? TicketStatus.AwaitingReview,
+                        Status = model.Status ?? TicketStatus.AwaitingReview,
                         TicketPriority = ticket.TicketPriority,
                         TicketType = ticket.TicketType,
                         TicketCreatorId = userId
@@ -213,7 +213,7 @@ namespace Api.Controllers
                         });
                     }
                 }
-                
+
 
                 return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
                 {

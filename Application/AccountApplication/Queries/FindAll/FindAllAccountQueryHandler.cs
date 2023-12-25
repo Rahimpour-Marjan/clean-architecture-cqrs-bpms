@@ -1,11 +1,9 @@
-﻿using AutoMapper;
+﻿using Application.Common;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.Account.Models;
-using Infrastructure.Persistance.Repositories;
-using Application.Common;
-using Domain.Resources;
-using Domain;
 
 namespace Application.Account.Queries.FindAll
 {
@@ -13,7 +11,7 @@ namespace Application.Account.Queries.FindAll
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
-        public FindAllAccountQueryHandler( IUnitOfWork uow, IMapper mapper)
+        public FindAllAccountQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;
             _mapper = mapper;
@@ -28,7 +26,7 @@ namespace Application.Account.Queries.FindAll
 
                 var model = await _uow.AccountRepository.FindAll(queryFilter);
                 var result = model.Item1.Select(_mapper.Map<Domain.AccountView, Models.AccountView>).ToList();
-               
+
                 return FindAllQueryResponse<IList<Models.AccountView>>
                             .BuildSuccessResult(result, model.Item2, queryFilter?.PageSize, queryFilter?.PageNumber);
             }

@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.AccountAddressApplication.Commands;
 using Domain;
-using Application.AccountAddressApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.AccountAddressApplication.Commands
 {

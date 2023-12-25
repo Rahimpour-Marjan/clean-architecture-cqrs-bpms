@@ -1,7 +1,4 @@
-﻿using Domain.Values;
-using Application.Account.Models;
-
-namespace Application.Users.Models
+﻿namespace Application.Users.Models
 {
     public class CreateUserParam
     {

@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance.Repositories;
-using Domain.Resources;
-using Application.Common;
+﻿using Application.Common;
 using Application.Menu.Models;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.Menu.Queries.FindAllWithFilter
 {

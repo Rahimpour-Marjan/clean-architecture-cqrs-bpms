@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.CountryApplication.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.CountryApplication.Queries.FindAll
 {

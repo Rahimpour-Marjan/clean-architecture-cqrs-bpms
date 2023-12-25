@@ -1,10 +1,10 @@
-﻿using AutoMapper;
+﻿using Application.Common;
+using Application.Users.Models;
+using AutoMapper;
+using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 using System.Data;
-using Application.Users.Models;
-using Infrastructure.Persistance.Repositories;
-using Application.Common;
-using Domain.Resources;
 
 namespace Application.User.Queries.FindAll
 {

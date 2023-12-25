@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Domain;
+﻿using Domain;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Infrastructure.Persistance

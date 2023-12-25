@@ -52,15 +52,15 @@ namespace Infrastructure.Persistance.Repositories
                 Data = await q.Distinct().Skip((start - 1) * length).Take(length).ToListAsync()
             };
         }
-        
+
         public async Task<Post> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.Posts
                             .Include(a => a.PostParent)
                             .FirstOrDefaultAsync(c => c.Id == id);
         }
-    
+
         public async Task Update(Post model)
         {
             _db.Entry((Post)model).State = EntityState.Modified;
@@ -69,23 +69,23 @@ namespace Infrastructure.Persistance.Repositories
         {
             var post = await FindById(id);
             _db.Entry(post).State = EntityState.Deleted;
-        } 
+        }
         public async Task PostJuncUserGroupUpdateAssigned(int id)
         {
-            var model= await _db.PostJuncUserGroups.FirstOrDefaultAsync(x => x.Id == id);
+            var model = await _db.PostJuncUserGroups.FirstOrDefaultAsync(x => x.Id == id);
             if (model != null)
             {
                 model.Assigned = true;
                 _db.Entry(model).State = EntityState.Modified;
             }
-        }     
-        
+        }
+
         public async Task<PostJuncUserGroup> FindPostJuncUserGroup(int userGroupId, int postId)
         {
             return await _db.PostJuncUserGroups.FirstOrDefaultAsync(x => x.UserGroupId == userGroupId && x.PostId == postId);
-        }   
+        }
 
-        public async Task PostJuncUserGroupDelete(int postId,int[] userGroupIds)
+        public async Task PostJuncUserGroupDelete(int postId, int[] userGroupIds)
         {
             var postJuncUserGroups = await _db.PostJuncUserGroups.Where(x => x.PostId == postId && userGroupIds.Contains(x.UserGroupId)).ToListAsync();
             if (postJuncUserGroups != null)

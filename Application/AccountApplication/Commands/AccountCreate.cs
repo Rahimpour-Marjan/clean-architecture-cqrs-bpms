@@ -1,6 +1,6 @@
-﻿using FluentValidation;
-using Application.Common;
+﻿using Application.Common;
 using Domain.Enums;
+using FluentValidation;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
 

@@ -23,7 +23,7 @@ namespace Persistance.Configs
             builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.City)
-               .WithMany(x=>x.Zones)
+               .WithMany(x => x.Zones)
                .HasForeignKey(x => x.CityId)
                .OnDelete(DeleteBehavior.NoAction);
         }

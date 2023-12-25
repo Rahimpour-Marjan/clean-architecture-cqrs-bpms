@@ -35,7 +35,7 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<SiteAction> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.SiteActions.Include(x => x.SitePage).FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task Update(SiteAction model)
@@ -43,7 +43,7 @@ namespace Infrastructure.Persistance.Repositories
             var siteAction = await FindById(model.Id);
             siteAction.Controller = model.Controller;
             siteAction.Action = model.Action;
-            siteAction.SitePageId=model.SitePageId;
+            siteAction.SitePageId = model.SitePageId;
             _db.Entry(siteAction).State = EntityState.Modified;
         }
         public async Task Delete(int id)

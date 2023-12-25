@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace Api.Infrastructure.Services.Contracts
+﻿namespace Api.Infrastructure.Services.Contracts
 {
     public interface IAnonymousRequestCheckService
     {

@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Application.Ticket.Models;
+﻿using Application.Ticket.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.Ticket.Queries.FindById
 {
@@ -16,7 +16,7 @@ namespace Application.Ticket.Queries.FindById
         }
         public async Task<TicketInfo> Handle(FindTicketByIdQuery request, CancellationToken cancellationToken)
         {
-            var model = await _uow.TicketRepository.FindById(request.Id); 
+            var model = await _uow.TicketRepository.FindById(request.Id);
             return _mapper.Map<Domain.Ticket, TicketInfo>(model);
         }
     }

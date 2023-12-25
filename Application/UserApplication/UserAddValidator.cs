@@ -1,8 +1,5 @@
-﻿using FluentValidation;
-using Application.Users.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Application.Users.Models;
+using FluentValidation;
 
 namespace Application.Users
 {

@@ -1,18 +1,18 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.User.Commands;
-using Application.User.Queries.FindAll;
-using System.Net;
-using Application.User.Queries.FindById;
-using Application.Users.Models;
+﻿using Api.Authorization;
+using Api.Enum;
+using Api.Model.User;
 using Application.Helpers;
 using Application.Services;
-using Application.UserLogApplication.Queries.FindAll;
-using Api.Model.User;
-using Application.UserGroup.Queries.FindFormTree;
+using Application.User.Commands;
+using Application.User.Queries.FindAll;
 using Application.User.Queries.FindAllUserGroups;
-using Api.Enum;
-using Api.Authorization;
+using Application.User.Queries.FindById;
+using Application.UserGroup.Queries.FindFormTree;
+using Application.UserLogApplication.Queries.FindAll;
+using Application.Users.Models;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers
 {

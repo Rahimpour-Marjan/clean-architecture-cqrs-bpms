@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Domain
+﻿namespace Domain
 {
     public class SiteAction
-    {   
+    {
         protected SiteAction()
         {
 

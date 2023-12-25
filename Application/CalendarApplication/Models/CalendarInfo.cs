@@ -1,7 +1,4 @@
-﻿using Domain.Values;
-using Application.Calendar.Models;
-
-namespace Application.Calendar.Models
+﻿namespace Application.Calendar.Models
 {
     public class CalendarInfo
     {

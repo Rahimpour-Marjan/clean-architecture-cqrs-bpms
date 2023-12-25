@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using Application.CurrencyTypeApplication.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
-using Application.CurrencyTypeApplication.Models;
+using MediatR;
 
 namespace Application.CurrencyTypeApplication.Queries.FindById
 {

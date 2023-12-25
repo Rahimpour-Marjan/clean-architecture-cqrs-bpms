@@ -17,7 +17,7 @@ namespace Domain.Common
         {
             if (prmVal == null)
                 return "";
-            DateTime info = prmVal?? DateTime.Now;
+            DateTime info = prmVal ?? DateTime.Now;
             var year = info.Year;
             var month = info.Month;
             var day = info.Day;
@@ -40,7 +40,7 @@ namespace Domain.Common
             var pYear = persianCalendar.GetYear(new DateTime(year, month, day, new GregorianCalendar()));
             var pMonth = persianCalendar.GetMonth(new DateTime(year, month, day, new GregorianCalendar()));
             PersianCalendar pc = new PersianCalendar();
-            DateTime dt = new DateTime(pYear, pMonth-1, 1, pc);
+            DateTime dt = new DateTime(pYear, pMonth - 1, 1, pc);
             return dt;
         }
 
@@ -70,7 +70,7 @@ namespace Domain.Common
         }
 
         //Get Current Shamsi year in Miladi date
-        public Tuple<DateTime,DateTime> getCurrentYear()
+        public Tuple<DateTime, DateTime> getCurrentYear()
         {
             DateTime info = DateTime.Now;
             var year = info.Year;
@@ -118,7 +118,7 @@ namespace Domain.Common
 
             PersianCalendar pc = new PersianCalendar();
 
-            DateTime startYearDate = new DateTime(pYear-1, 1, 1, pc);
+            DateTime startYearDate = new DateTime(pYear - 1, 1, 1, pc);
             DateTime endYearDate = new DateTime(pYear, pMonth, pDay, pc);
 
             var result = new Tuple<DateTime, DateTime>(startYearDate, endYearDate);
@@ -131,7 +131,7 @@ namespace Domain.Common
         {
             DateTime info = DateTime.Now;
             var year = info.Year;
-            var month = info.Month-1;
+            var month = info.Month - 1;
             var day = info.Day;
             var persianCalendar = new PersianCalendar();
             var pYear = persianCalendar.GetYear(new DateTime(year, month, day, new GregorianCalendar()));

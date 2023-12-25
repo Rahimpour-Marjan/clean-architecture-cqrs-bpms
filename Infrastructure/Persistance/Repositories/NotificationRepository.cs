@@ -20,7 +20,7 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<Notification> FindById(int id, int? userId)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.Notifications
                           .Where(b => b.Id == id && b.SenderId == userId && b.IsDeleted == false)
                           .FirstOrDefaultAsync();
@@ -46,14 +46,14 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task Delete(int id, int? userId)
         {
-            Notification validNotification=await FindById(id, userId);
+            Notification validNotification = await FindById(id, userId);
             validNotification.IsDeleted = true;
             await Update(validNotification);
         }
         public async Task DeleteAll(int[] ids, int? userId)
         {
             var validNotifications = await _db.Notifications
-                                            .Where(x => ids.Contains(x.Id) && x.SenderId == userId ).ToListAsync();
+                                            .Where(x => ids.Contains(x.Id) && x.SenderId == userId).ToListAsync();
             foreach (Notification notification in validNotifications)
             {
                 notification.IsDeleted = true;

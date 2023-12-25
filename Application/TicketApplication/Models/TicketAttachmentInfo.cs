@@ -1,6 +1,4 @@
-﻿using Domain.Values;
-
-namespace Application.Ticket.Models
+﻿namespace Application.Ticket.Models
 {
     public class TicketAttachmentInfo
     {

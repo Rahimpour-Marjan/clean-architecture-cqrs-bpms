@@ -4,7 +4,7 @@
     {
         protected Country() { }
 
-        public Country(string title,string code, string? zipCode, string? postalCode, string? locationLat, string? locationLong, string? imageUrl, DateTime modifiedDate)
+        public Country(string title, string code, string? zipCode, string? postalCode, string? locationLat, string? locationLong, string? imageUrl, DateTime modifiedDate)
         {
             Title = title;
             Code = code;

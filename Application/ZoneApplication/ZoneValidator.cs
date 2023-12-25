@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.ZoneApplication.Commands;
+﻿using Application.ZoneApplication.Commands;
+using FluentValidation;
 
 namespace Application.ZoneApplication
 {

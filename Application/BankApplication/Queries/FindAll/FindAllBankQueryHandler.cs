@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance.Repositories;
-using Application.BankApplication.Models;
+﻿using Application.BankApplication.Models;
 using Application.Common;
+using AutoMapper;
 using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.BankApplication.Queries.FindAll
 {
@@ -11,7 +11,7 @@ namespace Application.BankApplication.Queries.FindAll
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
-        
+
         public FindAllBankQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;

@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.EducationLevelApplication.Commands;
 using Domain;
-using Application.EducationLevelApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.EducationLevelApplication.Commands
 {
@@ -16,7 +16,7 @@ namespace Test.Application.EducationLevelApplication.Commands
 
             var createEducationLevelCommand = new EducationLevelCreate.Command
             {
-                Title="دیپلم",
+                Title = "دیپلم",
             };
 
             var createEducationLevelCommandHandler = new EducationLevelCreate.Handler(_uow);

@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Application.Post.Models;
+﻿using Application.Post.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
-using Domain;
+using MediatR;
 
 namespace Application.Post.Queries.FindById
 {
@@ -19,7 +18,7 @@ namespace Application.Post.Queries.FindById
         {
             var model = await _uow.PostRepository.FindById(request.Id);
             var result = _mapper.Map<Domain.Post, PostInfo>(model);
-          
+
             return result;
         }
     }

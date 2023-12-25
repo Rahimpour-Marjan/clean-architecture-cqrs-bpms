@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.EducationLevelApplication.Models;
+﻿using Application.EducationLevelApplication.Models;
+using AutoMapper;
 
 namespace Application.EducationLevelApplication
 {

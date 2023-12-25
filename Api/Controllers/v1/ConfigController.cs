@@ -1,5 +1,4 @@
-﻿using Application.Menu.Queries.FindAll;
-using Application.QuickAccess.Queries.FindAll;
+﻿using Application.QuickAccess.Queries.FindAll;
 using Application.User.Queries.FindById;
 using Application.UserGroup.Queries.FindFormTree;
 using Application.Users.Models;
@@ -21,14 +20,14 @@ namespace Api.Controllers.v1
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var userId =  ((UserInfo)(HttpContext.Items["User"])).Id;
+            var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
             var quickAccess = await _mediator.Send(new FindAllQuickAccessQuery { UserId = userId });
             var currentUser = await _mediator.Send(new FindUserByIdQuery { Id = userId });
             var UserAccess = await _mediator.Send(new FindAllFormTreeQuery { UserId = userId });
             return Ok(new
             {
                 QuickAccess = quickAccess.Result,
-                CurrentUser= currentUser,
+                CurrentUser = currentUser,
                 UserAccess = UserAccess,
             });
         }

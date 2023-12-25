@@ -30,7 +30,7 @@ namespace Persistance.Configs
             builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.Account)
-              .WithMany(x=>x.AccountAddresses)
+              .WithMany(x => x.AccountAddresses)
               .HasForeignKey(x => x.AccountId)
               .OnDelete(DeleteBehavior.NoAction);
 

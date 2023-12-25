@@ -1,7 +1,5 @@
 ﻿using Domain.Common;
 using Domain.Enums;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using System.Net;
@@ -66,9 +64,9 @@ namespace Api.Infrastructure.Middleware
                         if (ex.InnerException.Message.Contains("DELETE"))
                             message = BaseMessage.GetMessage(Enum_MessageType.ERROR, Enum_Message.CANNOTDELETED).Body;
                         break;
-                    //default:
-                    //    message = innerExceptionMsg;
-                    //    break;
+                        //default:
+                        //    message = innerExceptionMsg;
+                        //    break;
                 }
             }
             else if (ex.Message.Contains("Authentication"))

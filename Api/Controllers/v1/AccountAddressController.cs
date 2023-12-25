@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.AccountAddressApplication.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.AccountAddress;
+using Application.AccountAddressApplication.Commands;
+using Application.AccountAddressApplication.Queries.FilterData;
 using Application.AccountAddressApplication.Queries.FindAll;
 using Application.AccountAddressApplication.Queries.FindById;
-using System.Net;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
-using Application.AccountAddressApplication.Queries.FilterData;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1
@@ -142,10 +142,10 @@ namespace Api.Controllers.v1
                 {
                     AccountId = model.AccountId,
                     Title = model.Title,
-                    FullName=model.FullName,
+                    FullName = model.FullName,
                     Phone = model.Phone,
                     ExtraPhone = model.ExtraPhone,
-                    CountryId =model.CountryId,
+                    CountryId = model.CountryId,
                     StateId = model.StateId,
                     CityId = model.CityId,
                     ZoneId = model.ZoneId,
@@ -242,7 +242,7 @@ namespace Api.Controllers.v1
             {
                 return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
                 {
-                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage)??"" },
+                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) ?? "" },
                 });
             }
             else

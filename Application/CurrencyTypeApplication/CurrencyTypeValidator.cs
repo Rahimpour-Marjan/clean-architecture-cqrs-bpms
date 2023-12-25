@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.CurrencyTypeApplication.Commands;
+﻿using Application.CurrencyTypeApplication.Commands;
+using FluentValidation;
 
 namespace Application.CurrencyTypeApplication
 {

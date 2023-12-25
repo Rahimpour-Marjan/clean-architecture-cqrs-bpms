@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.AccountCreditApplication.Models;
+﻿using Application.AccountCreditApplication.Models;
+using MediatR;
 
 namespace Application.AccountCreditApplication.Queries.FindById
 {

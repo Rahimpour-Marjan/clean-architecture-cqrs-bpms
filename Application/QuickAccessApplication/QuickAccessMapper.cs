@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.QuickAccess.Models;
+﻿using Application.QuickAccess.Models;
+using AutoMapper;
 
 namespace Application.QuickAccess
 {

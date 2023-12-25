@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.CurrencyTypeApplication.Commands;
 using Domain;
-using Application.CurrencyTypeApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.CurrencyTypeApplication.Commands
 {
@@ -16,10 +16,10 @@ namespace Test.Application.CurrencyTypeApplication.Commands
 
             var createCurrencyTypeCommand = new CurrencyTypeCreate.Command
             {
-                Title="ریال",
+                Title = "ریال",
                 CurrencySign = "ریال",
-                UnitPrice=1000,
-                ImageUrl ="",
+                UnitPrice = 1000,
+                ImageUrl = "",
             };
 
             var createCurrencyTypeCommandHandler = new CurrencyTypeCreate.Handler(_uow);

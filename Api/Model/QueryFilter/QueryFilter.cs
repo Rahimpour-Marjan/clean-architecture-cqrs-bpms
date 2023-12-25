@@ -13,7 +13,7 @@
             this.PageNumber = 1;
             this.PageSize = 10;
         }
-        public QueryFilter(string sortBy, bool isSortAscending,int pageNumber, int pageSize)
+        public QueryFilter(string sortBy, bool isSortAscending, int pageNumber, int pageSize)
         {
             this.SortBy = sortBy;
             this.IsSortAscending = isSortAscending;

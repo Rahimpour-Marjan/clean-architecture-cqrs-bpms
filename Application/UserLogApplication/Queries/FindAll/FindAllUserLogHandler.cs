@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance.Repositories;
+﻿using Application.Common;
 using Application.UserLogApplication.Models;
-using Application.Common;
+using AutoMapper;
 using Domain.Resources;
+using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.UserLogApplication.Queries.FindAll
 {
@@ -11,7 +11,7 @@ namespace Application.UserLogApplication.Queries.FindAll
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
-        
+
         public FindAllUserLogHandler(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;
@@ -26,7 +26,7 @@ namespace Application.UserLogApplication.Queries.FindAll
                 if (request.Query != null)
                     queryFilter = QueryFilterResponse.Response(request.Query);
 
-                var model = await _uow.UserLogRepository.FindAll(request.UserId,queryFilter);
+                var model = await _uow.UserLogRepository.FindAll(request.UserId, queryFilter);
                 var result = model.Item1.Select(_mapper.Map<Domain.UserLog, UserLogInfo>).ToList();
 
                 return FindAllQueryResponse<IList<UserLogInfo>>

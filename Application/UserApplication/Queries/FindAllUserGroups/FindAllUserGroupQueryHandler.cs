@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using Domain.Resources;
 using Infrastructure.Persistance.Repositories;
-using Domain.Resources;
+using MediatR;
 
 namespace Application.User.Queries.FindAllUserGroups
 {

@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Ticket.Models;
+﻿using Application.Ticket.Models;
+using MediatR;
 
 namespace Application.Ticket.Queries.FindById
 {

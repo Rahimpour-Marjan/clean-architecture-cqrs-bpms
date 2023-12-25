@@ -1,6 +1,6 @@
 ﻿using Application.Common;
-using Infrastructure.Persistance.Repositories;
 using Domain.Enums;
+using Infrastructure.Persistance.Repositories;
 using MediatR;
 
 namespace Application.UserGroup.Commands

@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.QuickAccess.Models;
+﻿using Application.QuickAccess.Models;
+using MediatR;
 
 namespace Application.QuickAccess.Queries.FindByUserId
 {

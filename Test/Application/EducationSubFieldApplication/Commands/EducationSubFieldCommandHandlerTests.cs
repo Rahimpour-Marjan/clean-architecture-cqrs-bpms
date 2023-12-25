@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.EducationSubFieldApplication.Commands;
 using Domain;
-using Application.EducationSubFieldApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.EducationSubFieldApplication.Commands
 {
@@ -16,8 +16,8 @@ namespace Test.Application.EducationSubFieldApplication.Commands
 
             var createEducationSubFieldCommand = new EducationSubFieldCreate.Command
             {
-                Title="دیپلم",
-                EducationFieldId=1000
+                Title = "دیپلم",
+                EducationFieldId = 1000
             };
 
             var createEducationSubFieldCommandHandler = new EducationSubFieldCreate.Handler(_uow);

@@ -27,16 +27,16 @@ namespace Application.Notification.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var notification = await _uow.NotificationRepository.FindById(request.Id,request.SenderId);
-                if (notification == null) 
+                var notification = await _uow.NotificationRepository.FindById(request.Id, request.SenderId);
+                if (notification == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
-                notification.Title=request.Title;
-                notification.Text=request.Text;
-                notification.SenderId=request.SenderId;
-                notification.ReceiverId=request.ReceiverId;
-                notification.Icon=request.Icon;
-                notification.Link=request.Link;
-               
+                notification.Title = request.Title;
+                notification.Text = request.Text;
+                notification.SenderId = request.SenderId;
+                notification.ReceiverId = request.ReceiverId;
+                notification.Icon = request.Icon;
+                notification.Link = request.Link;
+
                 try
                 {
                     await _uow.NotificationRepository.Update(notification);

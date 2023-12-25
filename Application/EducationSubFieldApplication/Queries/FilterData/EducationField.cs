@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Infrastructure.Persistance.Repositories;
+﻿using Application.Common;
 using Domain.Common;
-using Application.Common;
+using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.EducationSubFieldApplication.Queries.FilterData
 {
@@ -34,7 +34,7 @@ namespace Application.EducationSubFieldApplication.Queries.FilterData
                                Data = model.Data,
                                Length = model.Length,
                                Start = request.Start,
-                                TotalRecords = model.TotalRecords,
+                               TotalRecords = model.TotalRecords,
                            });
                     await Task.CompletedTask;
                     return result;

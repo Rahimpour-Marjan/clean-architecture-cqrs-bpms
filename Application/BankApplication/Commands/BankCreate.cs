@@ -24,7 +24,7 @@ namespace Application.BankApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var bank = new Bank(request.Title, request.IsActive,request.ImageUrl, DateTime.Now);
+                var bank = new Bank(request.Title, request.IsActive, request.ImageUrl, DateTime.Now);
                 try
                 {
                     var newBankId = await _uow.BankRepository.Create(bank);

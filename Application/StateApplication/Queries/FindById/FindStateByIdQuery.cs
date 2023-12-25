@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.StateApplication.Models;
+﻿using Application.StateApplication.Models;
+using MediatR;
 
 namespace Application.StateApplication.Queries.FindById
 {

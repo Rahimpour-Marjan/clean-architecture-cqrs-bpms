@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Notification.Models;
+﻿using Application.Notification.Models;
+using MediatR;
 
 namespace Application.Notification.Queries.FindById
 {

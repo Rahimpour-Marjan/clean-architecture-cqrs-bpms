@@ -11,7 +11,7 @@ namespace Domain
         Task<List<Tree?>> FindAllByUserId(int userId);
         Task<FilterResponse> FilterAllParent(int start, int length);
         Task<FilterResponse> FilterAllPost(int start, int length);
-        Task<List<AccessTree?>> FindTree(int? userId,int? userGroupId, int? postId, bool? isSelected);
+        Task<List<AccessTree?>> FindTree(int? userId, int? userGroupId, int? postId, bool? isSelected);
         Task<List<Tree?>> FindUserGroupTree();
         Task<UserGroup> FindById(int id);
         Task Update(UserGroup usergroup);

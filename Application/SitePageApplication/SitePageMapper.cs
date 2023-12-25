@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Application.Menu.Models;
 
 namespace Application.SitePage.Models
 {

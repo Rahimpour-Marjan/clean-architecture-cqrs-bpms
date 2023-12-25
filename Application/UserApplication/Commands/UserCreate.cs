@@ -15,7 +15,7 @@ namespace Application.User.Commands
             public bool IsActive { get; set; }
             public int AccountId { get; set; }
             public int? ApiResultCode { get; set; }
-            
+
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>

@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.CreditPaymentApplication.Commands;
+﻿using Application.CreditPaymentApplication.Commands;
+using FluentValidation;
 
 namespace Application.CreditPaymentApplication
 {

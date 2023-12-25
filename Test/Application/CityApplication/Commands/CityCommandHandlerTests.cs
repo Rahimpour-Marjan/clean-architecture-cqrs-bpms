@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.CityApplication.Commands;
 using Domain;
-using Application.CityApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.CityApplication.Commands
 {
@@ -16,14 +16,14 @@ namespace Test.Application.CityApplication.Commands
 
             var createCityCommand = new CityCreate.Command
             {
-                Title="تهران",
-                StateId=1000,
-                Code="01",
-                ZipCode="021",
-                PostalCode="1369",
+                Title = "تهران",
+                StateId = 1000,
+                Code = "01",
+                ZipCode = "021",
+                PostalCode = "1369",
                 LocationLong = "",
                 LocationLat = "",
-                ImageUrl="",
+                ImageUrl = "",
             };
 
             var createCityCommandHandler = new CityCreate.Handler(_uow);

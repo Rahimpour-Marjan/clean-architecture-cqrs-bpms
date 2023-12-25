@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace Application.Common
 {
@@ -18,7 +17,7 @@ namespace Application.Common
         {
             if (prmVal == null)
                 return "";
-            DateTime info = prmVal?? DateTime.Now;
+            DateTime info = prmVal ?? DateTime.Now;
             var year = info.Year;
             var month = info.Month;
             var day = info.Day;

@@ -33,7 +33,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<EducationLevel> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.EducationLevels.FindAsync(id);
         }
 

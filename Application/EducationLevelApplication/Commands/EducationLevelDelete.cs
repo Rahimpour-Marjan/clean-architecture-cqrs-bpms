@@ -8,7 +8,7 @@ namespace Application.EducationLevelApplication.Commands
     {
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
-            public int EduLevelId { get;  set; }
+            public int EduLevelId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {

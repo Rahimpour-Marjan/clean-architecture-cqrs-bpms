@@ -1,6 +1,4 @@
-﻿using Domain.Values;
-
-namespace Application.UserGroup.Models
+﻿namespace Application.UserGroup.Models
 {
     public class UserGroupInfo
     {

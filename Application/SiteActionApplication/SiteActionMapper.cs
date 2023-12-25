@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.SiteActionApplication.Models;
+﻿using Application.SiteActionApplication.Models;
+using AutoMapper;
 using Domain;
 
 namespace Application.SiteActionApplication

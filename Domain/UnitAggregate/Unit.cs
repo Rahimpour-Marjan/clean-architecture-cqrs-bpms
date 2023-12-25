@@ -4,7 +4,7 @@
     {
         protected Unit() { }
 
-        public Unit(string title,string abbreviatedTitle, string? description, DateTime dateRecord)
+        public Unit(string title, string abbreviatedTitle, string? description, DateTime dateRecord)
         {
             Title = title;
             AbbreviatedTitle = abbreviatedTitle;

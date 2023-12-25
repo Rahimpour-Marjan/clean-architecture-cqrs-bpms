@@ -6,7 +6,7 @@ namespace Domain
     {
         protected Package() { }
 
-        public Package(string title, PackageType type, string code, bool isActive, long price, long? discount, string? imageUrl,DateTime? expireDate, DateTime modifiedDate)
+        public Package(string title, PackageType type, string code, bool isActive, long price, long? discount, string? imageUrl, DateTime? expireDate, DateTime modifiedDate)
         {
             Title = title;
             Type = type;

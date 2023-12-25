@@ -24,7 +24,7 @@ namespace Test.Application.EducationSubFieldpplication.Queries
 
             var queryFilter = new QueryFilter();
             var result = new Tuple<IList<EducationSubField>, int>(educationSubField.ToList(), 1);
-            educationSubFieldRepositoryMock.Setup(pr => pr.FindAll(queryFilter,1000).Result).Returns(result);
+            educationSubFieldRepositoryMock.Setup(pr => pr.FindAll(queryFilter, 1000).Result).Returns(result);
 
             var getAllEducationSubFieldQuery = new FindAllEducationSubFieldQuery();
             var getAllEducationSubFieldQueryHandler = new FindAllEducationSubFieldQueryHandler(_uow, _mapper.Object);

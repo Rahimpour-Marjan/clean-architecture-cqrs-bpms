@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.BankApplication.Commands;
+﻿using Application.BankApplication.Commands;
+using FluentValidation;
 
 namespace Application.BankApplication
 {

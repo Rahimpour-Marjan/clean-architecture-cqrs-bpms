@@ -26,10 +26,10 @@ namespace Application.Ticket.Commands
                 try
                 {
                     var ticket = await _uow.TicketRepository.FindParent(request.Id);
-                    ticket.Status= request.Status;
-                    
+                    ticket.Status = request.Status;
+
                     await _uow.TicketRepository.Update(ticket);
-                    
+
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response
                         {

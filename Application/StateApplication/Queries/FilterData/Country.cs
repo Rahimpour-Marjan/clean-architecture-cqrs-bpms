@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Domain.Common;
 using Infrastructure.Persistance.Repositories;
-using Domain.Common;
+using MediatR;
 
 namespace Application.StateApplication.Queries.FilterData
 {

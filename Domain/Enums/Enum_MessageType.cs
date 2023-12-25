@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Domain.Enums
+﻿namespace Domain.Enums
 {
     public enum Enum_MessageType
     {

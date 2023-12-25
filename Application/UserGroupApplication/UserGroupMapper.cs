@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.UserGroup.Models;
+﻿using Application.UserGroup.Models;
+using AutoMapper;
 
 namespace Application.UserGroup
 {

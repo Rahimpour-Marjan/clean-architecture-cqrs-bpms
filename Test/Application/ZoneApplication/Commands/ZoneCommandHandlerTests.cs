@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.ZoneApplication.Commands;
 using Domain;
-using Application.ZoneApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.ZoneApplication.Commands
 {
@@ -16,14 +16,14 @@ namespace Test.Application.ZoneApplication.Commands
 
             var createZoneCommand = new ZoneCreate.Command
             {
-                Title="منطقه 1",
+                Title = "منطقه 1",
                 CityId = 1000,
-                Code="01",
-                ZipCode="021",
-                PostalCode="1369",
+                Code = "01",
+                ZipCode = "021",
+                PostalCode = "1369",
                 LocationLong = "",
                 LocationLat = "",
-                ImageUrl="",
+                ImageUrl = "",
             };
 
             var createZoneCommandHandler = new ZoneCreate.Handler(_uow);

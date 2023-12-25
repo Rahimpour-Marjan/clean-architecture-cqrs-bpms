@@ -85,7 +85,7 @@ namespace Infrastructure.Persistance.Repositories
                     }
                 }
             }
-            var accessList = await _db.UserGroupPrivilages.Include(x=>x.SiteAction).Where(x => userGroupIds.Contains(x.UserGroupId)).Select(x=>x.SiteAction).ToListAsync();
+            var accessList = await _db.UserGroupPrivilages.Include(x => x.SiteAction).Where(x => userGroupIds.Contains(x.UserGroupId)).Select(x => x.SiteAction).ToListAsync();
             return accessList;
         }
         public async Task Update(User user)

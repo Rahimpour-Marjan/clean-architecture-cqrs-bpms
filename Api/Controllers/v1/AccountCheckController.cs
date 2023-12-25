@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.AccountCheckApplication.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.AccountCheck;
+using Application.AccountCheckApplication.Commands;
+using Application.AccountCheckApplication.Queries.FilterData;
 using Application.AccountCheckApplication.Queries.FindAll;
 using Application.AccountCheckApplication.Queries.FindById;
-using System.Net;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
-using Application.AccountCheckApplication.Queries.FilterData;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1
@@ -161,7 +161,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new AccountCheckUpdate.Command
                 {
                     AccountCheckId = id,
-                    AccountId=model.AccountId,
+                    AccountId = model.AccountId,
                     CheckNumber = model.CheckNumber,
                     BankId = model.BankId,
                     BranchName = model.BranchName,

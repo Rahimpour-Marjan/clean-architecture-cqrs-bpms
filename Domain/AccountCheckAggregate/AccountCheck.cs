@@ -4,7 +4,7 @@
     {
         protected AccountCheck() { }
 
-        public AccountCheck(int accountId,  string checkNumber, int bankId, string branchName, long amount, string payTo, DateTime issueDate, DateTime receiptDate, DateTime? returnDate, string frontImageUrl, string backImageUrl, string? signatureUrl, DateTime modifiedDate)
+        public AccountCheck(int accountId, string checkNumber, int bankId, string branchName, long amount, string payTo, DateTime issueDate, DateTime receiptDate, DateTime? returnDate, string frontImageUrl, string backImageUrl, string? signatureUrl, DateTime modifiedDate)
         {
             AccountId = accountId;
             CheckNumber = checkNumber;

@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Application.User.Queries.FindAccessById;
 using MediatR;
-using Application.User.Queries.FindAccessById;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 
 namespace Api.Authorization
@@ -49,7 +49,7 @@ namespace Api.Authorization
                     {
                         if (userAccess != null && attribute != null && userAccess.Any(x => x.Controller + "_" + x.Action == action.ToString()))
                         {
-                            permission=true;
+                            permission = true;
                         }
                     }
                     if (permission == false)

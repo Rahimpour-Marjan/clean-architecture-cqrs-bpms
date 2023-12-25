@@ -7,7 +7,7 @@ namespace Application.SitePage.Models
     {
         public long Id { get; set; }
         public string Title { get; set; }
-		public string Key { get; set; }
+        public string Key { get; set; }
         public int Priority { get; set; }
         public MenuInfo Menu { get; set; }
         public List<SiteActionInfo> SiteActions { get; set; }

@@ -1,5 +1,5 @@
-﻿using AutoMapper;
-using Application.UnitApplication.Models;
+﻿using Application.UnitApplication.Models;
+using AutoMapper;
 using Domain;
 
 namespace Application.UnitApplication

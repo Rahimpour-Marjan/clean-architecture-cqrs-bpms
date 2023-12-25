@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using Application.SiteActionApplication.Models;
+using AutoMapper;
 using Domain;
 using Infrastructure.Persistance.Repositories;
-using Application.SiteActionApplication.Models;
+using MediatR;
 
 namespace Application.SiteActionApplication.Queries.FindById
 {

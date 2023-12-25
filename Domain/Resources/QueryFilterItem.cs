@@ -4,7 +4,7 @@ namespace Domain.Resources
 {
     public class QueryFilterItem
     {
-        public string? ColumnName { get; set; }    
+        public string? ColumnName { get; set; }
         public string? SearchText { get; set; }
         public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }

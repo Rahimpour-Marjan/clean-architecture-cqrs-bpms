@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.CityApplication.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.City;
+using Application.CityApplication.Commands;
+using Application.CityApplication.Queries.FilterData;
 using Application.CityApplication.Queries.FindAll;
 using Application.CityApplication.Queries.FindById;
-using System.Net;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
-using Application.CityApplication.Queries.FilterData;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1
@@ -105,7 +105,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new CityCreate.Command
                 {
                     Title = model.Title,
-                    StateId=model.StateId,
+                    StateId = model.StateId,
                     Code = model.Code,
                     ZipCode = model.ZipCode,
                     PostalCode = model.PostalCode,
@@ -149,7 +149,7 @@ namespace Api.Controllers.v1
                 {
                     CityId = id,
                     Title = model.Title,
-                    StateId=model.StateId,
+                    StateId = model.StateId,
                     Code = model.Code,
                     ZipCode = model.ZipCode,
                     PostalCode = model.PostalCode,
@@ -195,7 +195,7 @@ namespace Api.Controllers.v1
             {
                 return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
                 {
-                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage)??"" },
+                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) ?? "" },
                 });
             }
             else

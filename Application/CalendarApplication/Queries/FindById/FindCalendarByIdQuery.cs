@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Calendar.Models;
+﻿using Application.Calendar.Models;
+using MediatR;
 
 namespace Application.Calendar.Queries.FindById
 {

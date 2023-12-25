@@ -1,14 +1,14 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.EducationLevel;
 using Application.EducationLevelApplication.Commands;
-using Application.EducationLevelApplication.Queries.FindById;
 using Application.EducationLevelApplication.Queries.FindAll;
-using System.Net;
+using Application.EducationLevelApplication.Queries.FindById;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {

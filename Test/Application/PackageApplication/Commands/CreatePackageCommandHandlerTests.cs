@@ -1,7 +1,7 @@
-﻿using Moq;
-using UnitTest.Common;
+﻿using Application.PackageApplication.Commands;
 using Domain;
-using Application.PackageApplication.Commands;
+using Moq;
+using UnitTest.Common;
 
 namespace Test.Application.PackageApplication.Commands
 {
@@ -16,14 +16,14 @@ namespace Test.Application.PackageApplication.Commands
 
             var createPackageCommand = new PackageCreate.Command
             {
-                Title="پکیج طلایی",
-                Type=Domain.Enums.PackageType.Type1,
-                Code="01",
-                IsActive=true,
-                Price=100000,
+                Title = "پکیج طلایی",
+                Type = Domain.Enums.PackageType.Type1,
+                Code = "01",
+                IsActive = true,
+                Price = 100000,
                 Discount = 100000,
-                ImageUrl="",
-                ExpireDate=DateTime.Now
+                ImageUrl = "",
+                ExpireDate = DateTime.Now
             };
 
             var createPackageCommandHandler = new PackageCreate.Handler(_uow);

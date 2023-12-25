@@ -1,17 +1,17 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.Post.Commands;
-using Api.Model.Post;
-using Application.Post.Queries.FindById;
-using Application.Post.Queries.FindAll;
-using System.Net;
-using Application.PostApplication.Queries.FindPostTree;
-using Application.Helpers;
-using Application.Services;
-using Application.PostApplication.Queries.FilterData;
-using Application.UserGroup.Queries.FindFormTree;
-using Api.Authorization;
+﻿using Api.Authorization;
 using Api.Enum;
+using Api.Model.Post;
+using Application.Helpers;
+using Application.Post.Commands;
+using Application.Post.Queries.FindAll;
+using Application.Post.Queries.FindById;
+using Application.PostApplication.Queries.FilterData;
+using Application.PostApplication.Queries.FindPostTree;
+using Application.Services;
+using Application.UserGroup.Queries.FindFormTree;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {
@@ -41,7 +41,7 @@ namespace Api.Controllers.v1
         // GET: api/<UserController>
         [CustomAuthorize(SiteAction.Post_View)]
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery,int? parentId)
+        public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery, int? parentId)
         {
             var model = await _mediator.Send(new FindAllPostQuery
             {
@@ -141,7 +141,7 @@ namespace Api.Controllers.v1
                 });
             }
         }
-        
+
         // POST api/<UserController>
         [HttpPost]
         [CustomAuthorize(SiteAction.Post_Add)]
@@ -192,7 +192,7 @@ namespace Api.Controllers.v1
                     Id = id,
                     Title = model.Title,
                     PostParentId = model.PostParentId,
-                }); 
+                });
 
                 if (!result.Success)
                 {
@@ -225,7 +225,7 @@ namespace Api.Controllers.v1
             var result = await _mediator.Send(new PostJuncUserGroupDelete.Command
             {
                 PostId = postId,
-                UserGroupIds= userGroupIds,
+                UserGroupIds = userGroupIds,
             });
 
             if (!result.Success)

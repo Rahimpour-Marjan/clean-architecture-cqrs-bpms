@@ -24,14 +24,14 @@ namespace Application.Post.Commands
             {
                 try
                 {
-                    var post = new Domain.Post(request.Title,request.PostParentId);
+                    var post = new Domain.Post(request.Title, request.PostParentId);
                     var newPostId = await _uow.PostRepository.Create(post);
-                   
+
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response
                         {
                             postId = newPostId
-                        });                 
+                        });
                     await Task.CompletedTask;
                     return result;
                 }

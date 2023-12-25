@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.StateApplication.Commands;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.State;
-using Application.StateApplication.Queries.FindAll;
-using Application.StateApplication.Queries.FindById;
-using System.Net;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
+using Application.StateApplication.Commands;
 using Application.StateApplication.Queries.FilterData;
+using Application.StateApplication.Queries.FindAll;
+using Application.StateApplication.Queries.FindById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Api.Controllers.v1
@@ -105,7 +105,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new StateCreate.Command
                 {
                     Title = model.Title,
-                    CountryId=model.CountryId,
+                    CountryId = model.CountryId,
                     Code = model.Code,
                     ZipCode = model.ZipCode,
                     PostalCode = model.PostalCode,
@@ -149,7 +149,7 @@ namespace Api.Controllers.v1
                 {
                     StateId = id,
                     Title = model.Title,
-                    CountryId=model.CountryId,
+                    CountryId = model.CountryId,
                     Code = model.Code,
                     ZipCode = model.ZipCode,
                     PostalCode = model.PostalCode,
@@ -195,7 +195,7 @@ namespace Api.Controllers.v1
             {
                 return StatusCode((int)HttpStatusCode.BadRequest, new ApiResponse
                 {
-                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage)??"" },
+                    Errors = new string[] { (result.Exception != null ? result.Exception.Message : result.ErrorMessage) ?? "" },
                 });
             }
             else

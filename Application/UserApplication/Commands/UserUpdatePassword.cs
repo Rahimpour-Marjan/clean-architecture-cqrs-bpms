@@ -1,9 +1,9 @@
 ﻿using Application.Common;
 using Application.LoginApplication.Interfaces;
+using CryptoHashVerify;
+using Domain.Enums;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
-using Domain.Enums;
-using CryptoHashVerify;
 
 namespace Application.User.Commands
 {
@@ -32,7 +32,7 @@ namespace Application.User.Commands
                 if (user == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
 
-                var checkPassword=CheckPasswordValidation<Response>.CheckPassword(request.Password);
+                var checkPassword = CheckPasswordValidation<Response>.CheckPassword(request.Password);
                 if (!checkPassword.Success)
                     return OperationResult<Response>.BuildFailure(checkPassword.ErrorMessage);
 
@@ -43,7 +43,7 @@ namespace Application.User.Commands
 
                 var (hashedPassword, salt) = _authentication.GenerateHashPasswordAndSalt(request.Password);
 
-                
+
 
                 user.Password = hashedPassword;
                 user.Salt = salt;

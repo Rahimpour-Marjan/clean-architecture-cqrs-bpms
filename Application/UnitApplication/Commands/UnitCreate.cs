@@ -1,5 +1,4 @@
 ﻿using Application.Common;
-using Domain;
 using Infrastructure.Persistance.Repositories;
 using MediatR;
 
@@ -25,7 +24,7 @@ namespace Application.UnitApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var Unit = new Domain.Unit(request.Title, request.AbbreviatedTitle,request.Description, DateTime.Now);
+                var Unit = new Domain.Unit(request.Title, request.AbbreviatedTitle, request.Description, DateTime.Now);
                 try
                 {
                     var newUnitId = await _uow.UnitRepository.Create(Unit);

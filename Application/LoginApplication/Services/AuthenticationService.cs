@@ -1,17 +1,16 @@
-﻿using CryptoHashVerify;
+﻿using Application.LoginApplication.Commands;
 using Application.LoginApplication.Interfaces;
 using Application.LoginApplication.Options;
+using Application.User.Queries.FindByAuthInfo;
+using Application.Users.Models;
+using CryptoHashVerify;
+using Domain.Common;
+using Domain.Enums;
+using MediatR;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Application.Users;
-using MediatR;
-using Application.Users.Models;
-using Application.User.Queries.FindByAuthInfo;
-using Application.LoginApplication.Commands;
-using Domain.Common;
-using Domain.Enums;
 
 namespace Application.LoginApplication.Services
 {

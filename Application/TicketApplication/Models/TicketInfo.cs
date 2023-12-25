@@ -1,7 +1,5 @@
 ﻿using Application.Users.Models;
-using Domain;
 using Domain.Enums;
-using Domain.Values;
 
 namespace Application.Ticket.Models
 {

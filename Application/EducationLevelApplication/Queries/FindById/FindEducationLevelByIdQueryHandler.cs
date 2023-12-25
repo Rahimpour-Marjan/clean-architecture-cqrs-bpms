@@ -1,7 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using Application.EducationLevelApplication.Models;
+using AutoMapper;
 using Infrastructure.Persistance;
-using Application.EducationLevelApplication.Models;
+using MediatR;
 
 namespace Application.EducationLevelApplication.Queries.FindById
 {

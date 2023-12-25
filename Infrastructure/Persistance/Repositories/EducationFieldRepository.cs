@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistance.Repositories
 {
-    public class EducationFieldRepository :IEducationFieldRepository
+    public class EducationFieldRepository : IEducationFieldRepository
     {
         private readonly MakmonDbContext _db;
         public EducationFieldRepository(MakmonDbContext db)
@@ -20,7 +20,7 @@ namespace Infrastructure.Persistance.Repositories
 
         public async Task<EducationField> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return await _db.EducationFields.FindAsync(id);
         }
 

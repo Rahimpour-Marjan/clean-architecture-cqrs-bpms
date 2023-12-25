@@ -21,7 +21,7 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<Tuple<IList<AccountCheck>, int>> FindAll(QueryFilter? queryFilter)
         {
-            var query = _db.AccountChecks.Include(x=>x.Account).Include(x=>x.Bank).AsQueryable();
+            var query = _db.AccountChecks.Include(x => x.Account).Include(x => x.Bank).AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);
 
@@ -35,8 +35,8 @@ namespace Infrastructure.Persistance.Repositories
         }
         public async Task<AccountCheck> FindById(int id)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
-            return await _db.AccountChecks.Include(x => x.Account).Include(x => x.Bank).FirstOrDefaultAsync(x=>x.Id == id);
+#pragma warning disable CS8603 // Possible null reference return.
+            return await _db.AccountChecks.Include(x => x.Account).Include(x => x.Bank).FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<FilterResponse> FilterAllAccount(int start, int length)
         {

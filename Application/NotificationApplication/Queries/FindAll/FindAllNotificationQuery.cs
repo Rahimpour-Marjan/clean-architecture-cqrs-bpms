@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Application.Common;
 using Application.Notification.Models;
-using Application.Common;
+using MediatR;
 
 namespace Application.Notification.Queries.FindAll
 {

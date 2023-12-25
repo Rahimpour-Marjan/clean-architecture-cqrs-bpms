@@ -14,9 +14,9 @@ namespace Application.Common
         public string? ErrorMessage { get; private set; }
         public Exception? Exception { get; private set; }
 
-        public static FindAllQueryResponse<TResult> BuildSuccessResult(TResult result,int resultCount,int? pageSize,int? pageNumber)
+        public static FindAllQueryResponse<TResult> BuildSuccessResult(TResult result, int resultCount, int? pageSize, int? pageNumber)
         {
-            return new FindAllQueryResponse<TResult> { Success = true,Result=result, ResultCount = resultCount, PageSize = pageSize, PageNumber = pageNumber };
+            return new FindAllQueryResponse<TResult> { Success = true, Result = result, ResultCount = resultCount, PageSize = pageSize, PageNumber = pageNumber };
         }
 
         public static FindAllQueryResponse<TResult> BuildFailure(string errorMessage)
@@ -35,7 +35,7 @@ namespace Application.Common
 
         public static FindAllQueryResponse<TResult> BuildFailure(Enum_Message message)
         {
-            return new FindAllQueryResponse<TResult> { Success = false, ErrorMessage = BaseMessage.GetMessage(Enum_MessageType.ERROR,message).Body };
+            return new FindAllQueryResponse<TResult> { Success = false, ErrorMessage = BaseMessage.GetMessage(Enum_MessageType.ERROR, message).Body };
         }
     }
 }

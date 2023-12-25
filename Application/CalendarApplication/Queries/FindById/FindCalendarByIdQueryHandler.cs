@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Infrastructure.Persistance;
-using Application.Calendar.Queries.FindById;
-using Application.Calendar.Models;
+﻿using Application.Calendar.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.Calendar.Queries.FindById
 {
@@ -16,9 +14,9 @@ namespace Application.Calendar.Queries.FindById
             _uow = uow;
             _mapper = mapper;
         }
-        public async Task<CalendarInfo > Handle(FindCalendarByIdQuery request, CancellationToken cancellationToken)
+        public async Task<CalendarInfo> Handle(FindCalendarByIdQuery request, CancellationToken cancellationToken)
         {
-            var model = await _uow.CalendarRepository.FindById(request.Id); 
+            var model = await _uow.CalendarRepository.FindById(request.Id);
             return _mapper.Map<Domain.Calendar, CalendarInfo>(model);
         }
     }

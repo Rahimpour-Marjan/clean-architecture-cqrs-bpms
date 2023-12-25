@@ -8,7 +8,7 @@ namespace Infrastructure.Persistance.Repositories
         Task<int> Create(UserLog user);
         Task<UserLog> FindById(int id);
         Task<IList<UserLog>> FindAll();
-        Task<Tuple<IList<UserLog>, int>> FindAll(int? userId,QueryFilter? queryFilter);
+        Task<Tuple<IList<UserLog>, int>> FindAll(int? userId, QueryFilter? queryFilter);
         Task Update(UserLog model);
     }
 }

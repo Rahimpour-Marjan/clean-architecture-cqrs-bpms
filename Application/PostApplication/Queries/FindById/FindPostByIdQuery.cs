@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Post.Models;
+﻿using Application.Post.Models;
+using MediatR;
 
 namespace Application.Post.Queries.FindById
 {

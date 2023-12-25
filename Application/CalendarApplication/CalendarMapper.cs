@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using Application.Calendar.Models;
+﻿using Application.Calendar.Models;
 using Application.Common;
+using AutoMapper;
 
 namespace Application.Calendar
 {

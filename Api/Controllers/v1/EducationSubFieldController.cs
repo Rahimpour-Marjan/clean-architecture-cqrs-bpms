@@ -1,15 +1,15 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Authorization;
+using Api.Enum;
 using Api.Model.EducationSubField;
 using Application.EducationSubFieldApplication.Commands;
-using Application.EducationSubFieldApplication.Queries.FindById;
-using Application.EducationSubFieldApplication.Queries.FindAll;
-using System.Net;
 using Application.EducationSubFieldApplication.Queries.FilterData;
+using Application.EducationSubFieldApplication.Queries.FindAll;
+using Application.EducationSubFieldApplication.Queries.FindById;
 using Application.Helpers;
 using Application.Services;
-using Api.Enum;
-using Api.Authorization;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Api.Controllers.v1
 {
@@ -28,12 +28,12 @@ namespace Api.Controllers.v1
         // GET: api/<UserController>
         [CustomAuthorize(SiteAction.EducationSubField_View, SiteAction.Account_View)]
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery,int? educationFieldId)
+        public async Task<IActionResult> Get([FromQuery] ApiQuery apiQuery, int? educationFieldId)
         {
             var model = await _mediator.Send(new FindAllEducationSubFieldQuery
             {
                 Query = apiQuery.Query,
-                EducationFieldId= educationFieldId
+                EducationFieldId = educationFieldId
             });
 
             if (apiQuery.Query == null)
@@ -104,7 +104,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new EducationSubFieldCreate.Command
                 {
                     Title = model.Title,
-                    EducationFieldId=model.EducationFieldId
+                    EducationFieldId = model.EducationFieldId
                 });
 
                 if (!result.Success)

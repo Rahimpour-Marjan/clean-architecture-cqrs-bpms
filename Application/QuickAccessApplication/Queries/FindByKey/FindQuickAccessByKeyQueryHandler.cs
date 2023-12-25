@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using MediatR;
-using Application.QuickAccess.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Application.QuickAccess.Models;
+using AutoMapper;
 using Infrastructure.Persistance.Repositories;
+using MediatR;
 
 namespace Application.QuickAccess.Queries.FindByKey
 {
@@ -17,7 +16,7 @@ namespace Application.QuickAccess.Queries.FindByKey
         }
         public async Task<QuickAccessInfo> Handle(FindQuickAccessByKeyQuery request, CancellationToken cancellationToken)
         {
-            var model =await _uow.QuickAccessRepository.FindByKey(request.Key,request.UserId);
+            var model = await _uow.QuickAccessRepository.FindByKey(request.Key, request.UserId);
             return _mapper.Map<Domain.QuickAccess, QuickAccessInfo>(model);
         }
     }
