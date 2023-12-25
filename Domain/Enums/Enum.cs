@@ -178,4 +178,14 @@ namespace Domain.Enums
         [Display(Name = "معوق")]
         Overdue = 2,
     }
+
+    public enum CategoryType
+    {
+        [Display(Name = "مقالات")]
+        Blog = 0,
+        [Display(Name = "اخبار")]
+        News = 1,
+        [Display(Name = "گالری")]
+        Gallery = 2,
+    }
 }
