@@ -14,6 +14,8 @@ namespace Persistance.Configs
             builder.Property(f => f.MenuId).IsRequired();
             builder.Property(f => f.SitePageId).IsRequired();
             builder.Property(f => f.SiteActionId);
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.UserGroup)
                 .WithMany(x => x.UserGroupPrivilages)

@@ -13,6 +13,7 @@ namespace Application.BankApplication.Commands
             public string Title { get; set; }
             public bool IsActive { get; set; }
             public string? ImageUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -31,6 +32,7 @@ namespace Application.BankApplication.Commands
                 bank.Title = request.Title;
                 bank.IsActive = request.IsActive;
                 bank.ImageUrl = request.ImageUrl;
+                bank.ModifireId = request.ModifireId;
                 bank.ModifiedDate = DateTime.Now;
 
                 try

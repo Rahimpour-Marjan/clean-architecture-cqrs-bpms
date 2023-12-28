@@ -15,7 +15,7 @@ namespace Test.Application.Statepplication.Queries
             //Arrange
             var state = new List<State>
             {
-                new State("ایران",1000,"001","0098","1369","","","",DateTime.Now),
+                new State("ایران",1000,"001","0098","1369","","","",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

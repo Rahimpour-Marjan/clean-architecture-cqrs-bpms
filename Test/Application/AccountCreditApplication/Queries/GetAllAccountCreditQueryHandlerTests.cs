@@ -15,7 +15,7 @@ namespace Test.Application.AccountCreditpplication.Queries
             //Arrange
             var accountCredit = new List<AccountCredit>
             {
-                new AccountCredit(1000,  "", 10000,10000, null, true,Domain.Enums.CreditType.Deposit, DateTime.Now),
+                new AccountCredit(1000,  "", 10000,10000, null, true,Domain.Enums.CreditType.Deposit, 1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

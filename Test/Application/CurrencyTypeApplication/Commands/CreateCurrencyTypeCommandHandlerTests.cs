@@ -20,6 +20,7 @@ namespace Test.Application.CurrencyTypeApplication.Commands
                 CurrencySign = "ریال",
                 UnitPrice = 1000,
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createCurrencyTypeCommandHandler = new CurrencyTypeCreate.Handler(_uow);

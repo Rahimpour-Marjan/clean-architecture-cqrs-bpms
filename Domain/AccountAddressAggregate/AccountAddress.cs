@@ -5,7 +5,7 @@
         protected AccountAddress() { }
 
         public AccountAddress(int AccountId, string title, string fullName, string phone, string extraPhone, int countryId,
-            int stateId, int cityId, int? zoneId, string address, string zipCode, string postalCode, string? locationLat, string? locationLong, DateTime modifiedDate)
+            int stateId, int cityId, int? zoneId, string address, string zipCode, string postalCode, string? locationLat, string? locationLong,int creatorId)
         {
             AccountId = AccountId;
             Title = title;
@@ -21,7 +21,7 @@
             PostalCode = postalCode;
             LocationLat = locationLat;
             LocationLong = locationLong;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -44,7 +44,9 @@
         public string PostalCode { get; set; }
         public string? LocationLat { get; set; }
         public string? LocationLong { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }

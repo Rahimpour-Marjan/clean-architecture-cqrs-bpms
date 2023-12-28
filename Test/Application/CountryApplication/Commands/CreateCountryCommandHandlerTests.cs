@@ -23,6 +23,7 @@ namespace Test.Application.CountryApplication.Commands
                 LocationLong = "",
                 LocationLat = "",
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createCountryCommandHandler = new CountryCreate.Handler(_uow);

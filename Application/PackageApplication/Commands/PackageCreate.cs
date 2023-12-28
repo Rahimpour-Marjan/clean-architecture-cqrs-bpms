@@ -18,6 +18,7 @@ namespace Application.PackageApplication.Commands
             public long? Discount { get; set; }
             public string? ImageUrl { get; set; }
             public DateTime? ExpireDate { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -30,7 +31,7 @@ namespace Application.PackageApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var package = new Package(request.Title, request.Type, request.Code, request.IsActive, request.Price, request.Discount, request.ImageUrl, request.ExpireDate, DateTime.Now);
+                var package = new Package(request.Title, request.Type, request.Code, request.IsActive, request.Price, request.Discount, request.ImageUrl, request.ExpireDate, request.CreatorId);
                 try
                 {
                     var newPackageId = await _uow.PackageRepository.Create(package);

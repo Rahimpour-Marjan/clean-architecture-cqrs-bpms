@@ -69,6 +69,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new PackageCreate.Command
                 {
                     Title = model.Title,
@@ -78,6 +80,7 @@ namespace Api.Controllers.v1
                     Discount = model.Discount,
                     ImageUrl = model.ImageUrl,
                     ExpireDate = model.ExpireDate,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -111,6 +114,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new PackageUpdate.Command
                 {
                     PackageId = id,
@@ -121,6 +126,8 @@ namespace Api.Controllers.v1
                     Discount = model.Discount,
                     ImageUrl = model.ImageUrl,
                     ExpireDate = model.ExpireDate,
+                    IsActive=true,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

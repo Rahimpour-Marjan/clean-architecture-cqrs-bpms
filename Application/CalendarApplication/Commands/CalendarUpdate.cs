@@ -19,6 +19,7 @@ namespace Application.Calendar.Commands
             public string? NotificationTime { get; set; }
             public bool? HasTwoStepNotification { get; set; }
             public int[] ReceiversId { get; set; }
+            public int ModifireId { get; set; }
 
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -42,6 +43,8 @@ namespace Application.Calendar.Commands
                 calendar.NotificationDate = request.NotificationDate;
                 calendar.NotificationTime = request.NotificationTime;
                 calendar.HasTwoStepNotification = request.HasTwoStepNotification;
+                calendar.ModifireId = request.ModifireId;
+                calendar.ModifiedDate = DateTime.Now;
                 try
                 {
                     await _uow.CalendarRepository.Update(calendar);

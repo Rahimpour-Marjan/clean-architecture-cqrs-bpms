@@ -17,6 +17,7 @@ namespace Application.Ticket.Commands
             public TicketStatus Status { get; set; }
             public TicketPriority TicketPriority { get; set; }
             public TicketType TicketType { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -38,6 +39,8 @@ namespace Application.Ticket.Commands
                 ticket.TicketCreatorId = request.TicketCreatorId;
                 ticket.TicketPriority = request.TicketPriority;
                 ticket.TicketType = request.TicketType;
+                ticket.ModifireId = request.ModifireId;
+                ticket.ModifiedDate = DateTime.Now;
 
                 try
                 {

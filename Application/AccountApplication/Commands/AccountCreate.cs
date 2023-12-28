@@ -55,6 +55,7 @@ namespace Application.Account.Commands
             public int? EducationLevelId { get; set; }
             public DateTime? EmployeementDate { get; set; }
             public List<int> PostIds { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Validator : AbstractValidator<Command>
@@ -90,7 +91,7 @@ namespace Application.Account.Commands
                                         request.Email, request.ExtraEmail, request.Fax, request.Website, request.Instagram, request.Telegram, request.WhatsApp, request.Linkedin, request.Facebook,
                                         request.CountryId, request.StateId, request.CityId, request.ZoneId, request.Address, request.LocationLong, request.LocationLat, request.Job, request.Company, request.CompanyNo,
                                         request.FatherName, request.AccountalNumber, request.IsActive, request.WorkingHoursRate, request.ReagentName, request.ReagentCode, request.ImageUrl, request.DigitalSignatureUrl, request.ResumeUrl, request.SpacialAccount,
-                                        request.IsPublic, request.PackageId, request.EducationSubFieldId, request.EducationLevelId, request.EmployeementDate, DateTime.Now);
+                                        request.IsPublic, request.PackageId, request.EducationSubFieldId, request.EducationLevelId, request.EmployeementDate, request.CreatorId);
 
                         var newAccountId = await _uow.AccountRepository.Create(account);
 

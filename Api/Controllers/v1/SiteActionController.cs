@@ -64,12 +64,15 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new SiteActionCreate.Command
                 {
                     Title = model.Title,
                     Controller = model.Controller,
                     Action = model.Action,
-                    SitePageId = model.SitePageId
+                    SitePageId = model.SitePageId,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -102,13 +105,16 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new SiteActionUpdate.Command
                 {
                     SiteActionId = id,
                     Title = model.Title,
                     Controller = model.Controller,
                     Action = model.Action,
-                    SitePageId = model.SitePageId
+                    SitePageId = model.SitePageId,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

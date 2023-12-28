@@ -26,7 +26,7 @@ namespace Persistance.Configs
             builder.Property(f => f.PostalCode).HasMaxLength(15).IsRequired();
             builder.Property(f => f.LocationLat).HasMaxLength(15);
             builder.Property(f => f.LocationLong).HasMaxLength(15);
-            builder.Property(f => f.ModifiedDate).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
             builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.Account)

@@ -17,6 +17,7 @@ namespace Application.AccountCreditApplication.Commands
             public int? AccountCheckId { get; set; }
             public bool IsActive { get; set; }
             public CreditType CreditType { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -40,6 +41,7 @@ namespace Application.AccountCreditApplication.Commands
                 accountCredit.AccountCheckId = request.AccountCheckId;
                 accountCredit.IsActive = request.IsActive;
                 accountCredit.CreditType = request.CreditType;
+                accountCredit.ModifireId = request.ModifireId;
                 accountCredit.ModifiedDate = DateTime.Now;
 
                 try

@@ -18,6 +18,7 @@ namespace Application.Notification.Commands
             public bool IsStar { get; set; }
             public bool IsArchive { get; set; }
             public bool IsDeleted { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -30,7 +31,7 @@ namespace Application.Notification.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var notification = new Domain.Notification(request.Title, request.Text, request.SenderId, request.ReceiverId, request.Icon, request.Link, request.IsRead, request.IsStar, request.IsArchive, request.IsDeleted);
+                var notification = new Domain.Notification(request.Title, request.Text, request.SenderId, request.ReceiverId, request.Icon, request.Link, request.IsRead, request.IsStar, request.IsArchive, request.IsDeleted,request.CreatorId);
                 try
                 {
                     var newNotificationId = await _uow.NotificationRepository.Create(notification);

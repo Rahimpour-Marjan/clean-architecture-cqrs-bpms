@@ -17,6 +17,7 @@ namespace Application.CountryApplication.Commands
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
             public string? ImageUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -39,6 +40,7 @@ namespace Application.CountryApplication.Commands
                 country.LocationLat = request.LocationLat;
                 country.LocationLong = request.LocationLong;
                 country.ImageUrl = request.ImageUrl;
+                country.ModifireId = request.ModifireId;
                 country.ModifiedDate = DateTime.Now;
 
                 try

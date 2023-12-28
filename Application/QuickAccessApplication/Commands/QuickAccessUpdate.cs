@@ -13,6 +13,7 @@ namespace Application.QuickAccess.Commands
             public int UserId { get; set; }
             public string SitePageKey { get; set; }
             public int DisplayPriority { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -39,6 +40,8 @@ namespace Application.QuickAccess.Commands
                         quickaccess.UserId = request.UserId;
                         quickaccess.SitePageId = varSitePage.Id;
                         quickaccess.Priority = request.DisplayPriority;
+                        quickaccess.ModifireId = request.ModifireId;
+                        quickaccess.ModifiedDate = DateTime.Now;
 
                         await _uow.QuickAccessRepository.Update(quickaccess);
                         var result = OperationResult<Response>

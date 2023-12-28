@@ -4,7 +4,7 @@ namespace Domain
 {
     public class Ticket
     {
-        public Ticket(string title, string code, int? ticketParentId, string ticketText, int ticketCreatorId, int? workRequestId, TicketStatus status, TicketPriority ticketPriority, TicketType ticketType)
+        public Ticket(string title, string code, int? ticketParentId, string ticketText, int ticketCreatorId, int? workRequestId, TicketStatus status, TicketPriority ticketPriority, TicketType ticketType, int creatorId)
         {
             Title = title;
             Code = code;
@@ -14,7 +14,8 @@ namespace Domain
             Status = status;
             TicketPriority = ticketPriority;
             TicketType = ticketType;
-            TicketCreateDate = DateTime.Now;
+            CreatorId = creatorId;
+            CreateDate = DateTime.Now;
         }
         protected Ticket()
         {
@@ -31,7 +32,11 @@ namespace Domain
         public TicketStatus Status { get; set; }
         public TicketPriority TicketPriority { get; set; }
         public TicketType TicketType { get; set; }
-        public DateTime TicketCreateDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreateDate { get; set; }
+
         public virtual ICollection<TicketAttachment> TicketAttachments { get; set; }
         public virtual ICollection<Ticket> TicketChilds { get; set; }
     }

@@ -14,6 +14,7 @@ namespace Application.Menu.Commands
             public int Priority { get; set; }
             public bool IsActive { get; set; }
             public long? ParentId { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -26,7 +27,7 @@ namespace Application.Menu.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var menu = new Domain.Menu(request.Title, request.Url, request.Icon, request.Priority, request.IsActive, request.ParentId);
+                var menu = new Domain.Menu(request.Title, request.Url, request.Icon, request.Priority, request.IsActive, request.ParentId,request.CreatorId);
                 try
                 {
                     var newMenuId = await _uow.MenuRepository.Create(menu);

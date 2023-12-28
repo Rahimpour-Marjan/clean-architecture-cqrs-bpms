@@ -5,11 +5,11 @@
         public EducationSubField()
         {
         }
-        public EducationSubField(string title, int educationFieldId, DateTime modifiedDate)
+        public EducationSubField(string title, int educationFieldId, int creatorId)
         {
             Title = title;
             EducationFieldId = educationFieldId;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
         }
 
@@ -17,7 +17,9 @@
         public int EducationFieldId { get; set; }
         public virtual EducationField EducationField { get; set; }
         public string Title { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; private set; }
     }
 }

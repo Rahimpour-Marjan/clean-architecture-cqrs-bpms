@@ -15,7 +15,7 @@ namespace Test.Application.CreditPaymentpplication.Queries
             //Arrange
             var creditPayment = new List<CreditPayment>
             {
-                new CreditPayment(1000, 1000,  Domain.Enums.PaymentStatus.UnPaid, "123456", "", "", 10000,"192.168.1.1", "",1000, false, "", DateTime.Now),
+                new CreditPayment(1000, 1000,  Domain.Enums.PaymentStatus.UnPaid, "123456", "", "", 10000,"192.168.1.1", "",1000, false, "", 1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

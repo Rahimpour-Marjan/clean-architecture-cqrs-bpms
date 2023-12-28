@@ -11,6 +11,7 @@ namespace Application.Post.Commands
             public int Id { get; set; }
             public string Title { get; set; }
             public int? PostParentId { get; set; }
+            public int ModifireId { get; set; }
 
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -34,6 +35,8 @@ namespace Application.Post.Commands
                         return OperationResult<Response>.BuildFailure("سمت والد نمیتواند، با سمت فعلی یکسان باشد.");
                     post.Title = request.Title;
                     post.PostParentId = request.PostParentId;
+                    post.ModifireId = request.ModifireId;
+                    post.ModifiedDate = DateTime.Now;
 
                     await _uow.PostRepository.Update(post);
 

@@ -15,7 +15,7 @@ namespace Test.Application.EducationSubFieldpplication.Queries
             //Arrange
             var educationSubField = new List<EducationSubField>
             {
-                new EducationSubField("دیپلم",1000,DateTime.Now),
+                new EducationSubField("دیپلم",1000,1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

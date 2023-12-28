@@ -21,6 +21,7 @@ namespace Test.Application.UserApplication.Commands
                 UserName = "Test",
                 Password = "1234",
                 AccountId = 1,
+                CreatorId = 1000,
             };
 
             var createUserCommandHandler = new UserCreate.Handler(_uow, authserviceMock.Object);

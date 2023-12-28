@@ -11,6 +11,7 @@ namespace Application.QuickAccess.Commands
             public int UserId { get; set; }
             public string SitePageKey { get; set; }
             public int DisplayPriority { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -31,7 +32,7 @@ namespace Application.QuickAccess.Commands
                     var quickaccess = await _uow.QuickAccessRepository.FindWithParam(request.UserId, varSitePage.Id);
                     if (quickaccess == null)
                     {
-                        var newQuickaccess = new Domain.QuickAccess(request.UserId, varSitePage.Id, request.DisplayPriority);
+                        var newQuickaccess = new Domain.QuickAccess(request.UserId, varSitePage.Id, request.DisplayPriority,request.CreatorId);
                         var newQAId = await _uow.QuickAccessRepository.Create(newQuickaccess);
                         var result = OperationResult<Response>
                             .BuildSuccessResult(new Response

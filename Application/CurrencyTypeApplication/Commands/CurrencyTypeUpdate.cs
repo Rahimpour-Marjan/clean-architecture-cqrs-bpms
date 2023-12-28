@@ -14,6 +14,7 @@ namespace Application.CurrencyTypeApplication.Commands
             public string CurrencySign { get; set; }
             public long UnitPrice { get; set; }
             public string? ImageUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -33,6 +34,7 @@ namespace Application.CurrencyTypeApplication.Commands
                 currencyType.CurrencySign = request.CurrencySign;
                 currencyType.UnitPrice = request.UnitPrice;
                 currencyType.ImageUrl = request.ImageUrl;
+                currencyType.ModifireId = request.ModifireId;
                 currencyType.ModifiedDate = DateTime.Now;
 
                 try

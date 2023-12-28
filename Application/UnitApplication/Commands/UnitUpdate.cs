@@ -13,6 +13,7 @@ namespace Application.UnitApplication.Commands
             public string Title { get; set; }
             public string AbbreviatedTitle { get; set; }
             public string? Description { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -31,6 +32,8 @@ namespace Application.UnitApplication.Commands
                 unit.Title = request.Title;
                 unit.AbbreviatedTitle = request.AbbreviatedTitle;
                 unit.Description = request.Description;
+                unit.ModifireId = request.ModifireId;
+                unit.ModifiedDate = DateTime.Now;
 
                 try
                 {

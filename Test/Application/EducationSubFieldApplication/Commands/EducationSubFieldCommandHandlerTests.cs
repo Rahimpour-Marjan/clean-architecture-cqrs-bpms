@@ -17,7 +17,8 @@ namespace Test.Application.EducationSubFieldApplication.Commands
             var createEducationSubFieldCommand = new EducationSubFieldCreate.Command
             {
                 Title = "دیپلم",
-                EducationFieldId = 1000
+                EducationFieldId = 1000,
+                CreatorId = 1000,
             };
 
             var createEducationSubFieldCommandHandler = new EducationSubFieldCreate.Handler(_uow);

@@ -6,7 +6,7 @@ namespace Domain
     {
         protected AccountCredit() { }
 
-        public AccountCredit(int accountId, string? description, long amount, long remain, int? accountCheckId, bool isActive, CreditType creditType, DateTime modifiedDate)
+        public AccountCredit(int accountId, string? description, long amount, long remain, int? accountCheckId, bool isActive, CreditType creditType, int creatorId)
         {
             AccountId = accountId;
             Description = description;
@@ -15,7 +15,7 @@ namespace Domain
             AccountCheckId = accountCheckId;
             IsActive = isActive;
             CreditType = creditType;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -28,7 +28,9 @@ namespace Domain
         public AccountCheck? AccountCheck { get; set; }
         public bool IsActive { get; set; }
         public CreditType CreditType { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
 
         public virtual ICollection<CreditPayment> CreditPayments { get; set; }

@@ -24,6 +24,7 @@ namespace Test.Application.StateApplication.Commands
                 LocationLong = "",
                 LocationLat = "",
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createStateCommandHandler = new StateCreate.Handler(_uow);

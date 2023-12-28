@@ -61,14 +61,17 @@ namespace Api.Controllers.v1
             var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
                 OperationResult<QuickAccessCreate.Response> result = new OperationResult<QuickAccessCreate.Response>();
+
                 foreach (var key in model.SitePageKeys)
                 {
                     result = await _mediator.Send(new QuickAccessCreate.Command
                     {
                         UserId = userId,
                         SitePageKey = key,
-                        DisplayPriority = 1
+                        DisplayPriority = 1,
+                        CreatorId=currentUserId,
                     });
                 }
 

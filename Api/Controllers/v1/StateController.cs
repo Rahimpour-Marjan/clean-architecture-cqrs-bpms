@@ -102,6 +102,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new StateCreate.Command
                 {
                     Title = model.Title,
@@ -112,6 +114,7 @@ namespace Api.Controllers.v1
                     LocationLat = model.LocationLat,
                     LocationLong = model.LocationLong,
                     ImageUrl = model.ImageUrl,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -145,6 +148,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new StateUpdate.Command
                 {
                     StateId = id,
@@ -156,6 +161,7 @@ namespace Api.Controllers.v1
                     LocationLat = model.LocationLat,
                     LocationLong = model.LocationLong,
                     ImageUrl = model.ImageUrl,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

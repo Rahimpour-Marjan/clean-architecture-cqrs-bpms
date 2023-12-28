@@ -15,7 +15,7 @@ namespace Test.Application.EducationFieldpplication.Queries
             //Arrange
             var educationField = new List<EducationField>
             {
-                new EducationField("دیپلم",DateTime.Now),
+                new EducationField("دیپلم",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

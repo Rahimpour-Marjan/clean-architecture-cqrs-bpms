@@ -6,7 +6,7 @@ namespace Domain
     {
         protected CreditPayment() { }
 
-        public CreditPayment(int accountId, int accountCreditId, PaymentStatus status, string? refNumber, string? externalInfo1, string? externalInfo2, long amount, string ipAddress, string? description, int currencyTypeId, bool isInPlace, string? imageUrl, DateTime modifiedDate)
+        public CreditPayment(int accountId, int accountCreditId, PaymentStatus status, string? refNumber, string? externalInfo1, string? externalInfo2, long amount, string ipAddress, string? description, int currencyTypeId, bool isInPlace, string? imageUrl, int creatorId)
         {
             AccountId = accountId;
             AccountCreditId = accountCreditId;
@@ -20,7 +20,7 @@ namespace Domain
             CurrencyTypeId = currencyTypeId;
             IsInPlace = isInPlace;
             ImageUrl = imageUrl;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -39,7 +39,9 @@ namespace Domain
         public CurrencyType CurrencyType { get; set; }
         public bool IsInPlace { get; set; }
         public string? ImageUrl { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace Application.AccountCreditApplication.Commands
             public int? AccountCheckId { get; set; }
             public bool IsActive { get; set; }
             public CreditType CreditType { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -29,7 +30,7 @@ namespace Application.AccountCreditApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var accountCredit = new AccountCredit(request.AccountId, request.Description, request.Amount, request.Remain, request.AccountCheckId, request.IsActive, request.CreditType, DateTime.Now);
+                var accountCredit = new AccountCredit(request.AccountId, request.Description, request.Amount, request.Remain, request.AccountCheckId, request.IsActive, request.CreditType, request.CreatorId);
                 try
                 {
                     var newAccountCreditId = await _uow.AccountCreditRepository.Create(accountCredit);

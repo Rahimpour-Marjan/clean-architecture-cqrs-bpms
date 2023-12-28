@@ -15,6 +15,7 @@ namespace Application.SitePage.Commands
             public int Priority { get; set; }
             public long MenuId { get; set; }
             public string Key { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -27,7 +28,7 @@ namespace Application.SitePage.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var sitepage = new Domain.SitePage(request.Title, request.Url, request.Icon, request.Priority, request.MenuId, request.Key);
+                var sitepage = new Domain.SitePage(request.Title, request.Url, request.Icon, request.Priority, request.MenuId, request.Key,request.CreatorId);
                 try
                 {
                     var newSitePageId = await _uow.SitePageRepository.Create(sitepage);

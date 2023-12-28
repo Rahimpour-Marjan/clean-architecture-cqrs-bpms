@@ -15,7 +15,7 @@ namespace Test.Application.Zonepplication.Queries
             //Arrange
             var zone = new List<Zone>
             {
-                new Zone("منطقه 1",1000,"001","0098","1369","","","",DateTime.Now),
+                new Zone("منطقه 1",1000,"001","0098","1369","","","",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

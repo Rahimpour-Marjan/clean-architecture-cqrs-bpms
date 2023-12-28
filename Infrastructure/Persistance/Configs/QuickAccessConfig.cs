@@ -12,6 +12,8 @@ namespace Persistance.Configs
             builder.Property(f => f.SitePageId).IsRequired();
             builder.Property(f => f.UserId).IsRequired();
             builder.Property(f => f.Priority).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
         }
     }
 }

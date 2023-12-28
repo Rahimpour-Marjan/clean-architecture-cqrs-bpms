@@ -15,7 +15,7 @@ namespace Test.Application.Citypplication.Queries
             //Arrange
             var city = new List<City>
             {
-                new City("ایران",1000,"001","0098","1369","","","",DateTime.Now),
+                new City("ایران",1000,"001","0098","1369","","","",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

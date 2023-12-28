@@ -4,7 +4,7 @@
     {
         protected City() { }
 
-        public City(string title, int stateId, string code, string? zipCode, string? postalCode, string? locationLat, string? locationLong, string? imageUrl, DateTime modifiedDate)
+        public City(string title, int stateId, string code, string? zipCode, string? postalCode, string? locationLat, string? locationLong, string? imageUrl, int creatorId)
         {
             Title = title;
             StateId = stateId;
@@ -14,7 +14,7 @@
             LocationLat = locationLat;
             LocationLong = locationLong;
             ImageUrl = imageUrl;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -27,7 +27,9 @@
         public string? LocationLat { get; set; }
         public string? LocationLong { get; set; }
         public string? ImageUrl { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
 
         public virtual ICollection<Zone> Zones { get; set; }

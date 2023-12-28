@@ -15,6 +15,8 @@ namespace Persistance.Configs
             builder.Property(f => f.Priority).IsRequired();
             builder.Property(f => f.MenuId).IsRequired();
             builder.Property(f => f.Key).HasMaxLength(100).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
         }
     }
 }

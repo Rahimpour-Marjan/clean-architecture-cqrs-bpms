@@ -6,7 +6,7 @@ namespace Domain
     {
         protected Package() { }
 
-        public Package(string title, PackageType type, string code, bool isActive, long price, long? discount, string? imageUrl, DateTime? expireDate, DateTime modifiedDate)
+        public Package(string title, PackageType type, string code, bool isActive, long price, long? discount, string? imageUrl, DateTime? expireDate, int creatorId)
         {
             Title = title;
             Type = type;
@@ -16,7 +16,7 @@ namespace Domain
             Discount = discount;
             ImageUrl = imageUrl;
             ExpireDate = expireDate;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -28,7 +28,9 @@ namespace Domain
         public long? Discount { get; set; }
         public string? ImageUrl { get; set; }
         public DateTime? ExpireDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }

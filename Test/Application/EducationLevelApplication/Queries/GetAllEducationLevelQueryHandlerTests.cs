@@ -15,7 +15,7 @@ namespace Test.Application.EducationLevelpplication.Queries
             //Arrange
             var educationLevel = new List<EducationLevel>
             {
-                new EducationLevel("دیپلم",DateTime.Now),
+                new EducationLevel("دیپلم",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

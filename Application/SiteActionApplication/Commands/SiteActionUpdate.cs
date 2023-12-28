@@ -14,6 +14,7 @@ namespace Application.SiteActionApplication.Commands
             public string Controller { get; set; }
             public string Action { get; set; }
             public long SitePageId { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -33,6 +34,8 @@ namespace Application.SiteActionApplication.Commands
                 siteAction.Controller = request.Controller;
                 siteAction.Action = request.Action;
                 siteAction.SitePageId = request.SitePageId;
+                siteAction.ModifireId = request.ModifireId;
+                siteAction.ModifiedDate = DateTime.Now;
 
                 try
                 {

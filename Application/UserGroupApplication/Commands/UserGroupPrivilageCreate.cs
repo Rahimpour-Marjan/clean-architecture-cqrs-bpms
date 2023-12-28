@@ -11,6 +11,7 @@ namespace Application.UserGroup.Commands
         {
             public int UserGroupId { get; set; }
             public int[] Ids { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -35,7 +36,7 @@ namespace Application.UserGroup.Commands
                         var sitePage = await _uow.SitePageRepository.FindById(sitePageId);
                         var menuId = sitePage.MenuId ?? 0;
 
-                        var userGroupPrivilage = new Domain.UserGroupPrivilage(request.UserGroupId, menuId, sitePageId, siteActionId);
+                        var userGroupPrivilage = new Domain.UserGroupPrivilage(request.UserGroupId, menuId, sitePageId, siteActionId,request.CreatorId);
 
                         await _uow.UserGroupRepository.Create(userGroupPrivilage);
                     }

@@ -16,7 +16,7 @@ namespace Domain
             int? countryId, int? stateId, int? cityId, int? zoneId, string? address, string? locationLong, string? locationLat,
             string? job, string? company, string? companyNo,
             string? fatherName,
-            string? AccountalNumber, bool isActive,
+            string? accountalNumber, bool isActive,
             decimal? workingHoursRate,
             string? reagentName, string? reagentCode,
             string? imageUrl,
@@ -24,7 +24,7 @@ namespace Domain
             string? resumeUrl,
             bool spacialAccount, bool isPublic,
             int? packageId, int? educationSubFieldId, int? educationLevelId,
-            DateTime? employeementDate, DateTime? modifiedDate)
+            DateTime? employeementDate, int creatorId)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -56,7 +56,7 @@ namespace Domain
             Company = company;
             CompanyNo = companyNo;
             FatherName = fatherName;
-            AccountalNumber = AccountalNumber;
+            AccountalNumber = accountalNumber;
             IsActive = isActive;
             WorkingHoursRate = workingHoursRate;
             ReagentName = reagentName;
@@ -70,7 +70,7 @@ namespace Domain
             EducationSubFieldId = educationSubFieldId;
             EducationLevelId = educationLevelId;
             EmployeementDate = employeementDate;
-            ModifiedDate = modifiedDate;
+            CreatorId = creatorId;
             CreateDate = DateTime.Now;
 
         }
@@ -136,8 +136,10 @@ namespace Domain
         public EducationLevel? EducationLevel { get; set; }
 
         public DateTime? EmployeementDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public DateTime? CreateDate { get; set; }
+        public DateTime CreateDate { get; set; }
 
 
         public virtual ICollection<Notification> Notifications { get; set; }

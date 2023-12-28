@@ -66,9 +66,12 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new EducationLevelCreate.Command
                 {
-                    Title = model.Title
+                    Title = model.Title,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -102,10 +105,13 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new EducationLevelUpdate.Command
                 {
                     EduLevelId = id,
-                    Title = model.Title
+                    Title = model.Title,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)
