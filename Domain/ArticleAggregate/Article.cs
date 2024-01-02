@@ -1,10 +1,11 @@
-﻿namespace Domain
+﻿
+namespace Domain
 {
     public class Article
     {
         protected Article() { }
 
-        public Article(string title, int categoryId, string keywords, string summary, string body, int visitCount, bool? isSlider, bool active, string? url, string? h1, string? writer,
+        public Article(string title, int categoryId, string? keywords, string summary, string body, int visitCount, bool? isSlider, bool active, string? url, string? h1, string? writer,
             string? writerPosition, string? writerImageUrl,string? aparat, string? canonical, bool? noFollow, bool? noIndex, string? postLabel, string? imageUrl,
             DateTime? showDateTime, DateTime? expireDateTime, int creatorId)
         {
@@ -36,7 +37,7 @@
         public string Title { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public string Keywords { get; set; }
+        public string? Keywords { get; set; }
         public string Summary { get; set; }
         public string Body { get; set; }
         public int VisitCount { get; set; }

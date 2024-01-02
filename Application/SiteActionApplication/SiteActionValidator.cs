@@ -10,6 +10,7 @@ namespace Application.SiteActionApplication
             RuleFor(u => u.Controller).NotEmpty().WithMessage("SiteAction should have a Controller.");
             RuleFor(u => u.Action).NotEmpty().WithMessage("SiteAction should have a Action.");
             RuleFor(u => u.SitePageId).NotEmpty().WithMessage("SiteAction should have a SitePageId.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("SiteAction should have a CreatorId.");
         }
     }
 }

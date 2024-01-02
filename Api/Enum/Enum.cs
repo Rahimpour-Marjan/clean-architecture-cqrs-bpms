@@ -165,5 +165,17 @@
 
         //CalenderMaker Permission
         CalenderMaker_View,
+
+        //Category Permission
+        Category_View,
+        Category_Add,
+        Category_Edit,
+        Category_Delete,
+
+        //Article Permission
+        Article_View,
+        Article_Add,
+        Article_Edit,
+        Article_Delete,
     }
 }

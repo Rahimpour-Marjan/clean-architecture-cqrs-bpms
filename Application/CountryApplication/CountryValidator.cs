@@ -9,6 +9,7 @@ namespace Application.CountryApplication
         {
             RuleFor(u => u.Title).NotEmpty().WithMessage("Country should have a Title.");
             RuleFor(u => u.Code).NotEmpty().WithMessage("Country should have a Code.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Country should have a CreatorId.");
         }
     }
 }

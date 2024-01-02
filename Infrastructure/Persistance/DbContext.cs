@@ -44,6 +44,8 @@ namespace Infrastructure.Persistance
         public DbSet<CalendarAttachment> CalendarAttachments { get; set; }
         public DbSet<SiteAction> SiteActions { get; set; }
         public DbSet<UserLog> UserLogs { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Article> Articles { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
@@ -91,7 +93,8 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("UserGroup").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("UserGroupPrivilage").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("UserLog").StartsAt(1000).IncrementsBy(1);
-
+            builder.HasSequence<int>("Category").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("Article").StartsAt(1000).IncrementsBy(1);
             base.OnModelCreating(builder);
         }
 

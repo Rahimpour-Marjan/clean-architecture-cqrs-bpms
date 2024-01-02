@@ -9,6 +9,7 @@ namespace Application.UnitApplication
         {
             RuleFor(u => u.Title).NotEmpty().WithMessage("Unit should have a Name.");
             RuleFor(u => u.AbbreviatedTitle).NotEmpty().WithMessage("Unit should have a AbbreviatedTitle.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Unit should have a CreatorId.");
         }
     }
 }

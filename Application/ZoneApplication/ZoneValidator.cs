@@ -10,6 +10,7 @@ namespace Application.ZoneApplication
             RuleFor(u => u.Title).NotEmpty().WithMessage("Zone should have a Title.");
             RuleFor(u => u.CityId).NotEmpty().WithMessage("Zone should have a CityId.");
             RuleFor(u => u.Code).NotEmpty().WithMessage("Zone should have a Code.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Zone should have a CreatorId.");
         }
     }
 }

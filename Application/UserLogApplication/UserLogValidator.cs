@@ -11,6 +11,7 @@ namespace Application.UserLogApplication
             RuleFor(u => u.Type).NotEmpty().WithMessage("Unit should have a Type.");
             RuleFor(u => u.IP).NotEmpty().WithMessage("Unit should have a IP.");
             RuleFor(u => u.Device).NotEmpty().WithMessage("Unit should have a Device.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Unit should have a CreatorId.");
         }
     }
 }

@@ -7,9 +7,10 @@ namespace Application.CityApplication
     {
         public CityValidator()
         {
-            RuleFor(u => u.Title).NotEmpty().WithMessage("State should have a Title.");
-            RuleFor(u => u.StateId).NotEmpty().WithMessage("State should have a StateId.");
-            RuleFor(u => u.Code).NotEmpty().WithMessage("State should have a Code.");
+            RuleFor(u => u.Title).NotEmpty().WithMessage("City should have a Title.");
+            RuleFor(u => u.StateId).NotEmpty().WithMessage("City should have a StateId.");
+            RuleFor(u => u.Code).NotEmpty().WithMessage("City should have a Code.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("City should have a CreatorId.");
         }
     }
 }

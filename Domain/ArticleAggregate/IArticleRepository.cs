@@ -9,7 +9,7 @@ namespace Domain
         Task Update(Article article);
         Task<Tuple<IList<Article>, int>> FindAll(QueryFilter? queryFilter);
         Task<Article> FindById(int id);
-        Task<FilterResponse> FilterAllState(int start, int length);
+        Task<FilterResponse> FilterAllCategory(int start, int length);
         Task Delete(int id);
         Task DeleteAll(int[] ids);
     }

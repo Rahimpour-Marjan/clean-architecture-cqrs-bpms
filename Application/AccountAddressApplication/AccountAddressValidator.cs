@@ -16,6 +16,7 @@ namespace Application.AccountAddressApplication
             RuleFor(u => u.CityId).NotEmpty().WithMessage("AccountAddress should have a CityId.");
             RuleFor(u => u.Address).NotEmpty().WithMessage("AccountAddress should have a Address.");
             RuleFor(u => u.PostalCode).NotEmpty().WithMessage("AccountAddress should have a PostalCode.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("AccountAddress should have a CreatorId.");
         }
     }
 }
