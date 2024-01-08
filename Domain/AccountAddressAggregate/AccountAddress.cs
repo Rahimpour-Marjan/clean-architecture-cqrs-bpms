@@ -38,7 +38,7 @@
         public int CityId { get; set; }
         public City City { get; set; }
         public int? ZoneId { get; set; }
-        public Zone Zone { get; set; }
+        public Zone? Zone { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
         public string PostalCode { get; set; }
