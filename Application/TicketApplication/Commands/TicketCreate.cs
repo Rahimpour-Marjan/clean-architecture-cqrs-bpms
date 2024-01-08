@@ -17,6 +17,7 @@ namespace Application.Ticket.Commands
             public TicketStatus Status { get; set; }
             public TicketPriority TicketPriority { get; set; }
             public TicketType TicketType { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -41,7 +42,7 @@ namespace Application.Ticket.Commands
 
                 var code = await _uow.TicketRepository.GenerateCode(request.TicketParentId);
 
-                var ticket = new Domain.Ticket(request.Title, code, request.TicketParentId, request.TicketText, request.TicketCreatorId, request.WorkRequestId, request.Status, request.TicketPriority, request.TicketType);
+                var ticket = new Domain.Ticket(request.Title, code, request.TicketParentId, request.TicketText, request.TicketCreatorId, request.WorkRequestId, request.Status, request.TicketPriority, request.TicketType,request.CreatorId);
 
                 try
                 {

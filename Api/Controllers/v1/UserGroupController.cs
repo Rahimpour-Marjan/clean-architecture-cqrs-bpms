@@ -135,12 +135,15 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new UserGroupCreate.Command
                 {
                     Title = model.Title,
                     IsActive = model.IsActive,
                     IsEditable = true,
                     UserGroupParentId = model.UserGroupParentId,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -174,10 +177,13 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new UserGroupPrivilageCreate.Command
                 {
                     UserGroupId = model.UserGroupId,
-                    Ids = model.Ids
+                    Ids = model.Ids,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -212,6 +218,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new UserGroupUpdate.Command
                 {
                     Id = id,
@@ -219,7 +227,8 @@ namespace Api.Controllers.v1
                     IsActive = model.IsActive,
                     IsEditable = true,
                     UserGroupParentId = model.UserGroupParentId,
-                }); ;
+                    ModifireId=currentUserId,
+                }); 
 
                 if (!result.Success)
                 {

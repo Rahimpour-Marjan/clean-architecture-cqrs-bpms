@@ -20,13 +20,12 @@ namespace Persistance.Configs
             builder.Property(f => f.CountryId).IsRequired();
             builder.Property(f => f.StateId).IsRequired();
             builder.Property(f => f.CityId).IsRequired();
-            builder.Property(f => f.ZoneId).IsRequired();
             builder.Property(f => f.Address).HasMaxLength(400).IsRequired();
             builder.Property(f => f.ZipCode).HasMaxLength(10);
             builder.Property(f => f.PostalCode).HasMaxLength(15).IsRequired();
             builder.Property(f => f.LocationLat).HasMaxLength(15);
             builder.Property(f => f.LocationLong).HasMaxLength(15);
-            builder.Property(f => f.ModifiedDate).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
             builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.Account)

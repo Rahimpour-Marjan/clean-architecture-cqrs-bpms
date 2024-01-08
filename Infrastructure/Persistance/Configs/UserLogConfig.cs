@@ -10,11 +10,12 @@ namespace Persistance.Configs
         {
             builder.Property(f => f.Id).UseHiLo("User");
 
-            builder.Property(f => f.UserId).IsRequired();
             builder.Property(f => f.Type).IsRequired();
             builder.Property(f => f.IP).HasMaxLength(50).IsRequired();
             builder.Property(f => f.Device).HasMaxLength(100).IsRequired();
-            builder.Property(f => f.DateTime).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
+
         }
     }
 }

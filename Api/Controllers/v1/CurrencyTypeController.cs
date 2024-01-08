@@ -69,12 +69,15 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new CurrencyTypeCreate.Command
                 {
                     Title = model.Title,
                     CurrencySign = model.CurrencySign,
                     UnitPrice = model.UnitPrice,
                     ImageUrl = model.ImageUrl,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -108,6 +111,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new CurrencyTypeUpdate.Command
                 {
                     CurrencyTypeId = id,
@@ -115,6 +120,7 @@ namespace Api.Controllers.v1
                     CurrencySign = model.CurrencySign,
                     UnitPrice = model.UnitPrice,
                     ImageUrl = model.ImageUrl,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

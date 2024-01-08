@@ -28,6 +28,7 @@ namespace Test.Application.CreditPaymentApplication.Commands
                 CurrencyTypeId = 1000,
                 IsInPlace = false,
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createCreditPaymentCommandHandler = new CreditPaymentCreate.Handler(_uow);

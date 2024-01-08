@@ -13,6 +13,7 @@ namespace Application.User.Commands
             public string UserName { get; set; }
             public bool IsActive { get; set; }
             public int AccountId { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -41,6 +42,9 @@ namespace Application.User.Commands
                 user.IsActive = request.IsActive;
                 user.Email = Account.Email ?? "";
                 user.AccountId = request.AccountId;
+                user.ModifireId = request.ModifireId;
+                user.ModifiedDate  = DateTime.Now;
+
                 try
                 {
                     await _uow.UserRepository.Update(user);

@@ -7,7 +7,7 @@ namespace Domain
     {
         protected User() { }
 
-        public User(int AccountId, string userName, string password, string salt, string email, UserType userType, bool isActive)
+        public User(int AccountId, string userName, string password, string salt, string email, UserType userType, bool isActive, int creatorId)
         {
             AccountId = AccountId;
             UserName = userName;
@@ -16,6 +16,8 @@ namespace Domain
             Email = email;
             UserType = userType;
             IsActive = isActive;
+            CreatorId = creatorId;
+            CreateDate= DateTime.Now;
         }
         public int Id { get; set; }
         public string UserName { get; set; }
@@ -30,6 +32,11 @@ namespace Domain
         public int VerifyTryCount { get; set; }
         public DateTime? LastVerifyTryDateTime { get; set; }
         public bool MobileVerified { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreateDate { get; set; }
+
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

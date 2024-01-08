@@ -19,6 +19,8 @@ namespace Persistance.Configs
             builder.Property(f => f.IsStar).IsRequired();
             builder.Property(f => f.IsArchive).IsRequired();
             builder.Property(f => f.IsDeleted).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.Account)
                       .WithMany(x => x.Notifications)

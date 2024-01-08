@@ -58,10 +58,10 @@ namespace Api.Controllers.v1
                             device = _detectionService.UserAgent.ToString();
                         await _mediator.Send(new UserLogCreate.Command
                         {
-                            UserId = userId,
                             Type = Domain.Enums.UserLogType.Login,
                             IP = ipAddress,
                             Device = device,
+                            CreatorId = userId,
                         });
                     }
                     return Ok(result.Result);

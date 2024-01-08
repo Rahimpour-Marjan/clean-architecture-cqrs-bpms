@@ -18,6 +18,7 @@ namespace Application.StateApplication.Commands
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
             public string? ImageUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -41,6 +42,7 @@ namespace Application.StateApplication.Commands
                 state.LocationLat = request.LocationLat;
                 state.LocationLong = request.LocationLong;
                 state.ImageUrl = request.ImageUrl;
+                state.ModifireId = request.ModifireId;
                 state.ModifiedDate = DateTime.Now;
 
                 try

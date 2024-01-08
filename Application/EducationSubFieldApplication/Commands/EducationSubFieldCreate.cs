@@ -10,6 +10,7 @@ namespace Application.EducationSubFieldApplication.Commands
         {
             public int EducationFieldId { get; set; }
             public string Title { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -24,7 +25,7 @@ namespace Application.EducationSubFieldApplication.Commands
             {
                 try
                 {
-                    var eduSubField = new Domain.EducationSubField(request.Title, request.EducationFieldId, DateTime.Now);
+                    var eduSubField = new Domain.EducationSubField(request.Title, request.EducationFieldId, request.CreatorId);
                     var newEduSubFieldId = await _uow.EducationSubFieldRepository.Create(eduSubField);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

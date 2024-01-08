@@ -12,6 +12,7 @@ namespace Application.Ticket.Commands
             public int Id { get; set; }
             public TicketStatus Status { get; set; }
             public int UserId { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -27,6 +28,8 @@ namespace Application.Ticket.Commands
                 {
                     var ticket = await _uow.TicketRepository.FindParent(request.Id);
                     ticket.Status = request.Status;
+                    ticket.ModifireId = request.ModifireId;
+                    ticket.ModifiedDate = DateTime.Now;
 
                     await _uow.TicketRepository.Update(ticket);
 

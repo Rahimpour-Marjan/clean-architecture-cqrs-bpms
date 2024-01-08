@@ -70,6 +70,7 @@ namespace Api.Controllers
                 var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
 
                 var errors = new List<string>();
+                var currentUserId = (int)HttpContext.Items["UserId"];
 
                 var result = await _mediator.Send(new TicketCreate.Command
                 {
@@ -80,7 +81,8 @@ namespace Api.Controllers
                     Status = TicketStatus.AwaitingReview,
                     TicketPriority = model.TicketPriority,
                     TicketType = model.TicketType,
-                    TicketCreatorId = userId
+                    TicketCreatorId = userId,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -98,7 +100,8 @@ namespace Api.Controllers
                                 TicketId = result.Result.TicketId,
                                 Title = item.Title,
                                 FileUrl = item.FileUrl,
-                                Size = item.Size
+                                Size = item.Size,
+                                CreatorId=currentUserId,
                             });
 
                             if (!ticketAttachmentResult.Success)
@@ -161,6 +164,7 @@ namespace Api.Controllers
                             model.Status = TicketStatus.Answered;
                     }
 
+                    var currentUserId = (int)HttpContext.Items["UserId"];
 
                     var result = await _mediator.Send(new TicketCreate.Command
                     {
@@ -171,7 +175,8 @@ namespace Api.Controllers
                         Status = model.Status ?? TicketStatus.AwaitingReview,
                         TicketPriority = ticket.TicketPriority,
                         TicketType = ticket.TicketType,
-                        TicketCreatorId = userId
+                        TicketCreatorId = userId,
+                        CreatorId=currentUserId,
                     });
 
                     if (!result.Success)
@@ -189,7 +194,8 @@ namespace Api.Controllers
                                     TicketId = result.Result.TicketId,
                                     Title = item.Title,
                                     FileUrl = item.FileUrl,
-                                    Size = item.Size
+                                    Size = item.Size,
+                                    CreatorId=currentUserId,
                                 });
 
                                 if (!ticketAttachmentResult.Success)
@@ -236,6 +242,8 @@ namespace Api.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new TicketUpdate.Command
                 {
                     Id = id,
@@ -244,6 +252,7 @@ namespace Api.Controllers
                     Status = model.TicketStatus,
                     TicketPriority = model.TicketPriority,
                     TicketType = model.TicketType,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -275,14 +284,16 @@ namespace Api.Controllers
         [HttpPut("ChangeStatus")]
         public async Task<IActionResult> Put(int id, TicketStatus status)
         {
-            var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
+            var currentUserId = (int)HttpContext.Items["UserId"];
+
             if (ModelState.IsValid)
             {
                 var result = await _mediator.Send(new TicketChangeStatus.Command
                 {
                     Id = id,
                     Status = status,
-                    UserId = userId
+                    UserId = currentUserId,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

@@ -6,20 +6,22 @@ namespace Domain
     {
         protected UserLog() { }
 
-        public UserLog(int userId, UserLogType type, string iP, string device)
+        public UserLog(UserLogType type, string iP, string device, int creatorId)
         {
-            UserId = userId;
             Type = type;
             IP = iP;
             Device = device;
-            DateTime = System.DateTime.Now;
+            CreatorId = creatorId;
+            CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
         public UserLogType Type { get; set; }
         public string IP { get; set; }
         public string Device { get; set; }
-        public DateTime? DateTime { get; set; }
+        public virtual User Creator { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

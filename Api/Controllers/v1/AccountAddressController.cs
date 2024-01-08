@@ -138,6 +138,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountAddressCreate.Command
                 {
                     AccountId = model.AccountId,
@@ -154,7 +156,8 @@ namespace Api.Controllers.v1
                     PostalCode = model.PostalCode,
                     LocationLat = model.LocationLat,
                     LocationLong = model.LocationLong,
-                });
+                    CreatorId = currentUserId,
+                }); 
 
                 if (!result.Success)
                 {
@@ -187,6 +190,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountAddressUpdate.Command
                 {
                     AccountAddressId = id,
@@ -203,6 +208,7 @@ namespace Api.Controllers.v1
                     PostalCode = model.PostalCode,
                     LocationLat = model.LocationLat,
                     LocationLong = model.LocationLong,
+                    ModifireId= currentUserId,
                 });
 
                 if (!result.Success)

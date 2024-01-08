@@ -16,6 +16,7 @@ namespace Application.Notification.Commands
             public int ReceiverId { get; set; }
             public string Icon { get; set; }
             public string Link { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -36,6 +37,8 @@ namespace Application.Notification.Commands
                 notification.ReceiverId = request.ReceiverId;
                 notification.Icon = request.Icon;
                 notification.Link = request.Link;
+                notification.ModifireId = request.ModifireId;
+                notification.ModifiedDate =DateTime.Now;
 
                 try
                 {

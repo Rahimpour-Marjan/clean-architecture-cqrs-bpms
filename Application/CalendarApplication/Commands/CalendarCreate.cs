@@ -17,6 +17,7 @@ namespace Application.Calendar.Commands
             public string? NotificationTime { get; set; }
             public bool? HasTwoStepNotification { get; set; }
             public int[] ReceiversId { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -29,7 +30,7 @@ namespace Application.Calendar.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var calendar = new Domain.Calendar(request.Subject, request.Description, request.EventDate, request.EventTime, request.SenderId, request.NotificationDate, request.NotificationTime, request.HasTwoStepNotification);
+                var calendar = new Domain.Calendar(request.Subject, request.Description, request.EventDate, request.EventTime, request.SenderId, request.NotificationDate, request.NotificationTime, request.HasTwoStepNotification,request.CreatorId);
                 try
                 {
                     var newCalendarId = await _uow.CalendarRepository.Create(calendar);

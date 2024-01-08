@@ -9,6 +9,7 @@ namespace Application.BankApplication
         {
             RuleFor(u => u.Title).NotEmpty().WithMessage("Bank should have a Title.");
             RuleFor(u => u.IsActive).NotEmpty().WithMessage("Bank should have a IsActive.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Bank should have a CreatorId.");
         }
     }
 }

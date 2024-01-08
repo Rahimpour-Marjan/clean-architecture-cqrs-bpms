@@ -12,6 +12,7 @@ namespace Application.EducationSubFieldApplication.Commands
             public int Id { get; set; }
             public string Title { get; set; }
             public int EducationFieldId { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -28,6 +29,7 @@ namespace Application.EducationSubFieldApplication.Commands
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
                 eduSubField.Title = request.Title;
                 eduSubField.EducationFieldId = request.EducationFieldId;
+                eduSubField.ModifireId = request.ModifireId;
                 eduSubField.ModifiedDate = DateTime.Now;
 
                 try

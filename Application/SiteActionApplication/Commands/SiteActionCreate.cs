@@ -13,6 +13,7 @@ namespace Application.SiteActionApplication.Commands
             public string Controller { get; set; }
             public string Action { get; set; }
             public long SitePageId { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -25,7 +26,7 @@ namespace Application.SiteActionApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var siteAction = new SiteAction(request.Title, request.Controller, request.Action, request.SitePageId);
+                var siteAction = new SiteAction(request.Title, request.Controller, request.Action, request.SitePageId,request.CreatorId);
                 try
                 {
                     var newSiteActionId = await _uow.SiteActionRepository.Create(siteAction);

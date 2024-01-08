@@ -59,6 +59,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new MenuCreate.Command
                 {
                     Title = model.Title,
@@ -67,6 +69,7 @@ namespace Api.Controllers.v1
                     Priority = model.Priority,
                     IsActive = model.IsActive,
                     ParentId = model.ParentId,
+                    CreatorId=currentUserId, 
                 });
 
                 if (!result.Success)
@@ -99,6 +102,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new MenuUpdate.Command
                 {
                     Id = id,
@@ -108,7 +113,8 @@ namespace Api.Controllers.v1
                     Priority = model.Priority,
                     IsActive = model.IsActive,
                     ParentId = model.ParentId,
-                }); ;
+                    ModifireId=currentUserId,
+                }); 
 
                 if (!result.Success)
                 {

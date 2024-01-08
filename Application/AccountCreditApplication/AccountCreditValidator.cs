@@ -12,6 +12,7 @@ namespace Application.AccountCreditApplication
             RuleFor(u => u.Remain).NotEmpty().WithMessage("AccountCredit should have a Remain.");
             RuleFor(u => u.IsActive).NotEmpty().WithMessage("AccountCredit should have a IsActive.");
             RuleFor(u => u.CreditType).NotEmpty().WithMessage("AccountCredit should have a CreditType.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("AccountCredit should have a CreatorId.");
         }
     }
 }

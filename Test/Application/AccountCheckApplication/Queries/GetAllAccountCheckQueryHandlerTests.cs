@@ -15,7 +15,7 @@ namespace Test.Application.AccountCheckpplication.Queries
             //Arrange
             var accountCheck = new List<AccountCheck>
             {
-                new AccountCheck(1000,  "1212548", 1000, "شعبه 1", 10000000, "مرجانه رحیم پور", DateTime.Now, DateTime.Now, null, "", "", null, DateTime.Now),
+                new AccountCheck(1000,  "1212548", 1000, "شعبه 1", 10000000, "مرجانه رحیم پور", DateTime.Now, DateTime.Now, null, "", "", null, 1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

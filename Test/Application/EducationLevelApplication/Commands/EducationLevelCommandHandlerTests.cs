@@ -17,6 +17,7 @@ namespace Test.Application.EducationLevelApplication.Commands
             var createEducationLevelCommand = new EducationLevelCreate.Command
             {
                 Title = "دیپلم",
+                CreatorId = 1000,
             };
 
             var createEducationLevelCommandHandler = new EducationLevelCreate.Handler(_uow);

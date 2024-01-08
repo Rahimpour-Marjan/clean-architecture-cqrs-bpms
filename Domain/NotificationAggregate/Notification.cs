@@ -2,7 +2,7 @@
 {
     public class Notification
     {
-        public Notification(string title, string text, int? senderId, int receiverId, string icon, string link, bool isRead, bool isStar, bool isArchive, bool isDeleted)
+        public Notification(string title, string text, int? senderId, int receiverId, string icon, string link, bool isRead, bool isStar, bool isArchive, bool isDeleted, int creatorId)
         {
             Title = title;
             Text = text;
@@ -14,7 +14,8 @@
             IsStar = isStar;
             IsArchive = isArchive;
             IsDeleted = isDeleted;
-            DateRecorde = DateTime.Now;
+            CreatorId = creatorId;
+            CreateDate = DateTime.Now;
         }
 
         protected Notification()
@@ -34,6 +35,9 @@
         public bool IsStar { get; set; }
         public bool IsArchive { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime DateRecorde { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

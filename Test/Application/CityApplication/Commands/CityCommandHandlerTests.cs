@@ -24,6 +24,7 @@ namespace Test.Application.CityApplication.Commands
                 LocationLong = "",
                 LocationLat = "",
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createCityCommandHandler = new CityCreate.Handler(_uow);

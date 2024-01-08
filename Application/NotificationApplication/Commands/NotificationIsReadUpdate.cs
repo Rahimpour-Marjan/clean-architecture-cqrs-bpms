@@ -12,6 +12,7 @@ namespace Application.Notification.Commands
             public int Id { get; set; }
             public bool IsRead { get; set; }
             public int UserId { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -27,6 +28,9 @@ namespace Application.Notification.Commands
                 if (notification == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
                 notification.IsRead = request.IsRead;
+                notification.ModifireId = request.ModifireId;
+                notification.ModifiedDate = DateTime.Now;
+
                 try
                 {
                     await _uow.NotificationRepository.Update(notification);

@@ -14,6 +14,7 @@ namespace Application.UserGroup.Commands
             public bool IsActive { get; set; }
             public bool IsEditable { get; set; }
             public int? UserGroupParentId { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -33,6 +34,9 @@ namespace Application.UserGroup.Commands
                 usergroup.IsActive = request.IsActive;
                 usergroup.IsEditable = request.IsEditable;
                 usergroup.UserGroupParentId = request.UserGroupParentId;
+                usergroup.ModifireId = request.ModifireId;
+                usergroup.ModifiedDate = DateTime.Now;
+
                 try
                 {
                     await _uow.UserGroupRepository.Update(usergroup);

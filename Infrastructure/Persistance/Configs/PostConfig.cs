@@ -11,6 +11,8 @@ namespace Persistance.Configs
             builder.Property(f => f.Id).UseHiLo("Post");
 
             builder.Property(f => f.Title).HasMaxLength(50).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.PostParent)
                   .WithMany()

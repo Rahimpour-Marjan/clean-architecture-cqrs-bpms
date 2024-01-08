@@ -54,6 +54,7 @@ namespace Application.Account.Commands
             public int? EducationLevelId { get; set; }
             public DateTime? EmployeementDate { get; set; }
             public List<int> PostIds { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -117,6 +118,7 @@ namespace Application.Account.Commands
                     account.EducationSubFieldId = request.EducationSubFieldId;
                     account.EducationLevelId = request.EducationLevelId;
                     account.EmployeementDate = request.EmployeementDate;
+                    account.ModifireId = request.ModifireId;
                     account.ModifiedDate = DateTime.Now;
 
                     await _uow.AccountRepository.Update(account);

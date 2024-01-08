@@ -15,7 +15,7 @@ namespace Test.Application.Bankpplication.Queries
             //Arrange
             var bank = new List<Bank>
             {
-                new Bank("ایران",true,"",DateTime.Now),
+                new Bank("ایران",true,"",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

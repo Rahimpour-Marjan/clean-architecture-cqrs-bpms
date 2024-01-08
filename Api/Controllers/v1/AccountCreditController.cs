@@ -111,6 +111,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountCreditCreate.Command
                 {
                     AccountId = model.AccountId,
@@ -120,6 +122,7 @@ namespace Api.Controllers.v1
                     AccountCheckId = model.AccountCheckId,
                     IsActive = model.IsActive,
                     CreditType = model.CreditType,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -153,6 +156,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountCreditUpdate.Command
                 {
                     AccountCreditId = id,
@@ -163,6 +168,7 @@ namespace Api.Controllers.v1
                     AccountCheckId = model.AccountCheckId,
                     IsActive = model.IsActive,
                     CreditType = model.CreditType,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

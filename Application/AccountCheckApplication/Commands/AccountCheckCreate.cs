@@ -21,6 +21,7 @@ namespace Application.AccountCheckApplication.Commands
             public string FrontImageUrl { get; set; }
             public string BackImageUrl { get; set; }
             public string? SignatureUrl { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -33,7 +34,7 @@ namespace Application.AccountCheckApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var accountCheck = new AccountCheck(request.AccountId, request.CheckNumber, request.BankId, request.BranchName, request.Amount, request.PayTo, request.IssueDate, request.ReceiptDate, request.ReturnDate, request.FrontImageUrl, request.BackImageUrl, request.SignatureUrl, DateTime.Now);
+                var accountCheck = new AccountCheck(request.AccountId, request.CheckNumber, request.BankId, request.BranchName, request.Amount, request.PayTo, request.IssueDate, request.ReceiptDate, request.ReturnDate, request.FrontImageUrl, request.BackImageUrl, request.SignatureUrl, request.CreatorId);
                 try
                 {
                     var newAccountCheckId = await _uow.AccountCheckRepository.Create(accountCheck);

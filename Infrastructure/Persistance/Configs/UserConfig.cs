@@ -16,6 +16,8 @@ namespace Persistance.Configs
             builder.Property(f => f.Salt).HasMaxLength(150).IsRequired();
             builder.Property(f => f.Email).HasMaxLength(50).IsRequired();
             builder.Property(f => f.IsActive).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
         }
     }
 }

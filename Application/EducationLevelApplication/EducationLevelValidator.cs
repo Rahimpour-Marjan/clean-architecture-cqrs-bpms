@@ -8,6 +8,7 @@ namespace Application.EducationLevelApplication
         public EducationLevelValidator()
         {
             RuleFor(u => u.Title).NotEmpty().WithMessage("EducationLevel should have a Title.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("EducationLevel should have a CreatorId.");
         }
     }
 }

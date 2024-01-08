@@ -111,6 +111,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountCheckCreate.Command
                 {
                     AccountId = model.AccountId,
@@ -125,6 +127,7 @@ namespace Api.Controllers.v1
                     FrontImageUrl = model.FrontImageUrl,
                     BackImageUrl = model.BackImageUrl,
                     SignatureUrl = model.SignatureUrl,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -158,6 +161,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountCheckUpdate.Command
                 {
                     AccountCheckId = id,
@@ -173,6 +178,7 @@ namespace Api.Controllers.v1
                     FrontImageUrl = model.FrontImageUrl,
                     BackImageUrl = model.BackImageUrl,
                     SignatureUrl = model.SignatureUrl,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

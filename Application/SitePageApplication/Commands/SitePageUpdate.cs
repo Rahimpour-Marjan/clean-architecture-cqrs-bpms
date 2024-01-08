@@ -16,6 +16,7 @@ namespace Application.SitePage.Commands
             public int Priority { get; set; }
             public long MenuId { get; set; }
             public string Key { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -37,6 +38,8 @@ namespace Application.SitePage.Commands
                 sitepage.Priority = request.Priority;
                 sitepage.MenuId = request.MenuId;
                 sitepage.Key = request.Key;
+                sitepage.ModifireId = request.ModifireId;
+                sitepage.ModifiedDate = DateTime.Now;
 
                 try
                 {

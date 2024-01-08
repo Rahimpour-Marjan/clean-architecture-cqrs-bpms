@@ -7,10 +7,11 @@ namespace Application.UserLogApplication
     {
         public UserLogValidator()
         {
-            RuleFor(u => u.UserId).NotEmpty().WithMessage("Unit should have a UserId.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Unit should have a CreatorId.");
             RuleFor(u => u.Type).NotEmpty().WithMessage("Unit should have a Type.");
             RuleFor(u => u.IP).NotEmpty().WithMessage("Unit should have a IP.");
             RuleFor(u => u.Device).NotEmpty().WithMessage("Unit should have a Device.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("Unit should have a CreatorId.");
         }
     }
 }

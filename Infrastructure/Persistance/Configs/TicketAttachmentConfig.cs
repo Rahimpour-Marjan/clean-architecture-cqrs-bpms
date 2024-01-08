@@ -13,6 +13,8 @@ namespace Persistance.Configs
             builder.Property(f => f.TicketId).IsRequired();
             builder.Property(f => f.Title).IsRequired();
             builder.Property(f => f.FileUrl).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
         }
     }
 }

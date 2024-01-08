@@ -15,7 +15,7 @@ namespace Test.Application.Countrypplication.Queries
             //Arrange
             var country = new List<Country>
             {
-                new Country("ایران","001","0098","1369","","","",DateTime.Now),
+                new Country("ایران","001","0098","1369","","","",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

@@ -11,7 +11,7 @@ namespace Application.UnitApplication.Commands
             public string Title { get; set; }
             public string AbbreviatedTitle { get; set; }
             public string? Description { get; set; }
-            public DateTime DateRecord { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -24,7 +24,7 @@ namespace Application.UnitApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var Unit = new Domain.Unit(request.Title, request.AbbreviatedTitle, request.Description, DateTime.Now);
+                var Unit = new Domain.Unit(request.Title, request.AbbreviatedTitle, request.Description, request.CreatorId);
                 try
                 {
                     var newUnitId = await _uow.UnitRepository.Create(Unit);

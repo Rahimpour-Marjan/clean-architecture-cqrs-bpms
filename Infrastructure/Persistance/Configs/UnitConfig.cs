@@ -15,6 +15,8 @@ namespace Persistance.Configs
             builder.Property(f => f.AbbreviatedTitle).HasMaxLength(200).IsRequired();
             builder.HasIndex(f => f.AbbreviatedTitle).IsUnique();
             builder.Property(f => f.Description).HasMaxLength(400);
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
         }
     }
 }

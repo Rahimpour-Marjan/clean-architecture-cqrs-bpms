@@ -30,6 +30,7 @@ namespace Test.Application.AccountAddressApplication.Commands
                 PostalCode = "1369587957",
                 LocationLat = "",
                 LocationLong = "",
+                CreatorId=1000,
             };
 
             var createAccountAddressCommandHandler = new AccountAddressCreate.Handler(_uow);

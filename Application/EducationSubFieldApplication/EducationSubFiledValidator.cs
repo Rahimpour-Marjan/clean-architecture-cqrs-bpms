@@ -9,6 +9,7 @@ namespace Application.EducationSubFiledApplication
         {
             RuleFor(u => u.Title).NotEmpty().WithMessage("EducationSubFiled should have a Title.");
             RuleFor(u => u.EducationFieldId).NotEmpty().WithMessage("EducationSubFiled should have a EducationFieldId.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("EducationSubFiled should have a CreatorId.");
         }
     }
 }

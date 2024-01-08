@@ -18,6 +18,7 @@ namespace Application.PackageApplication.Commands
             public long? Discount { get; set; }
             public string? ImageUrl { get; set; }
             public DateTime? ExpireDate { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -41,6 +42,7 @@ namespace Application.PackageApplication.Commands
                 package.Discount = request.Discount;
                 package.ImageUrl = request.ImageUrl;
                 package.ExpireDate = request.ExpireDate;
+                package.ModifireId = request.ModifireId;
                 package.ModifiedDate = DateTime.Now;
 
                 try
