@@ -17,6 +17,7 @@ namespace Application.CityApplication.Commands
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
             public string? ImageUrl { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -29,7 +30,7 @@ namespace Application.CityApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var city = new City(request.Title, request.StateId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
+                var city = new City(request.Title, request.StateId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, request.CreatorId);
                 try
                 {
                     var newCityId = await _uow.CityRepository.Create(city);

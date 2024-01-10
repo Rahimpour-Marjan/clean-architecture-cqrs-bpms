@@ -17,6 +17,7 @@ namespace Test.Application.EducationFieldApplication.Commands
             var createEducationFieldCommand = new EducationFieldCreate.Command
             {
                 Title = "دیپلم",
+                CreatorId = 1000,
             };
 
             var createEducationFieldCommandHandler = new EducationFieldCreate.Handler(_uow);

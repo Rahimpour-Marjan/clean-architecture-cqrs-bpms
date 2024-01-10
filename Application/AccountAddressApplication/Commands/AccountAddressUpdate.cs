@@ -23,6 +23,7 @@ namespace Application.AccountAddressApplication.Commands
             public string PostalCode { get; set; }
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -51,6 +52,7 @@ namespace Application.AccountAddressApplication.Commands
                 accountAddress.PostalCode = request.PostalCode;
                 accountAddress.LocationLat = request.LocationLat;
                 accountAddress.LocationLong = request.LocationLong;
+                accountAddress.ModifireId =request.ModifireId;
                 accountAddress.ModifiedDate = DateTime.Now;
 
                 try

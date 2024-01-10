@@ -112,10 +112,13 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new PostCreate.Command
                 {
                     Title = model.Title,
                     PostParentId = model.PostParentId,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -153,7 +156,8 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new PostJuncUserGroupCreate.Command
                 {
                     PostId = model.PostId,
-                    UserGroupIds = model.UserGroupIds
+                    UserGroupIds = model.UserGroupIds,
+                    
                 });
 
                 if (!result.Success)
@@ -187,11 +191,14 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new PostUpdate.Command
                 {
                     Id = id,
                     Title = model.Title,
                     PostParentId = model.PostParentId,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

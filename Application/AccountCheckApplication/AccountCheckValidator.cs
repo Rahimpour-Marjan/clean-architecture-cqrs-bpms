@@ -17,6 +17,7 @@ namespace Application.AccountCheckApplication
             RuleFor(u => u.ReceiptDate).NotEmpty().WithMessage("AccountCheck should have a ReceiptDate.");
             RuleFor(u => u.FrontImageUrl).NotEmpty().WithMessage("AccountCheck should have a FrontImageUrl.");
             RuleFor(u => u.BackImageUrl).NotEmpty().WithMessage("AccountCheck should have a BackImageUrl.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("AccountCheck should have a CreatorId.");
         }
     }
 }

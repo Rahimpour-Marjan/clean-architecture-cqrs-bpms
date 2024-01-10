@@ -22,6 +22,7 @@ namespace Application.AccountCheckApplication.Commands
             public string FrontImageUrl { get; set; }
             public string BackImageUrl { get; set; }
             public string? SignatureUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -49,6 +50,7 @@ namespace Application.AccountCheckApplication.Commands
                 accountCheck.FrontImageUrl = request.FrontImageUrl;
                 accountCheck.BackImageUrl = request.BackImageUrl;
                 accountCheck.SignatureUrl = request.SignatureUrl;
+                accountCheck.ModifireId = request.ModifireId;
                 accountCheck.ModifiedDate = DateTime.Now;
 
                 try

@@ -10,6 +10,7 @@ namespace Application.Post.Commands
         {
             public string Title { get; set; }
             public int? PostParentId { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -24,7 +25,7 @@ namespace Application.Post.Commands
             {
                 try
                 {
-                    var post = new Domain.Post(request.Title, request.PostParentId);
+                    var post = new Domain.Post(request.Title, request.PostParentId,request.CreatorId);
                     var newPostId = await _uow.PostRepository.Create(post);
 
                     var result = OperationResult<Response>

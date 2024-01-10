@@ -11,8 +11,8 @@ namespace Application.UserGroup.Commands
             public string Title { get; set; }
             public bool IsActive { get; set; }
             public bool IsEditable { get; set; }
-            public int? ApiResultCode { get; set; }
             public int? UserGroupParentId { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -26,23 +26,23 @@ namespace Application.UserGroup.Commands
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
 
-                //var usergroup = new Domain.UserGroup(request.Title, request.IsActive,request.IsEditable, request.ApiResultCode,request.UserGroupParentId);
-                //try
-                //{
-                //    var newUserGroupId = await _uow.UserGroupRepository.Create(usergroup);
-                var result = OperationResult<Response>
+                var usergroup = new Domain.UserGroup(request.Title, request.IsActive,request.IsEditable, request.UserGroupParentId, request.CreatorId);
+                try
+                {
+                    var newUserGroupId = await _uow.UserGroupRepository.Create(usergroup);
+                    var result = OperationResult<Response>
                     .BuildSuccessResult(new Response
                     {
                         UserGroupId = 0
                     });
                 await Task.CompletedTask;
                 return result;
-                //}
-                //catch (Exception ex)
-                //{
-                //    var exResult = OperationResult<Response>.BuildFailure(ex);
-                //    return exResult;
-                //}
+                }
+                catch (Exception ex)
+                {
+                    var exResult = OperationResult<Response>.BuildFailure(ex);
+                    return exResult;
+                }
             }
         }
 

@@ -49,18 +49,20 @@ namespace Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new CalendarCreate.Command
                 {
                     Subject = model.Subject,
                     Description = model.Description,
                     EventDate = model.EventDate,
                     EventTime = model.EventTime,
-                    SenderId = userId,
+                    SenderId = currentUserId,
                     NotificationDate = model.NotificationDate,
                     NotificationTime = model.NotificationTime,
                     HasTwoStepNotification = model.HasTwoStepNotification,
-                    ReceiversId = model.ReceiversId
+                    ReceiversId = model.ReceiversId,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -92,10 +94,11 @@ namespace Api.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var result = await _mediator.Send(new TicketAttachmentCreate.Command
                 {
                     CalendarId = calendarId,
-                    File = model.File
+                    File = model.File,
                 });
 
                 if (!result.Success)
@@ -127,6 +130,8 @@ namespace Api.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new CalendarUpdate.Command
                 {
                     Id = id,
@@ -138,7 +143,8 @@ namespace Api.Controllers
                     NotificationDate = model.NotificationDate,
                     NotificationTime = model.NotificationTime,
                     HasTwoStepNotification = model.HasTwoStepNotification,
-                    ReceiversId = model.ReceiversId
+                    ReceiversId = model.ReceiversId,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

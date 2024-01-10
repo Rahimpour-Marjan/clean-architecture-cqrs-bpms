@@ -69,11 +69,14 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new BankCreate.Command
                 {
                     Title = model.Title,
                     IsActive = model.IsActive,
                     ImageUrl = model.ImageUrl,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -107,12 +110,15 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new BankUpdate.Command
                 {
                     BankId = id,
                     Title = model.Title,
                     IsActive = model.IsActive,
                     ImageUrl = model.ImageUrl,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

@@ -11,6 +11,7 @@ namespace Application.EducationLevelApplication.Commands
         {
             public int EduLevelId { get; set; }
             public string Title { get; set; }
+            public int ModifireId { get; set; }
         }
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
         {
@@ -26,6 +27,7 @@ namespace Application.EducationLevelApplication.Commands
                 if (eduLevel == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
                 eduLevel.Title = request.Title;
+                eduLevel.ModifireId = request.ModifireId;
                 eduLevel.ModifiedDate = DateTime.Now;
 
                 try

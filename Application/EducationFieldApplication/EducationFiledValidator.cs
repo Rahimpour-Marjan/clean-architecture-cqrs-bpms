@@ -8,6 +8,7 @@ namespace Application.EducationFiledApplication
         public EducationFiledValidator()
         {
             RuleFor(u => u.Title).NotEmpty().WithMessage("EducationFiled should have a Title.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("EducationFiled should have a CreatorId.");
         }
     }
 }

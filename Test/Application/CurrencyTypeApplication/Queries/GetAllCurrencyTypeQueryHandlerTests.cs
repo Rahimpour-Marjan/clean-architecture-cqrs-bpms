@@ -15,7 +15,7 @@ namespace Test.Application.CurrencyTypepplication.Queries
             //Arrange
             var currencyType = new List<CurrencyType>
             {
-                new CurrencyType("ریال","ریال",1000,"",DateTime.Now),
+                new CurrencyType("ریال","ریال",1000,"",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

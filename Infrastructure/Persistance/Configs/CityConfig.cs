@@ -19,7 +19,7 @@ namespace Persistance.Configs
             builder.Property(f => f.LocationLat).HasMaxLength(15);
             builder.Property(f => f.LocationLong).HasMaxLength(15);
             builder.Property(f => f.ImageUrl).HasMaxLength(100);
-            builder.Property(f => f.ModifiedDate).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
             builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.State)

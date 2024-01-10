@@ -14,6 +14,7 @@ namespace Application.CreditPaymentApplication
             RuleFor(u => u.IpAddress).NotEmpty().WithMessage("CreditPayment should have a IpAddress.");
             RuleFor(u => u.CurrencyTypeId).NotEmpty().WithMessage("CreditPayment should have a CurrencyTypeId.");
             RuleFor(u => u.IsInPlace).NotEmpty().WithMessage("CreditPayment should have a IsInPlace.");
+            RuleFor(u => u.CreatorId).NotEmpty().WithMessage("CreditPayment should have a CreatorId.");
         }
     }
 }

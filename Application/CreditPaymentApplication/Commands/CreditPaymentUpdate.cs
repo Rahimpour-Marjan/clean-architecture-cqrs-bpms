@@ -22,6 +22,7 @@ namespace Application.CreditPaymentApplication.Commands
             public int CurrencyTypeId { get; set; }
             public bool IsInPlace { get; set; }
             public string? ImageUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -48,6 +49,7 @@ namespace Application.CreditPaymentApplication.Commands
                 creditPayment.CurrencyTypeId = request.CurrencyTypeId;
                 creditPayment.IsInPlace = request.IsInPlace;
                 creditPayment.ImageUrl = request.ImageUrl;
+                creditPayment.ModifireId = request.ModifireId;
                 creditPayment.ModifiedDate = DateTime.Now;
 
                 try

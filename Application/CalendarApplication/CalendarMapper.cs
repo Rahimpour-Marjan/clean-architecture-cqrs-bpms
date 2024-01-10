@@ -11,7 +11,7 @@ namespace Application.Calendar
             DateTimeToPersianDateTimeConverter timeConverter = new DateTimeToPersianDateTimeConverter();
             CreateMap<Domain.Calendar, CalendarInfo>()
                   .ForMember(dto => dto.DateRecord, opt => opt.MapFrom(src =>
-                    timeConverter.toShamsiDateTime(src.DateRecord)))
+                    timeConverter.toShamsiDateTime(src.CreateDate)))
                   .ForMember(dto => dto.EventDate, opt => opt.MapFrom(src =>
                     timeConverter.toShamsiDateTime(DateTime.Parse(src.EventDate))))
                    .ForMember(dto => dto.NotificationDate, opt => opt.MapFrom(src =>

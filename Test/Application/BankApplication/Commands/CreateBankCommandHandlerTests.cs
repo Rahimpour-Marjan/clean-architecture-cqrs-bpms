@@ -19,6 +19,7 @@ namespace Test.Application.BankApplication.Commands
                 Title = "ایران",
                 IsActive = true,
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createBankCommandHandler = new BankCreate.Handler(_uow);

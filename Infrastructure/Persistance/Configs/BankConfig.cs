@@ -14,7 +14,7 @@ namespace Persistance.Configs
             builder.HasIndex(f => f.Title).IsUnique();
             builder.Property(f => f.IsActive).IsRequired();
             builder.Property(f => f.ImageUrl).HasMaxLength(100);
-            builder.Property(f => f.ModifiedDate).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
             builder.Property(f => f.CreateDate).IsRequired();
         }
     }

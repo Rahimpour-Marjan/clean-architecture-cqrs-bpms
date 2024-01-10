@@ -15,6 +15,8 @@ namespace Persistance.Configs
             builder.Property(f => f.Icon).HasMaxLength(50).IsRequired();
             builder.Property(f => f.Priority).IsRequired();
             builder.Property(f => f.IsActive).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.Parent)
                         .WithMany(x => x.SubMenus)

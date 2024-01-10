@@ -12,6 +12,7 @@ namespace Application.Ticket.Commands
             public string FileUrl { get; set; }
             public decimal? Size { get; set; }
             public int TicketId { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -24,7 +25,7 @@ namespace Application.Ticket.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var ticketattachemt = new Domain.TicketAttachment(request.FileUrl, request.Title, request.Size, request.TicketId);
+                var ticketattachemt = new Domain.TicketAttachment(request.FileUrl, request.Title, request.Size, request.TicketId,request.CreatorId);
                 try
                 {
                     var newTicketAttachmentId = await _uow.TicketRepository.Create(ticketattachemt);

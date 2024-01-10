@@ -23,6 +23,7 @@ namespace Application.AccountAddressApplication.Commands
             public string PostalCode { get; set; }
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -35,7 +36,7 @@ namespace Application.AccountAddressApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var accountAddress = new AccountAddress(request.AccountId, request.Title, request.FullName, request.Phone, request.ExtraPhone, request.CountryId, request.StateId, request.CityId, request.ZoneId, request.Address, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, DateTime.Now);
+                var accountAddress = new AccountAddress(request.AccountId, request.Title, request.FullName, request.Phone, request.ExtraPhone, request.CountryId, request.StateId, request.CityId, request.ZoneId, request.Address, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong,request.CreatorId);
                 try
                 {
                     var newAccountAddressId = await _uow.AccountAddressRepository.Create(accountAddress);

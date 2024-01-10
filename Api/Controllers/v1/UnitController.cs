@@ -69,11 +69,14 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new UnitCreate.Command
                 {
                     Title = model.Title,
                     AbbreviatedTitle = model.AbbreviatedTitle,
                     Description = model.Description,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -107,12 +110,15 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new UnitUpdate.Command
                 {
                     UnitId = id,
                     Title = model.Title,
                     AbbreviatedTitle = model.AbbreviatedTitle,
                     Description = model.Description,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

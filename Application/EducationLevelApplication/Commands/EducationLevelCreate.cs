@@ -9,6 +9,7 @@ namespace Application.EducationLevelApplication.Commands
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
             public string Title { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -23,7 +24,7 @@ namespace Application.EducationLevelApplication.Commands
             {
                 try
                 {
-                    var eduLevel = new Domain.EducationLevel(request.Title, DateTime.Now);
+                    var eduLevel = new Domain.EducationLevel(request.Title, request.CreatorId);
                     var newEduLevelId = await _uow.EducationLevelRepository.Create(eduLevel);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

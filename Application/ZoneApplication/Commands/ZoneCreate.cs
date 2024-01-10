@@ -17,6 +17,7 @@ namespace Application.ZoneApplication.Commands
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
             public string? ImageUrl { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -29,7 +30,7 @@ namespace Application.ZoneApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var zone = new Zone(request.Title, request.CityId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl, DateTime.Now);
+                var zone = new Zone(request.Title, request.CityId, request.Code, request.ZipCode, request.PostalCode, request.LocationLat, request.LocationLong, request.ImageUrl,request.CreatorId);
                 try
                 {
                     var newZoneId = await _uow.ZoneRepository.Create(zone);

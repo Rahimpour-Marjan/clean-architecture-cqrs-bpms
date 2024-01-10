@@ -31,6 +31,8 @@ namespace Infrastructure.Persistance.Repositories
         ICalendarRepository CalendarRepository { get; }
         ISiteActionRepository SiteActionRepository { get; }
         IUserLogRepository UserLogRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
+        IArticleRepository ArticleRepository { get; }
         Task<bool> CommitAsync();
     }
 
@@ -67,6 +69,8 @@ namespace Infrastructure.Persistance.Repositories
             CalendarRepository = new CalendarRepository(_db);
             SiteActionRepository = new SiteActionRepository(_db);
             UserLogRepository = new UserLogRepository(_db);
+            CategoryRepository = new CategoryRepository(_db);
+            ArticleRepository = new ArticleRepository(_db);
         }
 
         public IUserRepository UserRepository { get; }
@@ -96,6 +100,8 @@ namespace Infrastructure.Persistance.Repositories
         public ICalendarRepository CalendarRepository { get; }
         public ISiteActionRepository SiteActionRepository { get; }
         public IUserLogRepository UserLogRepository { get; }
+        public ICategoryRepository CategoryRepository { get; }
+        public IArticleRepository ArticleRepository { get; }
 
         public async Task<bool> CommitAsync()
         {

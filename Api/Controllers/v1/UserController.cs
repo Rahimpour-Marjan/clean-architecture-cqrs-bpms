@@ -20,13 +20,11 @@ namespace Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        IConfiguration _configuration;
         private readonly IMediator _mediator;
         private readonly IUriService _uriService;
-        public UserController(IMediator mediator, IConfiguration configuration, IUriService uriService)
+        public UserController(IMediator mediator, IUriService uriService)
         {
             _mediator = mediator;
-            _configuration = configuration;
             _uriService = uriService;
         }
 
@@ -66,10 +64,11 @@ namespace Api.Controllers
         [HttpGet("GetCurrentUser")]
         public async Task<IActionResult> GetCurrentUser()
         {
-            var userId = ((UserInfo)(HttpContext.Items["User"]))?.Id;
+            var currentUserId = (int)HttpContext.Items["UserId"];
+
             return StatusCode((int)HttpStatusCode.OK, new ApiResponse
             {
-                Data = userId,
+                Data = currentUserId,
             });
         }
 

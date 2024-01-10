@@ -179,6 +179,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountCreate.Command
                 {
                     FirstName = model.FirstName,
@@ -225,6 +227,7 @@ namespace Api.Controllers.v1
                     EducationLevelId = model.EducationLevelId,
                     EmployeementDate = model.EmployeementDate,
                     PostIds = model.PostIds,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -258,6 +261,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new AccountUpdate.Command
                 {
                     Id = id,
@@ -305,6 +310,7 @@ namespace Api.Controllers.v1
                     EducationLevelId = model.EducationLevelId,
                     EmployeementDate = model.EmployeementDate,
                     PostIds = model.PostIds,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)

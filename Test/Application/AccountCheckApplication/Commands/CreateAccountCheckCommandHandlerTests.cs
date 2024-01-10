@@ -28,6 +28,7 @@ namespace Test.Application.AccountCheckApplication.Commands
                 FrontImageUrl = "",
                 BackImageUrl = "",
                 SignatureUrl = null,
+                CreatorId = 1000,
             };
 
             var createAccountCheckCommandHandler = new AccountCheckCreate.Handler(_uow);

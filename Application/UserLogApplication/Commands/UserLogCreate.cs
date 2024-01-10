@@ -9,10 +9,10 @@ namespace Application.UserLogApplication.Commands
     {
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
-            public int UserId { get; set; }
             public UserLogType Type { get; set; }
             public string IP { get; set; }
             public string Device { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -25,7 +25,7 @@ namespace Application.UserLogApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var Unit = new Domain.UserLog(request.UserId, request.Type, request.IP, request.Device);
+                var Unit = new Domain.UserLog(request.Type, request.IP, request.Device, request.CreatorId);
                 try
                 {
                     var newUserLogId = await _uow.UserLogRepository.Create(Unit);

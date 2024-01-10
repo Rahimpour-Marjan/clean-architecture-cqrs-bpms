@@ -13,6 +13,7 @@ namespace Application.CurrencyTypeApplication.Commands
             public string CurrencySign { get; set; }
             public long UnitPrice { get; set; }
             public string? ImageUrl { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -25,7 +26,7 @@ namespace Application.CurrencyTypeApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var currencyType = new CurrencyType(request.Title, request.CurrencySign, request.UnitPrice, request.ImageUrl, DateTime.Now);
+                var currencyType = new CurrencyType(request.Title, request.CurrencySign, request.UnitPrice, request.ImageUrl, request.CreatorId);
                 try
                 {
                     var newCurrencyTypeId = await _uow.CurrencyTypeRepository.Create(currencyType);

@@ -15,7 +15,7 @@ namespace Domain
             Url = url;
             Body = body;
             ImageUrl = imageUrl;
-            ModifiedDate = modifiedDate;
+            CreatorId= ceatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -27,7 +27,9 @@ namespace Domain
         public string? Url { get; set; }
         public string? Body { get; set; }
         public string? ImageUrl { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }

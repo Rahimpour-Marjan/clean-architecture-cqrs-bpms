@@ -1,5 +1,6 @@
 ﻿using Application.User.Queries.FindAll;
 using Domain;
+using Domain.Enums;
 using Infrastructure.Persistance.Repositories;
 using Moq;
 using UnitTest.Common;
@@ -15,7 +16,7 @@ namespace Test.Application.UserApplication.Queries
             //Arrange
             var users = new List<User>
             {
-                //new User(1,"Duarte","1234","", "Duarte@gmail.com",UserType.DynamicUser,true,null),
+                new User(1,"Duarte","1234","", "Duarte@gmail.com",UserType.DynamicUser,true,1000),
                 //new User(1,"Lima","1234","", "Lima@gmail.com",UserType.DynamicUser,true, null),
                 //new User(1,"Sousa","1234","", "Sousa@gmail.com",UserType.DynamicUser,true, null),
                 //new User(1,"Smitch","1234","", "Smitch@gmail.com",UserType.DynamicUser, true, null),

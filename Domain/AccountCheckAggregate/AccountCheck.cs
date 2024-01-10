@@ -4,7 +4,7 @@
     {
         protected AccountCheck() { }
 
-        public AccountCheck(int accountId, string checkNumber, int bankId, string branchName, long amount, string payTo, DateTime issueDate, DateTime receiptDate, DateTime? returnDate, string frontImageUrl, string backImageUrl, string? signatureUrl, DateTime modifiedDate)
+        public AccountCheck(int accountId, string checkNumber, int bankId, string branchName, long amount, string payTo, DateTime issueDate, DateTime receiptDate, DateTime? returnDate, string frontImageUrl, string backImageUrl, string? signatureUrl, int creatorId)
         {
             AccountId = accountId;
             CheckNumber = checkNumber;
@@ -18,7 +18,7 @@
             FrontImageUrl = frontImageUrl;
             BackImageUrl = backImageUrl;
             SignatureUrl = signatureUrl;
-            ModifiedDate = modifiedDate;
+            CreatorId = CreatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
@@ -36,7 +36,9 @@
         public string FrontImageUrl { get; set; }
         public string BackImageUrl { get; set; }
         public string? SignatureUrl { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public int CreatorId { get; set; }
+        public int? ModifireId { get; set; }
+        public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
     }
 }

@@ -14,6 +14,8 @@ namespace Persistance.Configs
             builder.Property(f => f.Controller).HasMaxLength(200).IsRequired();
             builder.Property(f => f.Action).HasMaxLength(30).IsRequired();
             builder.Property(f => f.SitePageId).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.SitePage)
                   .WithMany(x => x.SiteActions)

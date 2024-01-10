@@ -15,7 +15,7 @@ namespace Test.Application.Packagepplication.Queries
             //Arrange
             var package = new List<Package>
             {
-                new Package("پکیج طلایی",Domain.Enums.PackageType.Type1,"01",true,100000,100000,"",DateTime.Now,DateTime.Now),
+                new Package("پکیج طلایی",Domain.Enums.PackageType.Type1,"01",true,100000,100000,"",DateTime.Now,1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

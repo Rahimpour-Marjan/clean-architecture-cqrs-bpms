@@ -59,6 +59,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var sitepage = await _mediator.Send(new SitePageCreate.Command
                 {
                     Title = model.Title,
@@ -66,8 +68,8 @@ namespace Api.Controllers.v1
                     Icon = model.Icon,
                     MenuId = model.MenuId,
                     Priority = model.Priority,
-                    Key = model.Key
-
+                    Key = model.Key,
+                    CreatorId=currentUserId,
                 });
 
                 if (!sitepage.Success)
@@ -100,6 +102,8 @@ namespace Api.Controllers.v1
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new SitePageUpdate.Command
                 {
                     Id = id,
@@ -108,8 +112,9 @@ namespace Api.Controllers.v1
                     Icon = model.Icon,
                     MenuId = model.MenuId,
                     Priority = model.Priority,
-                    Key = model.Key
-                }); ;
+                    Key = model.Key,
+                    ModifireId=currentUserId,
+                }); 
 
                 if (!result.Success)
                 {

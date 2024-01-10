@@ -23,7 +23,8 @@ namespace Test.Application.PackageApplication.Commands
                 Price = 100000,
                 Discount = 100000,
                 ImageUrl = "",
-                ExpireDate = DateTime.Now
+                ExpireDate = DateTime.Now,
+                CreatorId = 1000,
             };
 
             var createPackageCommandHandler = new PackageCreate.Handler(_uow);

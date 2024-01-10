@@ -63,6 +63,7 @@ namespace Test.Application.AccountApplication.Commands
                 EducationLevelId = null,
                 EmployeementDate = null,
                 PostIds = posts,
+                CreatorId = 1000,
             };
 
             var createAccountCommandHandler = new AccountCreate.Handler(_uow);

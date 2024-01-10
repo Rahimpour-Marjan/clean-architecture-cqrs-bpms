@@ -14,7 +14,7 @@ namespace Application.User.Commands
             public string Password { get; set; }
             public bool IsActive { get; set; }
             public int AccountId { get; set; }
-            public int? ApiResultCode { get; set; }
+            public int CreatorId { get; set; }
 
         }
 
@@ -42,10 +42,10 @@ namespace Application.User.Commands
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
 
                 var (hashedPassword, salt) = _authentication.GenerateHashPasswordAndSalt(request.Password);
-                //var user = new Domain.User(request.AccountId, request.UserName, hashedPassword, salt, Account.Email??"", UserType.DynamicUser, request.IsActive, request.ApiResultCode);
+                var user = new Domain.User(request.AccountId, request.UserName, hashedPassword, salt, Account.Email??"", UserType.DynamicUser, request.IsActive, request.CreatorId);
                 try
                 {
-                    //var newUserId = await _uow.UserRepository.Create(user);
+                    var newUserId = await _uow.UserRepository.Create(user);
 
                     var result = OperationResult<Response>
                       .BuildSuccessResult(new Response

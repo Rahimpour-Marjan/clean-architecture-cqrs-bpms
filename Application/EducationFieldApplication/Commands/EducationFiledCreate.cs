@@ -9,6 +9,7 @@ namespace Application.EducationFieldApplication.Commands
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
             public string Title { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -23,7 +24,7 @@ namespace Application.EducationFieldApplication.Commands
             {
                 try
                 {
-                    var eduField = new Domain.EducationField(request.Title, DateTime.Now);
+                    var eduField = new Domain.EducationField(request.Title, request.CreatorId);
                     var newEduFieldId = await _uow.EducationFieldRepository.Create(eduField);
                     var result = OperationResult<Response>
                         .BuildSuccessResult(new Response

@@ -20,7 +20,7 @@ namespace Test.Application.Accountpplication.Queries
                                         "rahimpour.marjaneh@gmail.com", "", "", "", "", "", "", "", "",
                                         null, null, null, null, "", "", "", "", "makmon", "001",
                                         "سیاوش", "1", true, null, "خودم", "خودم", "آدرس تصویر", "امضا", "آدرس رزومه", true,
-                                        false, null, null, null, DateTime.Now, DateTime.Now)
+                                        false, null, null, null, DateTime.Now, 1000)
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

@@ -59,24 +59,25 @@ namespace Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userId = (int)HttpContext.Items["UserId"];
+                var currentUserId = (int)HttpContext.Items["UserId"];
                 bool _IsRead = false;
                 bool _IsStar = false;
                 bool _IsArchive = false;
                 bool _IsDeleted = false;
+
                 var result = await _mediator.Send(new NotificationCreate.Command
                 {
                     Title = model.Title,
                     Text = model.Text,
                     ReceiverId = model.ReceiverId,
-                    SenderId = userId,
+                    SenderId = currentUserId,
                     Icon = model.Icon,
                     Link = model.Link,
                     IsRead = _IsRead,
                     IsStar = _IsStar,
                     IsDeleted = _IsDeleted,
-                    IsArchive = _IsArchive
-
+                    IsArchive = _IsArchive,
+                    CreatorId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -109,17 +110,18 @@ namespace Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
+                var currentUserId = (int)HttpContext.Items["UserId"];
+
                 var result = await _mediator.Send(new NotificationUpdate.Command
                 {
                     Id = id,
                     Title = model.Title,
                     Text = model.Text,
-                    SenderId = userId,
+                    SenderId = currentUserId,
                     ReceiverId = model.ReceiverId,
                     Link = model.Link,
-                    Icon = model.Icon
-
+                    Icon = model.Icon,
+                    ModifireId=currentUserId,
                 });
 
                 if (!result.Success)
@@ -149,12 +151,14 @@ namespace Api.Controllers
         [HttpPut("IsRead/{id},{isRead}")]
         public async Task<IActionResult> IsRead(int id, bool isRead)
         {
-            var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
+            var currentUserId = (int)HttpContext.Items["UserId"];
+
             var result = await _mediator.Send(new NotificationIsReadUpdate.Command
             {
                 Id = id,
                 IsRead = isRead,
-                UserId = userId
+                UserId = currentUserId,
+                ModifireId=currentUserId,
             });
 
             if (!result.Success)
@@ -175,12 +179,14 @@ namespace Api.Controllers
         [HttpPut("IsStart/{id},{isStar}")]
         public async Task<IActionResult> IsStart(int id, bool isStar)
         {
-            var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
+            var currentUserId = (int)HttpContext.Items["UserId"];
+
             var result = await _mediator.Send(new NotificationIsStarUpdate.Command
             {
                 Id = id,
                 IsStar = isStar,
-                UserId = userId
+                UserId = currentUserId,
+                ModifireId=currentUserId,
             });
 
             if (!result.Success)
@@ -201,12 +207,14 @@ namespace Api.Controllers
         [HttpPut("IsArchive/{id},{isArchive}")]
         public async Task<IActionResult> IsArchive(int id, bool isArchive)
         {
-            var userId = ((UserInfo)(HttpContext.Items["User"])).Id;
+            var currentUserId = (int)HttpContext.Items["UserId"];
+
             var result = await _mediator.Send(new NotificationIsArchiveUpdate.Command
             {
                 Id = id,
                 IsArchive = isArchive,
-                UserId = userId
+                UserId = currentUserId,
+                ModifireId=currentUserId,
             });
 
             if (!result.Success)

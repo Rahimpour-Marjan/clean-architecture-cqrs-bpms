@@ -16,8 +16,9 @@ namespace Persistance.Configs
             builder.Property(f => f.TicketCreatorId).IsRequired();
             builder.Property(f => f.TicketPriority).IsRequired();
             builder.Property(f => f.TicketType).IsRequired();
-            builder.Property(f => f.TicketCreateDate).IsRequired();
             builder.Property(f => f.Status).IsRequired();
+            builder.Property(f => f.CreatorId).IsRequired();
+            builder.Property(f => f.CreateDate).IsRequired();
 
             builder.HasOne(x => x.TicketCreator)
                       .WithMany(x => x.Tickets)

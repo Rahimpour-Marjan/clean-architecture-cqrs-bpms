@@ -36,7 +36,7 @@ namespace Infrastructure.Persistance.Repositories
                     return ticket.Code;
             }
 
-            var lastItem = await _db.Tickets.Where(x => x.Code != null && x.TicketParentId == null).OrderByDescending(x => x.TicketCreateDate).FirstOrDefaultAsync();
+            var lastItem = await _db.Tickets.Where(x => x.Code != null && x.TicketParentId == null).OrderByDescending(x => x.CreateDate).FirstOrDefaultAsync();
             var code = "100000";
             if (lastItem != null)
             {
@@ -51,7 +51,7 @@ namespace Infrastructure.Persistance.Repositories
         {
             return await _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x => x.Account).Include(x => x.TicketAttachments)
                 .Include(x => x.TicketChilds).ThenInclude(x => x.TicketAttachments)
-                .Include(x => x.TicketChilds).ThenInclude(x => x.TicketCreator).ThenInclude(x => x.Account).OrderBy(x => x.TicketCreateDate)
+                .Include(x => x.TicketChilds).ThenInclude(x => x.TicketCreator).ThenInclude(x => x.Account).OrderBy(x => x.CreateDate)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<Tuple<IList<Ticket>, int>> FindAll(int userId, bool isAdmin, QueryFilter? queryFilter)
@@ -59,7 +59,7 @@ namespace Infrastructure.Persistance.Repositories
             var query = _db.Tickets.Include(x => x.TicketCreator).ThenInclude(x => x.Account).Include(x => x.TicketAttachments)
                 .Include(x => x.TicketChilds).ThenInclude(x => x.TicketAttachments)
                 .Include(x => x.TicketChilds).ThenInclude(x => x.TicketCreator).ThenInclude(x => x.Account)
-                .Where(x => (isAdmin == true || x.TicketCreatorId == userId) && x.TicketParentId == null).OrderBy(x => x.TicketCreateDate)
+                .Where(x => (isAdmin == true || x.TicketCreatorId == userId) && x.TicketParentId == null).OrderBy(x => x.CreateDate)
                 .AsQueryable();
 
             query = query.ApplyFiltering(queryFilter);

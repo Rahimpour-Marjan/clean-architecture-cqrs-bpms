@@ -30,7 +30,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<MakmonDbContext>(options =>
 {
-    options.UseSqlServer("name=ConnectionStrings:KardinoConnection", sqlServerOptionsAction: sqlOptions =>
+    options.UseSqlServer("name=ConnectionStrings:MakmonConnection", sqlServerOptionsAction: sqlOptions =>
     {
         sqlOptions.EnableRetryOnFailure();
     });

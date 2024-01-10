@@ -17,6 +17,7 @@ namespace Application.Menu.Commands
             public bool IsActive { get; set; }
             public long? ParentId { get; set; }
             public string Key { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -38,6 +39,8 @@ namespace Application.Menu.Commands
                 menu.Priority = request.Priority;
                 menu.IsActive = request.IsActive;
                 menu.ParentId = request.ParentId;
+                menu.ModifireId = request.ModifireId;
+                menu.ModifiedDate = DateTime.Now;
 
                 try
                 {

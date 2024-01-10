@@ -23,6 +23,7 @@ namespace Test.Application.AccountCreditApplication.Commands
                 AccountCheckId = null,
                 IsActive = true,
                 CreditType = Domain.Enums.CreditType.Deposit,
+                CreatorId = 1000,
             };
 
             var createAccountCreditCommandHandler = new AccountCreditCreate.Handler(_uow);

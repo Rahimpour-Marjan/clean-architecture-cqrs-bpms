@@ -18,6 +18,7 @@ namespace Application.ZoneApplication.Commands
             public string? LocationLat { get; set; }
             public string? LocationLong { get; set; }
             public string? ImageUrl { get; set; }
+            public int ModifireId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -41,6 +42,7 @@ namespace Application.ZoneApplication.Commands
                 zone.LocationLat = request.LocationLat;
                 zone.LocationLong = request.LocationLong;
                 zone.ImageUrl = request.ImageUrl;
+                zone.ModifireId = request.ModifireId;
                 zone.ModifiedDate = DateTime.Now;
 
                 try

@@ -24,6 +24,7 @@ namespace Test.Application.ZoneApplication.Commands
                 LocationLong = "",
                 LocationLat = "",
                 ImageUrl = "",
+                CreatorId = 1000,
             };
 
             var createZoneCommandHandler = new ZoneCreate.Handler(_uow);

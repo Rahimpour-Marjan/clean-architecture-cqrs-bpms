@@ -22,6 +22,7 @@ namespace Application.CreditPaymentApplication.Commands
             public int CurrencyTypeId { get; set; }
             public bool IsInPlace { get; set; }
             public string? ImageUrl { get; set; }
+            public int CreatorId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, OperationResult<Response>>
@@ -34,7 +35,7 @@ namespace Application.CreditPaymentApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var creditPayment = new CreditPayment(request.AccountId, request.AccountCreditId, request.Status, request.RefNumber, request.ExternalInfo1, request.ExternalInfo2, request.Amount, request.IpAddress, request.Description, request.CurrencyTypeId, request.IsInPlace, request.ImageUrl, DateTime.Now);
+                var creditPayment = new CreditPayment(request.AccountId, request.AccountCreditId, request.Status, request.RefNumber, request.ExternalInfo1, request.ExternalInfo2, request.Amount, request.IpAddress, request.Description, request.CurrencyTypeId, request.IsInPlace, request.ImageUrl, request.CreatorId);
                 try
                 {
                     var newCreditPaymentId = await _uow.CreditPaymentRepository.Create(creditPayment);
