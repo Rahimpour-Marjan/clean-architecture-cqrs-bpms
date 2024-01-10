@@ -11,6 +11,7 @@ namespace Application.CategoryApplication.Commands
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
             public string Title { get; set; }
+            public int? CategoryParentId { get; set; }
             public CategoryType Type { get; set; }
             public bool IsActive { get; set; }
             public string? Url { get; set; }
@@ -29,7 +30,7 @@ namespace Application.CategoryApplication.Commands
 
             public async Task<OperationResult<Response>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var category = new Category(request.Title, request.Type, request.IsActive, request.Url, request.Body, request.ImageUrl, request.CreatorId);
+                var category = new Category(request.Title,request.CategoryParentId, request.Type, request.IsActive, request.Url, request.Body, request.ImageUrl, request.CreatorId);
                 try
                 {
                     var newCategoryId = await _uow.CategoryRepository.Create(category);

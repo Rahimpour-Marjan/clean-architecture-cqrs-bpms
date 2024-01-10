@@ -10,6 +10,7 @@ namespace Application.CategoryApplication.Commands
         public class Command : IRequest<OperationResult<Response>>, ICommittableRequest
         {
             public int CategoryId { get; set; }
+            public int? CategoryParentId { get; set; }
             public string Title { get; set; }
             public CategoryType Type { get; set; }
             public bool IsActive { get; set; }
@@ -33,6 +34,7 @@ namespace Application.CategoryApplication.Commands
                 if (category == null)
                     return OperationResult<Response>.BuildFailure(Enum_Message.ITEMNOTFOUND);
                 category.Title = request.Title;
+                category.CategoryParentId = request.CategoryParentId;
                 category.Type = request.Type;
                 category.IsActive = request.IsActive;
                 category.Url = request.Url;

@@ -18,6 +18,7 @@ namespace Test.Application.CategoryApplication.Commands
             var createCategoryCommand = new CategoryCreate.Command
             {
                 Title = "تهران",
+                CategoryParentId=null,
                 Type = CategoryType.News,
                 IsActive = true,
                 Url = "تست",

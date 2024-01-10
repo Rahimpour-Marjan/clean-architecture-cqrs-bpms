@@ -6,7 +6,7 @@ namespace Domain
     {
         protected Category() { }
 
-        public Category(string title, int? categoryParentId, CategoryType type, bool isActive, string? url, string? body, string? imageUrl, DateTime modifiedDate)
+        public Category(string title, int? categoryParentId, CategoryType type, bool isActive, string? url, string? body, string? imageUrl,int creatorId)
         {
             Title = title;
             CategoryParentId = categoryParentId;
@@ -15,7 +15,7 @@ namespace Domain
             Url = url;
             Body = body;
             ImageUrl = imageUrl;
-            CreatorId= ceatorId;
+            CreatorId= creatorId;
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }

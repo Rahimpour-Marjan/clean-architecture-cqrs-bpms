@@ -74,6 +74,7 @@ namespace Api.Controllers.v1
                 var result = await _mediator.Send(new CategoryCreate.Command
                 {
                     Title = model.Title,
+                    CategoryParentId = model.CategoryParentId,
                     Type = model.Type,
                     IsActive = model.IsActive,
                     Url = model.Url,
@@ -119,6 +120,7 @@ namespace Api.Controllers.v1
                 {
                     CategoryId = id,
                     Title = model.Title,
+                    CategoryParentId=model.CategoryParentId,
                     Type = model.Type,
                     IsActive = model.IsActive,
                     Url = model.Url,

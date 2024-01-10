@@ -16,7 +16,7 @@ namespace Test.Application.Categorypplication.Queries
             //Arrange
             var category = new List<Category>
             {
-                new Category("تست",CategoryType.Gallery,true,"تست","تست","",1000),
+                new Category("تست",null,CategoryType.Gallery,true,"تست","تست","",1000),
             };
 
             //Todo: Mocando a Interface que o Handler tem como dependencia

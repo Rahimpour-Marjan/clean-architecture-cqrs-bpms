@@ -7,6 +7,7 @@ namespace Api.Model.Category
     {
         [Required(ErrorMessage = "ارسال عنوان الزامی می باشد")]
         public string Title { get; set; }
+        public int? CategoryParentId { get; set; }
 
         [Required(ErrorMessage = "ارسال نوع دسته بندی الزامی می باشد")]
         public CategoryType Type { get; set; }
