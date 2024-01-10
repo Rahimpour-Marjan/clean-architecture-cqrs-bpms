@@ -6,9 +6,10 @@ namespace Domain
     {
         protected Category() { }
 
-        public Category(string title, CategoryType type, bool isActive, string? url, string? body, string? imageUrl, int ceatorId)
+        public Category(string title, int? categoryParentId, CategoryType type, bool isActive, string? url, string? body, string? imageUrl, DateTime modifiedDate)
         {
             Title = title;
+            CategoryParentId = categoryParentId;
             Type = type;
             IsActive = isActive;
             Url = url;
@@ -19,6 +20,8 @@ namespace Domain
         }
         public int Id { get; set; }
         public string Title { get; set; }
+        public int? CategoryParentId { get; set; }
+        public Category? CategoryParent { get; set; }
         public CategoryType Type { get; set; }
         public bool IsActive { get; set; }
         public string? Url { get; set; }
