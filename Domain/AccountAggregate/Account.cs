@@ -97,16 +97,16 @@ namespace Domain
         public string? Facebook { get; set; }
 
         public int? CountryId { get; set; }
-        public Country? Country { get; set; }
+        public virtual Country? Country { get; set; }
 
         public int? StateId { get; set; }
-        public State? State { get; set; }
+        public virtual State? State { get; set; }
 
         public int? CityId { get; set; }
-        public City? City { get; set; }
+        public virtual City? City { get; set; }
 
         public int? ZoneId { get; set; }
-        public Zone? Zone { get; set; }
+        public virtual Zone? Zone { get; set; }
 
         public string? Address { get; set; }
         public string? LocationLong { get; set; }
@@ -127,13 +127,13 @@ namespace Domain
         public bool IsPublic { get; set; }
 
         public int? PackageId { get; set; }
-        public Package? Package { get; set; }
+        public virtual Package? Package { get; set; }
 
         public int? EducationSubFieldId { get; set; }
-        public EducationSubField? EducationSubField { get; set; }
+        public virtual EducationSubField? EducationSubField { get; set; }
 
         public int? EducationLevelId { get; set; }
-        public EducationLevel? EducationLevel { get; set; }
+        public virtual EducationLevel? EducationLevel { get; set; }
 
         public DateTime? EmployeementDate { get; set; }
         public int CreatorId { get; set; }

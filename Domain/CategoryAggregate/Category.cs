@@ -21,7 +21,7 @@ namespace Domain
         public int Id { get; set; }
         public string Title { get; set; }
         public int? CategoryParentId { get; set; }
-        public Category? CategoryParent { get; set; }
+        public virtual Category? CategoryParent { get; set; }
         public CategoryType Type { get; set; }
         public bool IsActive { get; set; }
         public string? Url { get; set; }
@@ -31,5 +31,8 @@ namespace Domain
         public int? ModifireId { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
     }
 }

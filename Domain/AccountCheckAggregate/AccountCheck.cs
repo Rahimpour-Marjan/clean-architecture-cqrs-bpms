@@ -23,10 +23,10 @@
         }
         public int Id { get; set; }
         public int AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
         public string CheckNumber { get; set; }
         public int BankId { get; set; }
-        public Bank Bank { get; set; }
+        public virtual Bank Bank { get; set; }
         public string BranchName { get; set; }
         public long Amount { get; set; }
         public string PayTo { get; set; }

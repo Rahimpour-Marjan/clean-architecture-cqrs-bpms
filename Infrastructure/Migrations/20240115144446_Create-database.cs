@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class CreateDatabase : Migration
+    public partial class Createdatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -94,6 +94,18 @@ namespace Infrastructure.Migrations
                 startValue: 1000L);
 
             migrationBuilder.CreateSequence<int>(
+                name: "ProductBrand",
+                startValue: 1000L);
+
+            migrationBuilder.CreateSequence<int>(
+                name: "ProductCategory",
+                startValue: 1000L);
+
+            migrationBuilder.CreateSequence<int>(
+                name: "ProductType",
+                startValue: 1000L);
+
+            migrationBuilder.CreateSequence<int>(
                 name: "SiteAction",
                 startValue: 1000L);
 
@@ -159,14 +171,14 @@ namespace Infrastructure.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    CategoryParentId = table.Column<int>(type: "int", nullable: true),
                     Type = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Body = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Url = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Body = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     ModifireId = table.Column<int>(type: "int", nullable: true),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -175,6 +187,11 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Categories_Categories_CategoryParentId",
+                        column: x => x.CategoryParentId,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -322,6 +339,65 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductCategories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    ProductCategoryParentId = table.Column<int>(type: "int", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    Url = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Body = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    Deleted = table.Column<bool>(type: "bit", nullable: true),
+                    Canonical = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    NoFollow = table.Column<bool>(type: "bit", nullable: true),
+                    NoIndex = table.Column<bool>(type: "bit", nullable: true),
+                    Priority = table.Column<int>(type: "int", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    ModifireId = table.Column<int>(type: "int", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductCategories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductCategories_ProductCategories_ProductCategoryParentId",
+                        column: x => x.ProductCategoryParentId,
+                        principalTable: "ProductCategories",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    ProductTypeParentId = table.Column<int>(type: "int", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    H1 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Url = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Body = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    Priority = table.Column<int>(type: "int", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    ModifireId = table.Column<int>(type: "int", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductTypes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductTypes_ProductTypes_ProductTypeParentId",
+                        column: x => x.ProductTypeParentId,
+                        principalTable: "ProductTypes",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Units",
                 columns: table => new
                 {
@@ -367,27 +443,26 @@ namespace Infrastructure.Migrations
                 name: "Articles",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     Keywords = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Summary = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Body = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Summary = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: false),
+                    Body = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     VisitCount = table.Column<int>(type: "int", nullable: false),
                     IsSlider = table.Column<bool>(type: "bit", nullable: true),
                     Active = table.Column<bool>(type: "bit", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    H1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Writer = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    WriterPosition = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    WriterImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Aparat = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Canonical = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Url = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    H1 = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Writer = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    WriterPosition = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    WriterImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Aparat = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Canonical = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     NoFollow = table.Column<bool>(type: "bit", nullable: true),
                     NoIndex = table.Column<bool>(type: "bit", nullable: true),
-                    PostLabel = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PostLabel = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     ShowDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ExpireDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
@@ -402,8 +477,7 @@ namespace Infrastructure.Migrations
                         name: "FK_Articles_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -481,6 +555,35 @@ namespace Infrastructure.Migrations
                         principalTable: "Menu",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductBrands",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    ProductTypeId = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    H1 = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Url = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Body = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: true),
+                    Priority = table.Column<int>(type: "int", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreatorId = table.Column<int>(type: "int", nullable: false),
+                    ModifireId = table.Column<int>(type: "int", nullable: true),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductBrands", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductBrands_ProductTypes_ProductTypeId",
+                        column: x => x.ProductTypeId,
+                        principalTable: "ProductTypes",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1318,6 +1421,12 @@ namespace Infrastructure.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Articles_Title",
+                table: "Articles",
+                column: "Title",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Banks_Title",
                 table: "Banks",
                 column: "Title",
@@ -1342,6 +1451,17 @@ namespace Infrastructure.Migrations
                 name: "IX_Calendars_SenderId",
                 table: "Calendars",
                 column: "SenderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Categories_CategoryParentId",
+                table: "Categories",
+                column: "CategoryParentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Categories_Title",
+                table: "Categories",
+                column: "Title",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_Code",
@@ -1446,6 +1566,39 @@ namespace Infrastructure.Migrations
                 name: "IX_Posts_PostParentId",
                 table: "Posts",
                 column: "PostParentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductBrands_ProductTypeId",
+                table: "ProductBrands",
+                column: "ProductTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductBrands_Title",
+                table: "ProductBrands",
+                column: "Title",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_ProductCategoryParentId",
+                table: "ProductCategories",
+                column: "ProductCategoryParentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductCategories_Title",
+                table: "ProductCategories",
+                column: "Title",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductTypes_ProductTypeParentId",
+                table: "ProductTypes",
+                column: "ProductTypeParentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductTypes_Title",
+                table: "ProductTypes",
+                column: "Title",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_QuickAccess_SitePageId",
@@ -1597,6 +1750,12 @@ namespace Infrastructure.Migrations
                 name: "PostJuncUserGroups");
 
             migrationBuilder.DropTable(
+                name: "ProductBrands");
+
+            migrationBuilder.DropTable(
+                name: "ProductCategories");
+
+            migrationBuilder.DropTable(
                 name: "QuickAccess");
 
             migrationBuilder.DropTable(
@@ -1625,6 +1784,9 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Posts");
+
+            migrationBuilder.DropTable(
+                name: "ProductTypes");
 
             migrationBuilder.DropTable(
                 name: "Tickets");
@@ -1739,6 +1901,15 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropSequence(
                 name: "Post");
+
+            migrationBuilder.DropSequence(
+                name: "ProductBrand");
+
+            migrationBuilder.DropSequence(
+                name: "ProductCategory");
+
+            migrationBuilder.DropSequence(
+                name: "ProductType");
 
             migrationBuilder.DropSequence(
                 name: "SiteAction");

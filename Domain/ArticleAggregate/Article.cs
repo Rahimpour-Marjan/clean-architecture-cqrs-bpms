@@ -36,7 +36,7 @@ namespace Domain
         public int Id { get; set; }
         public string Title { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
         public string? Keywords { get; set; }
         public string Summary { get; set; }
         public string Body { get; set; }

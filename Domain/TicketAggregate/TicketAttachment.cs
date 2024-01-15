@@ -19,7 +19,7 @@
         public string FileUrl { get; set; }
         public decimal? Size { get; set; }
         public int TicketId { get; set; }
-        public Ticket Ticket { get; set; }
+        public virtual Ticket Ticket { get; set; }
         public int CreatorId { get; set; }
         public int? ModifireId { get; set; }
         public DateTime? ModifiedDate { get; set; }

@@ -25,9 +25,9 @@ namespace Domain
         }
         public int Id { get; set; }
         public int AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
         public int AccountCreditId { get; set; }
-        public AccountCredit AccountCredit { get; set; }
+        public virtual AccountCredit AccountCredit { get; set; }
         public PaymentStatus Status { get; set; }
         public string? RefNumber { get; set; }
         public string? ExternalInfo1 { get; set; }

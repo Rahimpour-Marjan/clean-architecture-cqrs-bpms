@@ -20,12 +20,12 @@ namespace Domain
         }
         public int Id { get; set; }
         public int AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
         public string? Description { get; set; }
         public long Amount { get; set; }
         public long Remain { get; set; }
         public int? AccountCheckId { get; set; }
-        public AccountCheck? AccountCheck { get; set; }
+        public virtual AccountCheck? AccountCheck { get; set; }
         public bool IsActive { get; set; }
         public CreditType CreditType { get; set; }
         public int CreatorId { get; set; }

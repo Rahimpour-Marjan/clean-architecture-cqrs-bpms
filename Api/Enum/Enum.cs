@@ -177,5 +177,24 @@
         Article_Add,
         Article_Edit,
         Article_Delete,
+
+        //ProductCategory Permission
+        ProductCategory_View,
+        ProductCategory_Add,
+        ProductCategory_Edit,
+        ProductCategory_Delete,
+
+        //ProductType Permission
+        ProductType_View,
+        ProductType_Add,
+        ProductType_Edit,
+        ProductType_Delete,
+
+        //ProductBrand Permission
+        ProductBrand_View,
+        ProductBrand_Add,
+        ProductBrand_Edit,
+        ProductBrand_Delete,
+
     }
 }

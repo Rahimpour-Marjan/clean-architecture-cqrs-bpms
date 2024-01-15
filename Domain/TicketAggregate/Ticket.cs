@@ -25,10 +25,10 @@ namespace Domain
         public string Title { get; set; }
         public string Code { get; set; }
         public int? TicketParentId { get; set; }
-        public Ticket? TicketParent { get; set; }
+        public virtual Ticket? TicketParent { get; set; }
         public string TicketText { get; set; }
         public int TicketCreatorId { get; set; }
-        public User TicketCreator { get; set; }
+        public virtual User TicketCreator { get; set; }
         public TicketStatus Status { get; set; }
         public TicketPriority TicketPriority { get; set; }
         public TicketType TicketType { get; set; }

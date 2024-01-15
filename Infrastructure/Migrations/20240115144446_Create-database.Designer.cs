@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(MakmonDbContext))]
-    [Migration("20240108115036_CreateDatabase")]
-    partial class CreateDatabase
+    [Migration("20240115144446_Create-database")]
+    partial class Createdatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -85,6 +85,15 @@ namespace Infrastructure.Migrations
                 .StartsAt(1000L);
 
             modelBuilder.HasSequence<int>("Post")
+                .StartsAt(1000L);
+
+            modelBuilder.HasSequence<int>("ProductBrand")
+                .StartsAt(1000L);
+
+            modelBuilder.HasSequence<int>("ProductCategory")
+                .StartsAt(1000L);
+
+            modelBuilder.HasSequence<int>("ProductType")
                 .StartsAt(1000L);
 
             modelBuilder.HasSequence<int>("SiteAction")
@@ -600,20 +609,23 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"), "Article");
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
                     b.Property<string>("Aparat")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Body")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("Canonical")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -628,10 +640,12 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("H1")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool?>("IsSlider")
                         .HasColumnType("bit");
@@ -652,37 +666,47 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PostLabel")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("ShowDateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Summary")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("VisitCount")
                         .HasColumnType("int");
 
                     b.Property<string>("Writer")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("WriterImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("WriterPosition")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
 
                     b.ToTable("Articles");
                 });
@@ -840,10 +864,14 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"), "Category");
 
                     b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<int?>("CategoryParentId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -852,7 +880,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -865,15 +894,22 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryParentId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
 
                     b.ToTable("Categories");
                 });
@@ -1464,6 +1500,201 @@ namespace Infrastructure.Migrations
                     b.HasIndex("UserGroupId");
 
                     b.ToTable("PostJuncUserGroups");
+                });
+
+            modelBuilder.Entity("Domain.ProductBrand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"), "ProductBrand");
+
+                    b.Property<string>("Body")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<string>("H1")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifireId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Url")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductTypeId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
+
+                    b.ToTable("ProductBrands");
+                });
+
+            modelBuilder.Entity("Domain.ProductCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"), "ProductCategory");
+
+                    b.Property<string>("Body")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Canonical")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifireId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("NoFollow")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("NoIndex")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductCategoryParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Url")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductCategoryParentId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
+
+                    b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("Domain.ProductType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseHiLo(b.Property<int>("Id"), "ProductType");
+
+                    b.Property<string>("Body")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("H1")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ModifireId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductTypeParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Url")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductTypeParentId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
+
+                    b.ToTable("ProductTypes");
                 });
 
             modelBuilder.Entity("Domain.QuickAccess", b =>
@@ -2223,9 +2454,9 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Article", b =>
                 {
                     b.HasOne("Domain.Category", "Category")
-                        .WithMany()
+                        .WithMany("Articles")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -2270,6 +2501,16 @@ namespace Infrastructure.Migrations
                     b.Navigation("Account");
 
                     b.Navigation("Calendar");
+                });
+
+            modelBuilder.Entity("Domain.Category", b =>
+                {
+                    b.HasOne("Domain.Category", "CategoryParent")
+                        .WithMany("Categories")
+                        .HasForeignKey("CategoryParentId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("CategoryParent");
                 });
 
             modelBuilder.Entity("Domain.City", b =>
@@ -2373,6 +2614,37 @@ namespace Infrastructure.Migrations
                     b.Navigation("Post");
 
                     b.Navigation("UserGroup");
+                });
+
+            modelBuilder.Entity("Domain.ProductBrand", b =>
+                {
+                    b.HasOne("Domain.ProductType", "ProductType")
+                        .WithMany("ProductBrands")
+                        .HasForeignKey("ProductTypeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ProductType");
+                });
+
+            modelBuilder.Entity("Domain.ProductCategory", b =>
+                {
+                    b.HasOne("Domain.ProductCategory", "ProductCategoryParent")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductCategoryParentId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("ProductCategoryParent");
+                });
+
+            modelBuilder.Entity("Domain.ProductType", b =>
+                {
+                    b.HasOne("Domain.ProductType", "ProductTypeParent")
+                        .WithMany("ProductTypes")
+                        .HasForeignKey("ProductTypeParentId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("ProductTypeParent");
                 });
 
             modelBuilder.Entity("Domain.QuickAccess", b =>
@@ -2556,6 +2828,13 @@ namespace Infrastructure.Migrations
                     b.Navigation("CreditPayments");
                 });
 
+            modelBuilder.Entity("Domain.Category", b =>
+                {
+                    b.Navigation("Articles");
+
+                    b.Navigation("Categories");
+                });
+
             modelBuilder.Entity("Domain.City", b =>
                 {
                     b.Navigation("Zones");
@@ -2588,6 +2867,18 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Post", b =>
                 {
                     b.Navigation("PostJuncUserGroups");
+                });
+
+            modelBuilder.Entity("Domain.ProductCategory", b =>
+                {
+                    b.Navigation("ProductCategories");
+                });
+
+            modelBuilder.Entity("Domain.ProductType", b =>
+                {
+                    b.Navigation("ProductBrands");
+
+                    b.Navigation("ProductTypes");
                 });
 
             modelBuilder.Entity("Domain.SiteAction", b =>

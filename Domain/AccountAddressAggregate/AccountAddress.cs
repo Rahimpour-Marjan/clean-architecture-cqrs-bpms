@@ -26,19 +26,19 @@
         }
         public int Id { get; set; }
         public int AccountId { get; set; }
-        public Account Account { get; set; }
+        public virtual Account Account { get; set; }
         public string Title { get; set; }
         public string FullName { get; set; }
         public string Phone { get; set; }
         public string ExtraPhone { get; set; }
         public int CountryId { get; set; }
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
         public int StateId { get; set; }
-        public State State { get; set; }
+        public virtual State State { get; set; }
         public int CityId { get; set; }
-        public City City { get; set; }
+        public virtual City City { get; set; }
         public int? ZoneId { get; set; }
-        public Zone? Zone { get; set; }
+        public virtual Zone? Zone { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
         public string PostalCode { get; set; }

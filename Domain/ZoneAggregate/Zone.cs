@@ -20,7 +20,7 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public int CityId { get; set; }
-        public City City { get; set; }
+        public virtual City City { get; set; }
         public string Code { get; set; }
         public string? ZipCode { get; set; }
         public string? PostalCode { get; set; }

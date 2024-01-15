@@ -1,4 +1,5 @@
-﻿using Domain.Resources;
+﻿using Domain.Common;
+using Domain.Resources;
 
 namespace Domain
 {
@@ -8,6 +9,7 @@ namespace Domain
         Task Update(ProductCategory category);
         Task<Tuple<IList<ProductCategory>, int>> FindAll(QueryFilter? queryFilter);
         Task<ProductCategory> FindById(int id);
+        Task<FilterResponse> FilterAllProductCategoryParent(int start, int length);
         Task Delete(int id);
         Task DeleteAll(int[] ids);
     }

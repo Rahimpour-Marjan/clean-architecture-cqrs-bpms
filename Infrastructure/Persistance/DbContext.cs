@@ -46,6 +46,9 @@ namespace Infrastructure.Persistance
         public DbSet<UserLog> UserLogs { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<ProductBrand> ProductBrands { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
@@ -95,6 +98,10 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("UserLog").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Category").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Article").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("ProductCategory").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("ProductType").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("ProductBrand").StartsAt(1000).IncrementsBy(1);
+
             base.OnModelCreating(builder);
         }
 

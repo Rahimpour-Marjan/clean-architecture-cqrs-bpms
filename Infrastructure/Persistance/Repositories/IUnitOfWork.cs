@@ -33,6 +33,10 @@ namespace Infrastructure.Persistance.Repositories
         IUserLogRepository UserLogRepository { get; }
         ICategoryRepository CategoryRepository { get; }
         IArticleRepository ArticleRepository { get; }
+        IProductCategoryRepository ProductCategoryRepository { get; }
+        IProductTypeRepository ProductTypeRepository { get; }
+        IProductBrandRepository ProductBrandRepository { get; }
+
         Task<bool> CommitAsync();
     }
 
@@ -71,6 +75,9 @@ namespace Infrastructure.Persistance.Repositories
             UserLogRepository = new UserLogRepository(_db);
             CategoryRepository = new CategoryRepository(_db);
             ArticleRepository = new ArticleRepository(_db);
+            ProductCategoryRepository = new ProductCategoryRepository(_db);
+            ProductTypeRepository = new ProductTypeRepository(_db);
+            ProductBrandRepository = new ProductBrandRepository(_db);
         }
 
         public IUserRepository UserRepository { get; }
@@ -102,6 +109,9 @@ namespace Infrastructure.Persistance.Repositories
         public IUserLogRepository UserLogRepository { get; }
         public ICategoryRepository CategoryRepository { get; }
         public IArticleRepository ArticleRepository { get; }
+        public IProductCategoryRepository ProductCategoryRepository { get; }
+        public IProductTypeRepository ProductTypeRepository { get; }
+        public IProductBrandRepository ProductBrandRepository { get; }
 
         public async Task<bool> CommitAsync()
         {

@@ -20,7 +20,7 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public int StateId { get; set; }
-        public State State { get; set; }
+        public virtual State State { get; set; }
         public string Code { get; set; }
         public string? ZipCode { get; set; }
         public string? PostalCode { get; set; }
