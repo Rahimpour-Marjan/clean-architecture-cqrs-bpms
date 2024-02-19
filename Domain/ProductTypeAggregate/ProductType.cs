@@ -33,6 +33,7 @@ namespace Domain
         public DateTime ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
 
+        public virtual ICollection<Product> Products { get; set; }
         public virtual ICollection<ProductType> ProductTypes { get; set; }
         public virtual ICollection<ProductBrand> ProductBrands { get; set; }
     }

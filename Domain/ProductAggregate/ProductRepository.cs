@@ -3,7 +3,7 @@ using Domain.Resources;
 
 namespace Domain
 {
-    public interface IProducteRepository
+    public interface IProductRepository
     {
         Task<int> Create(Product product);
         Task Update(Product product);

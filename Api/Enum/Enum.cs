@@ -196,5 +196,11 @@
         ProductBrand_Edit,
         ProductBrand_Delete,
 
+        //Product Permission
+        Product_View,
+        Product_Add,
+        Product_Edit,
+        Product_Delete,
+
     }
 }

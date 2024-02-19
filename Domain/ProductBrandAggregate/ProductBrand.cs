@@ -34,5 +34,7 @@ namespace Domain
         public int? ModifireId { get; set; }
         public DateTime ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

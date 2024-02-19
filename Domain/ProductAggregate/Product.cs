@@ -5,9 +5,9 @@ namespace Domain
     {
         protected Product() { }
 
-        public Product(string title, int productTypeId,int productCategoryId,int? productBrandId,  string h1, string? url, string? codeValue, string summary, string? description, string? body, 
+        public Product(string title, int productTypeId,int productCategoryId,int? productBrandId,  string? h1, string? url, string? codeValue, string summary, string? description, string? body, 
             int? priority , int? maxShowCount, int? quantity, int? minOrder, long? lastPrice, long? price, long? minPrice, long? maxPrice, int? visitCount, bool showHomePage,
-            string? latitude, string? longitude, int? sellCount, int? maxOrderCount, long? discountValue, int discountPercent, DateTime? discountExpireDate, string? metaTagDescription,
+            string? latitude, string? longitude, int? sellCount, int? maxOrderCount, long? discountValue, int? discountPercent, DateTime? discountExpireDate, string? metaTagDescription,
             string? canonical, bool noFollow, bool noIndex, string? keywords, bool isService, bool isCopy, bool isPublic, bool isSpecial, bool payLater, bool isExport, bool isActive,
             string? videoDemoFileUrl, string? imageUrl, int? creatorStoreId, int creatorId)
         {
@@ -64,7 +64,7 @@ namespace Domain
         public virtual ProductCategory ProductCategory { get; set; }
         public int? ProductBrandId { get; set; }
         public virtual ProductBrand? ProductBrand { get; set; }
-        public string H1 { get; set; }
+        public string? H1 { get; set; }
         public string? Url { get; set; }
         public string? CodeValue { get; set; }
         public string Summary { get; set; }
@@ -85,7 +85,7 @@ namespace Domain
         public int? SellCount { get; set; }
         public int? MaxOrderCount { get; set; }
         public long? DiscountValue { get; set; }
-        public int DiscountPercent { get; set; }
+        public int? DiscountPercent { get; set; }
         public DateTime? DiscountExpireDate { get; set; }
         public string? MetaTagDescription { get; set; }
         public string? Canonical { get; set; }
@@ -107,5 +107,7 @@ namespace Domain
         public int? ModifireId { get; set; }
         public DateTime ModifiedDate { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public virtual ICollection<ProductComment> ProductComments { get; set; }
     }
 }
