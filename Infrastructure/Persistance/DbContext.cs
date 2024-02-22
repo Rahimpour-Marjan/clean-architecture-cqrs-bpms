@@ -50,6 +50,7 @@ namespace Infrastructure.Persistance
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
@@ -103,6 +104,7 @@ namespace Infrastructure.Persistance
             builder.HasSequence<int>("ProductType").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("ProductBrand").StartsAt(1000).IncrementsBy(1);
             builder.HasSequence<int>("Product").StartsAt(1000).IncrementsBy(1);
+            builder.HasSequence<int>("ProductComment").StartsAt(1000).IncrementsBy(1);
 
             base.OnModelCreating(builder);
         }
